@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://d1c5hqhc4mt2i" path="res://CountDown.gd" id="8_3ppgv"]
 [ext_resource type="Script" uid="uid://b7t74tlcxvj7t" path="res://UI/HUD.gd" id="8_sypgb"]
 [ext_resource type="Texture2D" uid="uid://btqnu8wrqc5gf" path="res://Assets/Inputs/Inputs_QuickTime/T_Up_Key_White.png" id="9_3ywx5"]
-[ext_resource type="Texture2D" uid="uid://cw7biulhjbxne" path="res://Assets/Anker.png" id="9_esphl"]
 [ext_resource type="Texture2D" uid="uid://cmg0xaieig8ao" path="res://Assets/Ship.png" id="10_5qkpu"]
 [ext_resource type="Texture2D" uid="uid://csahpmachfty5" path="res://Assets/Inputs/Blanks/T_Blank_Black_Mouse.png" id="10_dcckh"]
 [ext_resource type="Texture2D" uid="uid://nd2kd2v8h3i6" path="res://Assets/Inputs/Inputs_QuickTime/T_Left_Key_White.png" id="10_ofirr"]
@@ -40,6 +39,9 @@ size = Vector2(94, 94)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_esphl"]
 size = Vector2(96, 94)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qqkhr"]
+load_path = "res://.godot/imported/Anker.png-db260961cd890e3d87695b0b9c41c6a3.ctex"
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s0cgv"]
 bg_color = Color(0.321569, 0.356863, 0.458824, 1)
 corner_radius_top_left = 16
@@ -53,6 +55,21 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+
+[sub_resource type="Animation" id="Animation_3ppgv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/RichTextLabel:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_s0cgv"]
 resource_name = "idle"
@@ -69,21 +86,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.517647), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_3ppgv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Panel/RichTextLabel:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wesx8"]
@@ -335,7 +337,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_stretch_ratio = 0.1
-texture = ExtResource("9_esphl")
+texture = SubResource("CompressedTexture2D_qqkhr")
 expand_mode = 1
 stretch_mode = 5
 
@@ -383,7 +385,7 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 bbcode_enabled = true
-text = "[b]Yarr' Mission[/b]: Bring crew and ship to safety ! "
+text = "[b]Ya'rr Mission[/b]: Bring crew and ship to saftey ! "
 fit_content = true
 scroll_active = false
 vertical_alignment = 1
@@ -820,6 +822,7 @@ editor_draw_drag_margin = true
 unique_name_in_owner = true
 position = Vector2(823, 14374)
 rotation = -1.5708
+default_speed = 180.0
 lured_rot_speed = 1.0
 
 [node name="Goal" parent="." instance=ExtResource("25_wesx8")]

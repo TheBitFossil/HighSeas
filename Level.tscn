@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dj8kxsq5tqkct"]
+[gd_scene load_steps=21 format=3 uid="uid://dj8kxsq5tqkct"]
 
 [ext_resource type="Script" uid="uid://ctj7g03v4b4xd" path="res://GameRoot.gd" id="1_q4iis"]
 [ext_resource type="PackedScene" uid="uid://qobdm2gpnb67" path="res://Enemies/Siren.tscn" id="2_q4iis"]
@@ -8,11 +8,13 @@
 [ext_resource type="Script" uid="uid://ddu364typwhh" path="res://UI/UI.gd" id="7_4eo0i"]
 [ext_resource type="Script" uid="uid://b7t74tlcxvj7t" path="res://UI/HUD.gd" id="8_sypgb"]
 [ext_resource type="Texture2D" uid="uid://btqnu8wrqc5gf" path="res://Assets/Inputs/Inputs_QuickTime/T_Up_Key_White.png" id="9_3ywx5"]
+[ext_resource type="Texture2D" uid="uid://cmg0xaieig8ao" path="res://Assets/Ship.png" id="10_5qkpu"]
 [ext_resource type="Texture2D" uid="uid://nd2kd2v8h3i6" path="res://Assets/Inputs/Inputs_QuickTime/T_Left_Key_White.png" id="10_ofirr"]
 [ext_resource type="Texture2D" uid="uid://c6v7vyj5ufi45" path="res://Assets/Inputs/Inputs_QuickTime/T_Right_Key_White.png" id="11_ofirr"]
 [ext_resource type="Script" uid="uid://t1edf56cwibo" path="res://UI/MashButtonModule.gd" id="12_dn5x0"]
 [ext_resource type="Texture2D" uid="uid://cvqwi4oxwfpif" path="res://Assets/GenericRegeneration/GenericRegeneration-Sheet.png" id="12_sypgb"]
-[ext_resource type="PackedScene" uid="uid://cnxvcasirp5j7" path="res://Flotsam/Chest.tscn" id="13_sypgb"]
+[ext_resource type="PackedScene" uid="uid://driya5fjiq652" path="res://Enemies/Kraken.tscn" id="14_esphl"]
+[ext_resource type="PackedScene" uid="uid://c3fc5er0qth8q" path="res://Flotsam/Flotsam.tscn" id="15_5qkpu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6u53"]
 size = Vector2(96, 98)
@@ -34,8 +36,9 @@ script = ExtResource("1_q4iis")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1655.0
-offset_bottom = 7770.0
+offset_bottom = 15012.0
 color = Color(0.0980392, 0.160784, 0.270588, 1)
+metadata/_edit_lock_ = true
 
 [node name="UI" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -230,34 +233,86 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ProgressBar" type="ProgressBar" parent="HUD/Control"]
-layout_mode = 0
-offset_right = 4.0
-offset_bottom = 27.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="HUD/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.849219
+anchor_top = 0.0638889
+anchor_right = 0.974981
+anchor_bottom = 0.10146
+offset_right = -15.9763
+offset_bottom = -2.05091
+grow_horizontal = 0
+scale = Vector2(1.11018, 1.08204)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureProgressBar_Crew" type="TextureProgressBar" parent="HUD/Control/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 5.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.801562
+anchor_top = 0.102778
+anchor_right = 0.982031
+anchor_bottom = 0.140278
+grow_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="HUD/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.3
+texture = ExtResource("10_5qkpu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ProgressBar_Hp" type="ProgressBar" parent="HUD/Control/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.1
+
+[node name="Tutorial_Msg" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Siren" parent="." instance=ExtResource("2_q4iis")]
-position = Vector2(218, 7023)
-rotation = 1.33738
+position = Vector2(384, 12024)
+rotation = 0.880159
 scale = Vector2(0.2, 0.2)
 
 [node name="Siren2" parent="." instance=ExtResource("2_q4iis")]
-position = Vector2(1937, 1940)
-rotation = -0.587797
+position = Vector2(1195, 9530)
+rotation = -0.0542392
 scale = Vector2(0.2, 0.2)
 
-[node name="Siren3" parent="." instance=ExtResource("2_q4iis")]
-position = Vector2(1025, 1978)
-rotation = 0.552726
+[node name="Siren_Small" parent="." instance=ExtResource("2_q4iis")]
+position = Vector2(911, 5111)
+rotation = 0.0722908
 scale = Vector2(0.2, 0.2)
 
 [node name="Siren4" parent="." instance=ExtResource("2_q4iis")]
-position = Vector2(1851, 686)
-rotation = -1.62739
+position = Vector2(107, 2799)
+rotation = 0.0428247
+scale = Vector2(0.2, 0.2)
+
+[node name="Siren5" parent="." instance=ExtResource("2_q4iis")]
+position = Vector2(1413, 2776)
+rotation = -0.236203
 scale = Vector2(0.2, 0.2)
 
 [node name="Camera" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(1011, 7534)
+position = Vector2(1011, 15124)
 script = ExtResource("5_86ljf")
 speed = 150.0
 
@@ -271,7 +326,7 @@ process_callback = 0
 limit_left = 0
 limit_top = 0
 limit_right = 1635
-limit_bottom = 7800
+limit_bottom = 15000
 limit_smoothed = true
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
@@ -281,13 +336,9 @@ drag_bottom_margin = 0.4
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
-[node name="Chest" parent="." instance=ExtResource("13_sypgb")]
-position = Vector2(1112, 6170)
-scale = Vector2(0.21, 0.21)
-
 [node name="Ship" parent="." instance=ExtResource("4_mxnmf")]
 unique_name_in_owner = true
-position = Vector2(845, 7219)
+position = Vector2(845, 14722)
 rotation = -1.5708
 lured_rot_speed = 1.0
 
@@ -299,5 +350,23 @@ script = ExtResource("6_m3clv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
 shape = SubResource("RectangleShape2D_mxnmf")
 
+[node name="Kraken" parent="." instance=ExtResource("14_esphl")]
+position = Vector2(605, 7592)
+scale = Vector2(0.7, 0.7)
+
+[node name="Flotsam" parent="." instance=ExtResource("15_5qkpu")]
+position = Vector2(532, 13538)
+
+[node name="Flotsam2" parent="." instance=ExtResource("15_5qkpu")]
+position = Vector2(1272, 12052)
+
+[node name="Flotsam3" parent="." instance=ExtResource("15_5qkpu")]
+position = Vector2(1260, 6367)
+
+[node name="Flotsam4" parent="." instance=ExtResource("15_5qkpu")]
+position = Vector2(373, 8798)
+
 [connection signal="timeout" from="UI/Action_Event_Resist_Siren_Song/MashButton_Module/MashButtonTimer" to="UI/Action_Event_Resist_Siren_Song/MashButton_Module" method="_on_mash_button_timer_timeout"]
 [connection signal="area_entered" from="Goal" to="Goal" method="_on_area_entered"]
+
+[editable path="Siren_Small"]

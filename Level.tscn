@@ -1,0 +1,303 @@
+[gd_scene load_steps=19 format=3 uid="uid://dj8kxsq5tqkct"]
+
+[ext_resource type="Script" uid="uid://ctj7g03v4b4xd" path="res://GameRoot.gd" id="1_q4iis"]
+[ext_resource type="PackedScene" uid="uid://qobdm2gpnb67" path="res://Enemies/Siren.tscn" id="2_q4iis"]
+[ext_resource type="PackedScene" uid="uid://0ax2r5qkb4rj" path="res://Ship/Ship.tscn" id="4_mxnmf"]
+[ext_resource type="Script" uid="uid://djkatwykv31eg" path="res://Camera.gd" id="5_86ljf"]
+[ext_resource type="Script" uid="uid://b1if3kk1de6xu" path="res://Environment/Goal.gd" id="6_m3clv"]
+[ext_resource type="Script" uid="uid://ddu364typwhh" path="res://UI/UI.gd" id="7_4eo0i"]
+[ext_resource type="Script" uid="uid://b7t74tlcxvj7t" path="res://UI/HUD.gd" id="8_sypgb"]
+[ext_resource type="Texture2D" uid="uid://btqnu8wrqc5gf" path="res://Assets/Inputs/Inputs_QuickTime/T_Up_Key_White.png" id="9_3ywx5"]
+[ext_resource type="Texture2D" uid="uid://nd2kd2v8h3i6" path="res://Assets/Inputs/Inputs_QuickTime/T_Left_Key_White.png" id="10_ofirr"]
+[ext_resource type="Texture2D" uid="uid://c6v7vyj5ufi45" path="res://Assets/Inputs/Inputs_QuickTime/T_Right_Key_White.png" id="11_ofirr"]
+[ext_resource type="Script" uid="uid://t1edf56cwibo" path="res://UI/MashButtonModule.gd" id="12_dn5x0"]
+[ext_resource type="Texture2D" uid="uid://cvqwi4oxwfpif" path="res://Assets/GenericRegeneration/GenericRegeneration-Sheet.png" id="12_sypgb"]
+[ext_resource type="PackedScene" uid="uid://cnxvcasirp5j7" path="res://Flotsam/Chest.tscn" id="13_sypgb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6u53"]
+size = Vector2(96, 98)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sypgb"]
+size = Vector2(96, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dn5x0"]
+size = Vector2(94, 94)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_esphl"]
+size = Vector2(96, 94)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxnmf"]
+size = Vector2(2560, 478)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_q4iis")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1655.0
+offset_bottom = 7770.0
+color = Color(0.0980392, 0.160784, 0.270588, 1)
+
+[node name="UI" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+script = ExtResource("7_4eo0i")
+
+[node name="Action_Event_Resist_Siren_Song" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ArrowKeys" type="VBoxContainer" parent="UI/Action_Event_Resist_Siren_Song"]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -63.5
+offset_top = -141.0
+offset_right = 63.5
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Action_Event_Resist_Siren_Song/ArrowKeys"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="UI/Action_Event_Resist_Siren_Song/ArrowKeys/HBoxContainer"]
+custom_minimum_size = Vector2(70, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "^"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/Action_Event_Resist_Siren_Song/ArrowKeys"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button2" type="Button" parent="UI/Action_Event_Resist_Siren_Song/ArrowKeys/HBoxContainer2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+text = "<"
+
+[node name="Button3" type="Button" parent="UI/Action_Event_Resist_Siren_Song/ArrowKeys/HBoxContainer2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+text = ">"
+
+[node name="Song_By_Keys" type="VBoxContainer" parent="UI/Action_Event_Resist_Siren_Song"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.5
+offset_top = -79.5
+offset_right = 74.5
+offset_bottom = 79.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Keys" type="HBoxContainer" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys"]
+layout_mode = 2
+
+[node name="TUpKeyWhite" type="TextureRect" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys/Keys"]
+layout_mode = 2
+texture = ExtResource("9_3ywx5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D4" type="Area2D" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys/Keys/TUpKeyWhite"]
+position = Vector2(62, 66)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys/Keys/TUpKeyWhite/Area2D4"]
+shape = SubResource("RectangleShape2D_d6u53")
+
+[node name="TLeftKeyWhite" type="TextureRect" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys/Keys"]
+layout_mode = 2
+texture = ExtResource("10_ofirr")
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D3" type="Area2D" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys/Keys/TLeftKeyWhite"]
+position = Vector2(61, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys/Keys/TLeftKeyWhite/Area2D3"]
+shape = SubResource("RectangleShape2D_sypgb")
+
+[node name="TRightKeyWhite" type="TextureRect" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys/Keys"]
+layout_mode = 2
+texture = ExtResource("11_ofirr")
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D2" type="Area2D" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys/Keys/TRightKeyWhite"]
+position = Vector2(66, 65)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys/Keys/TRightKeyWhite/Area2D2"]
+shape = SubResource("RectangleShape2D_dn5x0")
+
+[node name="TUpKeyWhite2" type="TextureRect" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys/Keys"]
+layout_mode = 2
+texture = ExtResource("9_3ywx5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Area2D" type="Area2D" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys/Keys/TUpKeyWhite2"]
+position = Vector2(65, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys/Keys/TUpKeyWhite2/Area2D"]
+shape = SubResource("RectangleShape2D_esphl")
+
+[node name="ProgressBar" type="ProgressBar" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys"]
+layout_mode = 2
+size_flags_vertical = 3
+max_value = 3.0
+step = 1.0
+show_percentage = false
+
+[node name="MashButton_Module" type="Control" parent="UI/Action_Event_Resist_Siren_Song"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 66.0
+offset_right = 20.0
+offset_bottom = 106.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("12_dn5x0")
+
+[node name="MashButtonTimer" type="Timer" parent="UI/Action_Event_Resist_Siren_Song/MashButton_Module"]
+unique_name_in_owner = true
+wait_time = 0.3
+one_shot = true
+
+[node name="Sprite" type="Sprite2D" parent="UI/Action_Event_Resist_Siren_Song/MashButton_Module"]
+unique_name_in_owner = true
+texture_filter = 1
+scale = Vector2(3.15625, 2.75)
+texture = ExtResource("12_sypgb")
+vframes = 18
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Timer" type="Timer" parent="UI/Control"]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
+layer = 2
+script = ExtResource("8_sypgb")
+
+[node name="Control" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="HUD/Control"]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="Siren" parent="." instance=ExtResource("2_q4iis")]
+position = Vector2(218, 7023)
+rotation = 1.33738
+scale = Vector2(0.2, 0.2)
+
+[node name="Siren2" parent="." instance=ExtResource("2_q4iis")]
+position = Vector2(1937, 1940)
+rotation = -0.587797
+scale = Vector2(0.2, 0.2)
+
+[node name="Siren3" parent="." instance=ExtResource("2_q4iis")]
+position = Vector2(1025, 1978)
+rotation = 0.552726
+scale = Vector2(0.2, 0.2)
+
+[node name="Siren4" parent="." instance=ExtResource("2_q4iis")]
+position = Vector2(1851, 686)
+rotation = -1.62739
+scale = Vector2(0.2, 0.2)
+
+[node name="Camera" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1011, 7534)
+script = ExtResource("5_86ljf")
+speed = 150.0
+
+[node name="Camera2D" type="Camera2D" parent="Camera"]
+position = Vector2(-210, -85)
+rotation = -0.0111869
+scale = Vector2(5, 5)
+offset = Vector2(0, -100)
+zoom = Vector2(1.16, 1.16)
+process_callback = 0
+limit_left = 0
+limit_top = 0
+limit_right = 1635
+limit_bottom = 7800
+limit_smoothed = true
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.4
+drag_bottom_margin = 0.4
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Chest" parent="." instance=ExtResource("13_sypgb")]
+position = Vector2(1112, 6170)
+scale = Vector2(0.21, 0.21)
+
+[node name="Ship" parent="." instance=ExtResource("4_mxnmf")]
+unique_name_in_owner = true
+position = Vector2(845, 7219)
+rotation = -1.5708
+lured_rot_speed = 1.0
+
+[node name="Goal" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1057, 291)
+script = ExtResource("6_m3clv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+shape = SubResource("RectangleShape2D_mxnmf")
+
+[connection signal="timeout" from="UI/Action_Event_Resist_Siren_Song/MashButton_Module/MashButtonTimer" to="UI/Action_Event_Resist_Siren_Song/MashButton_Module" method="_on_mash_button_timer_timeout"]
+[connection signal="area_entered" from="Goal" to="Goal" method="_on_area_entered"]

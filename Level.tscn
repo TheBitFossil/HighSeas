@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dj8kxsq5tqkct"]
+[gd_scene load_steps=35 format=3 uid="uid://dj8kxsq5tqkct"]
 
 [ext_resource type="Script" uid="uid://ctj7g03v4b4xd" path="res://GameRoot.gd" id="1_q4iis"]
 [ext_resource type="PackedScene" uid="uid://qobdm2gpnb67" path="res://Enemies/Siren.tscn" id="2_q4iis"]
@@ -6,15 +6,24 @@
 [ext_resource type="Script" uid="uid://djkatwykv31eg" path="res://Camera.gd" id="5_86ljf"]
 [ext_resource type="Script" uid="uid://b1if3kk1de6xu" path="res://Environment/Goal.gd" id="6_m3clv"]
 [ext_resource type="Script" uid="uid://ddu364typwhh" path="res://UI/UI.gd" id="7_4eo0i"]
+[ext_resource type="Script" uid="uid://d1c5hqhc4mt2i" path="res://CountDown.gd" id="8_3ppgv"]
 [ext_resource type="Script" uid="uid://b7t74tlcxvj7t" path="res://UI/HUD.gd" id="8_sypgb"]
 [ext_resource type="Texture2D" uid="uid://btqnu8wrqc5gf" path="res://Assets/Inputs/Inputs_QuickTime/T_Up_Key_White.png" id="9_3ywx5"]
+[ext_resource type="Texture2D" uid="uid://cw7biulhjbxne" path="res://Assets/Anker.png" id="9_esphl"]
 [ext_resource type="Texture2D" uid="uid://cmg0xaieig8ao" path="res://Assets/Ship.png" id="10_5qkpu"]
+[ext_resource type="Texture2D" uid="uid://csahpmachfty5" path="res://Assets/Inputs/Blanks/T_Blank_Black_Mouse.png" id="10_dcckh"]
 [ext_resource type="Texture2D" uid="uid://nd2kd2v8h3i6" path="res://Assets/Inputs/Inputs_QuickTime/T_Left_Key_White.png" id="10_ofirr"]
+[ext_resource type="Theme" uid="uid://dompoh3p3ckpa" path="res://Resources/default_theme.tres" id="10_s0cgv"]
 [ext_resource type="Texture2D" uid="uid://c6v7vyj5ufi45" path="res://Assets/Inputs/Inputs_QuickTime/T_Right_Key_White.png" id="11_ofirr"]
+[ext_resource type="Texture2D" uid="uid://c1o8ahm5as1hj" path="res://Assets/Rock_B.png" id="11_viiqw"]
+[ext_resource type="Texture2D" uid="uid://216hxrbi2ple" path="res://Assets/Siren.png" id="12_105nu"]
 [ext_resource type="Script" uid="uid://t1edf56cwibo" path="res://UI/MashButtonModule.gd" id="12_dn5x0"]
 [ext_resource type="Texture2D" uid="uid://cvqwi4oxwfpif" path="res://Assets/GenericRegeneration/GenericRegeneration-Sheet.png" id="12_sypgb"]
+[ext_resource type="Texture2D" uid="uid://cuaxuogcrl7fd" path="res://Assets/Kraken.png" id="13_s0cgv"]
+[ext_resource type="Texture2D" uid="uid://bs1qymvppc6gy" path="res://Assets/icon.svg" id="14_3ppgv"]
 [ext_resource type="PackedScene" uid="uid://driya5fjiq652" path="res://Enemies/Kraken.tscn" id="14_esphl"]
 [ext_resource type="PackedScene" uid="uid://c3fc5er0qth8q" path="res://Flotsam/Flotsam.tscn" id="15_5qkpu"]
+[ext_resource type="Texture2D" uid="uid://db6c0xhctmo8q" path="res://Assets/Chest.png" id="15_wesx8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6u53"]
 size = Vector2(96, 98)
@@ -27,6 +36,58 @@ size = Vector2(94, 94)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_esphl"]
 size = Vector2(96, 94)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s0cgv"]
+bg_color = Color(0.321569, 0.356863, 0.458824, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ppgv"]
+bg_color = Color(0.321569, 0.356863, 0.458824, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="Animation" id="Animation_s0cgv"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/RichTextLabel:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.933333, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.517647), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3ppgv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/RichTextLabel:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wesx8"]
+_data = {
+&"RESET": SubResource("Animation_3ppgv"),
+&"idle": SubResource("Animation_s0cgv")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mxnmf"]
 size = Vector2(2560, 478)
@@ -194,15 +255,14 @@ scale = Vector2(3.15625, 2.75)
 texture = ExtResource("12_sypgb")
 vframes = 18
 
-[node name="Control" type="Control" parent="UI"]
+[node name="CountDownTimer" type="Control" parent="UI"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("8_3ppgv")
 
-[node name="Label" type="Label" parent="UI/Control"]
+[node name="Label" type="Label" parent="UI/CountDownTimer"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -210,14 +270,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = 600.0
+offset_top = 328.5
+offset_right = 640.0
+offset_bottom = 351.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Timer" type="Timer" parent="UI/Control"]
+[node name="Timer" type="Timer" parent="UI/CountDownTimer"]
 unique_name_in_owner = true
 one_shot = true
 
@@ -225,7 +285,253 @@ one_shot = true
 layer = 2
 script = ExtResource("8_sypgb")
 
-[node name="Control" type="Control" parent="HUD"]
+[node name="Tutorial_Msg" type="Control" parent="HUD"]
+unique_name_in_owner = true
+layout_mode = 3
+anchor_left = 0.258594
+anchor_top = 0.2375
+anchor_right = 0.741406
+anchor_bottom = 0.7625
+offset_top = -66.0
+offset_bottom = -66.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_s0cgv")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="HUD/Tutorial_Msg"]
+custom_minimum_size = Vector2(600, 350)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.265625
+anchor_top = 0.256944
+anchor_right = 0.734375
+anchor_bottom = 0.743056
+offset_left = 300.0
+offset_top = 175.0
+offset_right = -300.0
+offset_bottom = -175.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HUD/Tutorial_Msg/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0483333
+anchor_top = 0.0685714
+anchor_right = 0.951667
+anchor_bottom = 0.934286
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+texture = ExtResource("9_esphl")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+bbcode_enabled = true
+text = "[b]Click[/b]"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+texture = ExtResource("10_dcckh")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+text = "to move"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+
+[node name="Quest" type="HBoxContainer" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/Quest"]
+clip_contents = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("15_wesx8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/Quest"]
+layout_mode = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+text = "[b]Yarr' Mission[/b]: Bring crew and ship to safety ! "
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+justification_flags = 161
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/bold_italics_font_size = 40
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[color=\"8c242d\"][b]Beware[/b][/color]"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[color=\"527529\"][b]Collect[/b][/color]"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme_override_constants/separation = 48
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="Panel" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_s0cgv")
+
+[node name="TextureRect" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+anchor_left = 0.548387
+anchor_top = 0.0714286
+anchor_right = 0.870968
+anchor_bottom = 0.479592
+rotation = 0.665428
+pivot_offset = Vector2(40, 42)
+texture = ExtResource("11_viiqw")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+anchor_left = -0.0241838
+anchor_top = 0.0153006
+anchor_right = 0.459613
+anchor_bottom = 0.62202
+offset_left = 45.9976
+offset_top = 2.00108
+offset_right = 45.016
+offset_bottom = 3.08399
+rotation = 1.79103
+pivot_offset = Vector2(38, 36)
+texture = ExtResource("12_105nu")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect5" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+anchor_left = 0.245968
+anchor_top = 0.479592
+anchor_right = 0.633065
+anchor_bottom = 0.959184
+pivot_offset = Vector2(43, 43)
+texture = ExtResource("13_s0cgv")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="Panel" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_3ppgv")
+
+[node name="TextureRect3" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+anchor_left = -0.0282258
+anchor_top = 0.04
+anchor_right = 0.399194
+anchor_bottom = 0.533333
+texture = ExtResource("14_3ppgv")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect4" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+anchor_left = 0.471774
+anchor_top = 0.46
+anchor_right = 0.794355
+anchor_bottom = 0.886667
+texture = ExtResource("15_wesx8")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0733333
+anchor_top = 1.02857
+anchor_right = 0.926667
+anchor_bottom = 1.12286
+offset_bottom = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+text = "[b]Press LMB to start[/b]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Tutorial_Msg"]
+libraries = {
+&"": SubResource("AnimationLibrary_wesx8")
+}
+autoplay = "idle"
+
+[node name="Infos" type="Control" parent="HUD"]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -233,7 +539,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="HUD/Control"]
+[node name="Crew" type="HBoxContainer" parent="HUD/Infos"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.849219
@@ -246,13 +552,13 @@ grow_horizontal = 0
 scale = Vector2(1.11018, 1.08204)
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureProgressBar_Crew" type="TextureProgressBar" parent="HUD/Control/HBoxContainer2"]
+[node name="TextureProgressBar_Crew" type="TextureProgressBar" parent="HUD/Infos/Crew"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 5.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HUD/Control"]
+[node name="Health" type="HBoxContainer" parent="HUD/Infos"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.801562
@@ -262,7 +568,7 @@ anchor_bottom = 0.140278
 grow_horizontal = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="HUD/Control/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="HUD/Infos/Health"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
@@ -270,20 +576,12 @@ texture = ExtResource("10_5qkpu")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ProgressBar_Hp" type="ProgressBar" parent="HUD/Control/HBoxContainer"]
+[node name="ProgressBar_Hp" type="ProgressBar" parent="HUD/Infos/Health"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 max_value = 1.0
 step = 0.1
-
-[node name="Tutorial_Msg" type="Control" parent="HUD"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="Siren" parent="." instance=ExtResource("2_q4iis")]
 position = Vector2(384, 12024)
@@ -309,6 +607,22 @@ scale = Vector2(0.2, 0.2)
 position = Vector2(1413, 2776)
 rotation = -0.236203
 scale = Vector2(0.2, 0.2)
+
+[node name="Kraken" parent="." instance=ExtResource("14_esphl")]
+position = Vector2(605, 7592)
+scale = Vector2(0.7, 0.7)
+
+[node name="Flotsam" parent="." instance=ExtResource("15_5qkpu")]
+position = Vector2(532, 13538)
+
+[node name="Flotsam2" parent="." instance=ExtResource("15_5qkpu")]
+position = Vector2(1272, 12052)
+
+[node name="Flotsam3" parent="." instance=ExtResource("15_5qkpu")]
+position = Vector2(1260, 6367)
+
+[node name="Flotsam4" parent="." instance=ExtResource("15_5qkpu")]
+position = Vector2(373, 8798)
 
 [node name="Camera" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -338,33 +652,19 @@ editor_draw_drag_margin = true
 
 [node name="Ship" parent="." instance=ExtResource("4_mxnmf")]
 unique_name_in_owner = true
-position = Vector2(845, 14722)
+position = Vector2(808, 14722)
 rotation = -1.5708
 lured_rot_speed = 1.0
 
 [node name="Goal" type="Area2D" parent="."]
 unique_name_in_owner = true
+visible = false
 position = Vector2(1057, 291)
 script = ExtResource("6_m3clv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
+position = Vector2(-1, -5)
 shape = SubResource("RectangleShape2D_mxnmf")
-
-[node name="Kraken" parent="." instance=ExtResource("14_esphl")]
-position = Vector2(605, 7592)
-scale = Vector2(0.7, 0.7)
-
-[node name="Flotsam" parent="." instance=ExtResource("15_5qkpu")]
-position = Vector2(532, 13538)
-
-[node name="Flotsam2" parent="." instance=ExtResource("15_5qkpu")]
-position = Vector2(1272, 12052)
-
-[node name="Flotsam3" parent="." instance=ExtResource("15_5qkpu")]
-position = Vector2(1260, 6367)
-
-[node name="Flotsam4" parent="." instance=ExtResource("15_5qkpu")]
-position = Vector2(373, 8798)
 
 [connection signal="timeout" from="UI/Action_Event_Resist_Siren_Song/MashButton_Module/MashButtonTimer" to="UI/Action_Event_Resist_Siren_Song/MashButton_Module" method="_on_mash_button_timer_timeout"]
 [connection signal="area_entered" from="Goal" to="Goal" method="_on_area_entered"]

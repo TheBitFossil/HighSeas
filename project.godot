@@ -18,13 +18,13 @@ config/icon="res://Assets/icon.svg"
 [autoload]
 
 Data="*res://Globals/Data.gd"
+EvBus="*res://Globals/EVBus.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/window_width_override=640
-window/size/window_height_override=360
+window/size/initial_screen=1
 window/stretch/mode="canvas_items"
 
 [input]

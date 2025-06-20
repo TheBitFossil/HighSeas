@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://dj8kxsq5tqkct"]
+[gd_scene load_steps=36 format=3 uid="uid://dj8kxsq5tqkct"]
 
 [ext_resource type="Script" uid="uid://ctj7g03v4b4xd" path="res://GameRoot.gd" id="1_q4iis"]
 [ext_resource type="PackedScene" uid="uid://qobdm2gpnb67" path="res://Enemies/Siren.tscn" id="2_q4iis"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://driya5fjiq652" path="res://Enemies/Kraken.tscn" id="14_esphl"]
 [ext_resource type="PackedScene" uid="uid://c3fc5er0qth8q" path="res://Flotsam/Flotsam.tscn" id="15_5qkpu"]
 [ext_resource type="Texture2D" uid="uid://db6c0xhctmo8q" path="res://Assets/Chest.png" id="15_wesx8"]
+[ext_resource type="PackedScene" uid="uid://cy2wb7oh0kv1d" path="res://Enemies/Whirl.tscn" id="19_wesx8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6u53"]
 size = Vector2(96, 98)
@@ -623,6 +624,9 @@ position = Vector2(1260, 6367)
 
 [node name="Flotsam4" parent="." instance=ExtResource("15_5qkpu")]
 position = Vector2(373, 8798)
+
+[node name="Node2D" parent="." instance=ExtResource("19_wesx8")]
+position = Vector2(959, 13641)
 
 [node name="Camera" type="Node2D" parent="."]
 unique_name_in_owner = true

@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dompoh3p3ckpa"]
+
+[ext_resource type="FontFile" uid="uid://cbnei45rtolkl" path="res://Assets/Fonts/ConvincingPirate.ttf" id="1_76a3c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wrwbd"]
+bg_color = Color(0.0392157, 0.0941176, 0.145098, 0.666667)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[resource]
+Panel/styles/panel = SubResource("StyleBoxFlat_wrwbd")
+RichTextLabel/font_sizes/bold_font_size = 24
+RichTextLabel/font_sizes/normal_font_size = 18
+RichTextLabel/fonts/bold_font = ExtResource("1_76a3c")
+RichTextLabel/fonts/normal_font = ExtResource("1_76a3c")

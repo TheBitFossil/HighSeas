@@ -15,6 +15,7 @@ var has_reached_goal : bool = false
 
 func _ready() -> void:
 	EvBus.has_reached_goal.connect(_on_has_reached_goal)
+	EvBus.crew_changed.connect(_on_crew_changed)
 	
 	infos.hide()
 	tutorial_msg.show()
@@ -26,6 +27,9 @@ func _ready() -> void:
 	crew.max_value = Data.MAX_CREW
 	crew.value = Data.crew
 	crew.step = 1
+
+	update_crew()
+	update_ship_health()
 
 
 func _input(event: InputEvent) -> void:
@@ -61,3 +65,11 @@ func _on_has_reached_goal():
 	infos.hide()
 	reached_goal_msg.show()
 	has_reached_goal = true
+
+
+func update_crew():
+	crew.value  = Data.crew
+
+
+func update_ship_health():
+	hp.value = Data.hp

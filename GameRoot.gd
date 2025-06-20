@@ -6,6 +6,7 @@ extends Node2D
 @onready var ship: CharacterBody2D = %Ship
 @onready var camera_2d: Node2D = %Camera
 @onready var goal: Area2D = %Goal
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 
 func _ready() -> void:
@@ -16,7 +17,8 @@ func _ready() -> void:
 	
 	EvBus.tutorial_msg_closed.connect(_on_tutorial_msg_closed)
 	EvBus.restart_game.connect(_on_restart_game)
-	
+	audio_stream_player.set_playing(true)
+
 
 func _on_ship_lured_in():
 	camera_2d.lure_in_mode_active()

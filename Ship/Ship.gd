@@ -112,6 +112,10 @@ func take_damage():
 	health -= 2
 
 
+func collect_crew(val : int):
+	Data.add_crew(val)
+
+
 func trail_animation(velocity):
 	if velocity.length() > 0:
 		anim_trails.play("idle")

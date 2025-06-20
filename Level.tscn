@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dj8kxsq5tqkct"]
+[gd_scene load_steps=43 format=3 uid="uid://dj8kxsq5tqkct"]
 
 [ext_resource type="Script" uid="uid://ctj7g03v4b4xd" path="res://GameRoot.gd" id="1_q4iis"]
 [ext_resource type="PackedScene" uid="uid://qobdm2gpnb67" path="res://Enemies/Siren.tscn" id="2_q4iis"]
@@ -30,6 +30,8 @@
 [ext_resource type="PackedScene" uid="uid://bvmt82a6rvhem" path="res://Environment/Rock_3.tscn" id="25_lwa2w"]
 [ext_resource type="PackedScene" uid="uid://b0xxkgml3jlmk" path="res://Flotsam/OilBarrel.tscn" id="25_q2vmi"]
 [ext_resource type="PackedScene" uid="uid://c5ao8s1rmbr2l" path="res://Environment/Goal.tscn" id="25_wesx8"]
+[ext_resource type="PackedScene" uid="uid://be83roh20rrbm" path="res://Flotsam/Crew.tscn" id="28_lwa2w"]
+[ext_resource type="AudioStream" uid="uid://ogrvwxwiyn4m" path="res://Assets/SFX/Pirate 2.ogg" id="32_hkpnj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6u53"]
 size = Vector2(96, 98)
@@ -835,6 +837,18 @@ position = Vector2(1424, 9512)
 
 [node name="Crew" type="Node" parent="."]
 
+[node name="Crew2" parent="Crew" instance=ExtResource("28_lwa2w")]
+position = Vector2(817, 13131)
+scale = Vector2(0.5, 0.5)
+
+[node name="Crew3" parent="Crew" instance=ExtResource("28_lwa2w")]
+position = Vector2(252, 11376)
+scale = Vector2(0.5, 0.5)
+
+[node name="Crew4" parent="Crew" instance=ExtResource("28_lwa2w")]
+position = Vector2(1207, 8955)
+scale = Vector2(0.5, 0.5)
+
 [node name="Goal" parent="." instance=ExtResource("25_wesx8")]
 unique_name_in_owner = true
 position = Vector2(1057, 291)
@@ -870,6 +884,9 @@ position = Vector2(823, 14374)
 rotation = -1.5708
 default_speed = 180.0
 lured_rot_speed = 1.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("32_hkpnj")
 
 [connection signal="timeout" from="UI/Action_Event_Resist_Siren_Song/MashButton_Module/MashButtonTimer" to="UI/Action_Event_Resist_Siren_Song/MashButton_Module" method="_on_mash_button_timer_timeout"]
 

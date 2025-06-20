@@ -7,25 +7,35 @@ extends Node2D
 
 var default_zoom := Vector2(.8, .8)
 var siren_zoom := Vector2(1.1, 1.1)
+var goal_zoom := Vector2(1.3, 1.3)
+
+enum CAMERA_STATES { STATIC, FOLLOW }
+@export var cam_state : CAMERA_STATES = CAMERA_STATES.STATIC 
 
 
 func _ready() -> void:
 	camera_zoom_reset()
+	EvBus.has_reached_goal.connect(_on_has_reached_goal)
+
+
+func _on_has_reached_goal()->void:
+	camera_2d.zoom = goal_zoom
+	deactivate_scroll()
 
 
 func _physics_process(delta: float) -> void:
-	if not is_scrolling:
+	if cam_state == CAMERA_STATES.STATIC:
 		return
-		
-	global_position.y -= speed * delta
+	elif cam_state == CAMERA_STATES.FOLLOW:
+		global_position.y -= speed * delta
 
 
 func activate_scroll():
-	is_scrolling = true
+	cam_state = CAMERA_STATES.FOLLOW
 
 
 func deactivate_scroll():
-	is_scrolling = false
+	cam_state = CAMERA_STATES.STATIC
 
 
 func camera_zoom_siren():

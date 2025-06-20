@@ -1,10 +1,7 @@
 extends Node2D
 
 @export var ship_health : int = 20
-
-
-func _ready() -> void:
-	pass
+#todo add ship health
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

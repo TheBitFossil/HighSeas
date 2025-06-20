@@ -1,10 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://dj8kxsq5tqkct"]
+[gd_scene load_steps=37 format=3 uid="uid://dj8kxsq5tqkct"]
 
 [ext_resource type="Script" uid="uid://ctj7g03v4b4xd" path="res://GameRoot.gd" id="1_q4iis"]
 [ext_resource type="PackedScene" uid="uid://qobdm2gpnb67" path="res://Enemies/Siren.tscn" id="2_q4iis"]
 [ext_resource type="PackedScene" uid="uid://0ax2r5qkb4rj" path="res://Ship/Ship.tscn" id="4_mxnmf"]
 [ext_resource type="Script" uid="uid://djkatwykv31eg" path="res://Camera.gd" id="5_86ljf"]
-[ext_resource type="Script" uid="uid://b1if3kk1de6xu" path="res://Environment/Goal.gd" id="6_m3clv"]
 [ext_resource type="Script" uid="uid://ddu364typwhh" path="res://UI/UI.gd" id="7_4eo0i"]
 [ext_resource type="Script" uid="uid://d1c5hqhc4mt2i" path="res://CountDown.gd" id="8_3ppgv"]
 [ext_resource type="Script" uid="uid://b7t74tlcxvj7t" path="res://UI/HUD.gd" id="8_sypgb"]
@@ -24,7 +23,10 @@
 [ext_resource type="PackedScene" uid="uid://driya5fjiq652" path="res://Enemies/Kraken.tscn" id="14_esphl"]
 [ext_resource type="PackedScene" uid="uid://c3fc5er0qth8q" path="res://Flotsam/Flotsam.tscn" id="15_5qkpu"]
 [ext_resource type="Texture2D" uid="uid://db6c0xhctmo8q" path="res://Assets/Chest.png" id="15_wesx8"]
+[ext_resource type="Texture2D" uid="uid://hkv7yjgqc437" path="res://Assets/Sailor.png" id="18_qqkhr"]
 [ext_resource type="PackedScene" uid="uid://cy2wb7oh0kv1d" path="res://Enemies/Whirl.tscn" id="19_wesx8"]
+[ext_resource type="PackedScene" uid="uid://c5ao8s1rmbr2l" path="res://Environment/Goal.tscn" id="25_wesx8"]
+[ext_resource type="Texture2D" uid="uid://ctsrwmgdc8v24" path="res://Assets/Rock_A.png" id="27_4vjci"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6u53"]
 size = Vector2(96, 98)
@@ -89,9 +91,6 @@ _data = {
 &"RESET": SubResource("Animation_3ppgv"),
 &"idle": SubResource("Animation_s0cgv")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxnmf"]
-size = Vector2(2560, 478)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_q4iis")
@@ -290,11 +289,11 @@ script = ExtResource("8_sypgb")
 unique_name_in_owner = true
 layout_mode = 3
 anchor_left = 0.258594
-anchor_top = 0.2375
+anchor_top = 0.0833333
 anchor_right = 0.741406
-anchor_bottom = 0.7625
-offset_top = -66.0
-offset_bottom = -66.0
+anchor_bottom = 0.608333
+offset_top = 126.0
+offset_bottom = 126.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("10_s0cgv")
@@ -531,8 +530,168 @@ libraries = {
 }
 autoplay = "idle"
 
+[node name="ReachedGoal_Msg" type="Control" parent="HUD"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchor_left = 0.258594
+anchor_top = 0.145833
+anchor_right = 0.741406
+anchor_bottom = 0.670833
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_s0cgv")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="HUD/ReachedGoal_Msg"]
+custom_minimum_size = Vector2(500, 250)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.64103
+anchor_top = -0.579696
+anchor_right = 1.64103
+anchor_bottom = 1.44742
+offset_left = 455.156
+offset_top = 258.125
+offset_right = -455.156
+offset_bottom = -258.125
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HUD/ReachedGoal_Msg/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.012
+anchor_top = 0.106667
+anchor_right = 0.988
+anchor_bottom = 0.82
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Headline" type="HBoxContainer" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Headline"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 42
+theme_override_font_sizes/bold_font_size = 42
+bbcode_enabled = true
+text = "[b]Mission Completed! [/b]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 161
+
+[node name="Crew" type="HBoxContainer" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Crew"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+texture = ExtResource("18_qqkhr")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Crew"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
+bbcode_enabled = true
+text = "[b]2/5[/b]"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Crew"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+text = "Crew Rescued"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+
+[node name="Flotsam" type="HBoxContainer" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Flotsam"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+texture = ExtResource("15_wesx8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Flotsam"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
+bbcode_enabled = true
+text = "[b]2/5[/b]"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Flotsam"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+text = "Flotsam Collected"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/ReachedGoal_Msg/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0733333
+anchor_top = 1.02857
+anchor_right = 0.926667
+anchor_bottom = 1.12286
+offset_bottom = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+text = "[b]Press LMB to start[/b]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/ReachedGoal_Msg"]
+libraries = {
+&"": SubResource("AnimationLibrary_wesx8")
+}
+autoplay = "idle"
+
 [node name="Infos" type="Control" parent="HUD"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -585,13 +744,13 @@ max_value = 1.0
 step = 0.1
 
 [node name="Siren" parent="." instance=ExtResource("2_q4iis")]
-position = Vector2(384, 12024)
-rotation = 0.880159
+position = Vector2(1025, 11949)
+rotation = -1.07887
 scale = Vector2(0.2, 0.2)
 
 [node name="Siren2" parent="." instance=ExtResource("2_q4iis")]
-position = Vector2(1195, 9530)
-rotation = -0.0542392
+position = Vector2(345, 9645)
+rotation = 0.542975
 scale = Vector2(0.2, 0.2)
 
 [node name="Siren_Small" parent="." instance=ExtResource("2_q4iis")]
@@ -610,36 +769,39 @@ rotation = -0.236203
 scale = Vector2(0.2, 0.2)
 
 [node name="Kraken" parent="." instance=ExtResource("14_esphl")]
-position = Vector2(605, 7592)
+position = Vector2(666, 7567)
 scale = Vector2(0.7, 0.7)
 
 [node name="Flotsam" parent="." instance=ExtResource("15_5qkpu")]
-position = Vector2(532, 13538)
+position = Vector2(551, 13394)
 
 [node name="Flotsam2" parent="." instance=ExtResource("15_5qkpu")]
-position = Vector2(1272, 12052)
+position = Vector2(1168, 10562)
 
 [node name="Flotsam3" parent="." instance=ExtResource("15_5qkpu")]
 position = Vector2(1260, 6367)
 
 [node name="Flotsam4" parent="." instance=ExtResource("15_5qkpu")]
-position = Vector2(373, 8798)
+position = Vector2(212, 9120)
 
-[node name="Node2D" parent="." instance=ExtResource("19_wesx8")]
-position = Vector2(959, 13641)
+[node name="Whirl2" parent="." instance=ExtResource("19_wesx8")]
+position = Vector2(371, 11156)
+scale = Vector2(0.5, 0.5)
+
+[node name="Whirl3" parent="." instance=ExtResource("19_wesx8")]
+position = Vector2(1469, 9263)
+scale = Vector2(0.5, 0.5)
 
 [node name="Camera" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(1011, 15124)
+position = Vector2(807, 14647)
 script = ExtResource("5_86ljf")
 speed = 150.0
 
 [node name="Camera2D" type="Camera2D" parent="Camera"]
-position = Vector2(-210, -85)
 rotation = -0.0111869
 scale = Vector2(5, 5)
 offset = Vector2(0, -100)
-zoom = Vector2(1.16, 1.16)
 process_callback = 0
 limit_left = 0
 limit_top = 0
@@ -656,21 +818,158 @@ editor_draw_drag_margin = true
 
 [node name="Ship" parent="." instance=ExtResource("4_mxnmf")]
 unique_name_in_owner = true
-position = Vector2(808, 14722)
+position = Vector2(823, 14374)
 rotation = -1.5708
 lured_rot_speed = 1.0
 
-[node name="Goal" type="Area2D" parent="."]
+[node name="Goal" parent="." instance=ExtResource("25_wesx8")]
 unique_name_in_owner = true
-visible = false
 position = Vector2(1057, 291)
-script = ExtResource("6_m3clv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
-position = Vector2(-1, -5)
-shape = SubResource("RectangleShape2D_mxnmf")
+[node name="RockA" type="Sprite2D" parent="."]
+position = Vector2(1492, 14074)
+rotation = 0.0287981
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("27_4vjci")
+
+[node name="RockA3" type="Sprite2D" parent="."]
+position = Vector2(1529, 14200)
+rotation = 0.0110809
+scale = Vector2(0.111849, 0.109199)
+texture = ExtResource("27_4vjci")
+
+[node name="RockA5" type="Sprite2D" parent="."]
+position = Vector2(1294.44, 11126.9)
+rotation = 0.109415
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("27_4vjci")
+
+[node name="RockA6" type="Sprite2D" parent="."]
+position = Vector2(1471.44, 11199.9)
+rotation = -0.205862
+scale = Vector2(0.111849, 0.109199)
+texture = ExtResource("27_4vjci")
+
+[node name="RockB3" type="Sprite2D" parent="."]
+position = Vector2(1530.44, 10898.9)
+rotation = 0.159941
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_viiqw")
+
+[node name="RockA17" type="Sprite2D" parent="."]
+position = Vector2(1294.44, 6112.88)
+rotation = 0.109415
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("27_4vjci")
+
+[node name="RockA18" type="Sprite2D" parent="."]
+position = Vector2(1471.44, 6185.88)
+rotation = -0.205862
+scale = Vector2(0.111849, 0.109199)
+texture = ExtResource("27_4vjci")
+
+[node name="RockB7" type="Sprite2D" parent="."]
+position = Vector2(1530.44, 5884.88)
+rotation = 0.159941
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_viiqw")
+
+[node name="RockA2" type="Sprite2D" parent="."]
+position = Vector2(348.476, 14153.4)
+rotation = 0.0625106
+scale = Vector2(-0.131722, 0.131722)
+texture = ExtResource("27_4vjci")
+
+[node name="RockA4" type="Sprite2D" parent="."]
+position = Vector2(212.476, 14210.4)
+rotation = 2.6121
+scale = Vector2(-0.0488778, 0.0600887)
+texture = ExtResource("27_4vjci")
+
+[node name="RockB2" type="Sprite2D" parent="."]
+position = Vector2(221, 13964)
+rotation = 0.721823
+scale = Vector2(-0.363721, 0.5)
+texture = ExtResource("11_viiqw")
+
+[node name="Ship2" parent="." instance=ExtResource("4_mxnmf")]
+unique_name_in_owner = true
+position = Vector2(823, 8709.85)
+rotation = -1.5708
+lured_rot_speed = 1.0
+
+[node name="RockA9" type="Sprite2D" parent="."]
+position = Vector2(1492, 8409.85)
+rotation = 0.0287981
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("27_4vjci")
+
+[node name="RockA10" type="Sprite2D" parent="."]
+position = Vector2(1529, 8535.85)
+rotation = 0.0110809
+scale = Vector2(0.111849, 0.109199)
+texture = ExtResource("27_4vjci")
+
+[node name="RockA22" type="Sprite2D" parent="."]
+position = Vector2(1564, 1218)
+rotation = 0.0110809
+scale = Vector2(0.111849, 0.109199)
+texture = ExtResource("27_4vjci")
+
+[node name="RockA11" type="Sprite2D" parent="."]
+position = Vector2(348.476, 8489.24)
+rotation = 0.0625106
+scale = Vector2(-0.131722, 0.131722)
+texture = ExtResource("27_4vjci")
+
+[node name="RockA12" type="Sprite2D" parent="."]
+position = Vector2(212.476, 8546.24)
+rotation = 2.6121
+scale = Vector2(-0.0488778, 0.0600887)
+texture = ExtResource("27_4vjci")
+
+[node name="RockB5" type="Sprite2D" parent="."]
+position = Vector2(221, 8299.85)
+rotation = 0.721823
+scale = Vector2(-0.363721, 0.5)
+texture = ExtResource("11_viiqw")
+
+[node name="RockA7" type="Sprite2D" parent="."]
+position = Vector2(345.882, 12275.5)
+rotation = 0.0625106
+scale = Vector2(-0.131722, 0.131722)
+texture = ExtResource("27_4vjci")
+
+[node name="RockA8" type="Sprite2D" parent="."]
+position = Vector2(209.882, 12332.5)
+rotation = 2.6121
+scale = Vector2(-0.0488778, 0.0600887)
+texture = ExtResource("27_4vjci")
+
+[node name="RockB4" type="Sprite2D" parent="."]
+position = Vector2(179.882, 12099.5)
+rotation = -0.0690435
+scale = Vector2(-0.363721, 0.5)
+texture = ExtResource("11_viiqw")
+
+[node name="RockA19" type="Sprite2D" parent="."]
+position = Vector2(345.882, 3952.52)
+rotation = 0.0625106
+scale = Vector2(-0.131722, 0.131722)
+texture = ExtResource("27_4vjci")
+
+[node name="RockA20" type="Sprite2D" parent="."]
+position = Vector2(209.882, 4009.52)
+rotation = 2.6121
+scale = Vector2(-0.0488778, 0.0600887)
+texture = ExtResource("27_4vjci")
+
+[node name="RockB8" type="Sprite2D" parent="."]
+position = Vector2(179.882, 3776.52)
+rotation = -0.0690435
+scale = Vector2(-0.363721, 0.5)
+texture = ExtResource("11_viiqw")
 
 [connection signal="timeout" from="UI/Action_Event_Resist_Siren_Song/MashButton_Module/MashButtonTimer" to="UI/Action_Event_Resist_Siren_Song/MashButton_Module" method="_on_mash_button_timer_timeout"]
-[connection signal="area_entered" from="Goal" to="Goal" method="_on_area_entered"]
 
 [editable path="Siren_Small"]

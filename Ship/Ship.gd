@@ -68,8 +68,9 @@ func _physics_process(delta: float) -> void:
 	
 	trail_animation(velocity)
 
-func reach_goal():
-	pass
+# Called from reaching Goal Area
+func reached_goal():
+	disable_controls()
 
 
 func enable_controls():
@@ -86,7 +87,6 @@ func get_lured_by_siren(antagonist : Siren):
 	speed = lured_speed
 	rot_speed = lured_rot_speed
 	disable_controls()
-	print("Lured")
 	emit_signal("lured_in")
 
 

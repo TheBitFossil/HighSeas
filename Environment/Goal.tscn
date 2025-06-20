@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://c5ao8s1rmbr2l"]
+
+[ext_resource type="Script" uid="uid://b1if3kk1de6xu" path="res://Environment/Goal.gd" id="1_yb8qm"]
+[ext_resource type="Texture2D" uid="uid://dlpaum8ytj5mm" path="res://Assets/Beach.png" id="2_pxw8n"]
+[ext_resource type="Texture2D" uid="uid://cfitn7al6x6x1" path="res://Assets/Steg.png" id="3_el1fq"]
+[ext_resource type="Texture2D" uid="uid://bqdkjcxr3ifl6" path="res://Assets/Harbor.png" id="4_0psau"]
+[ext_resource type="Texture2D" uid="uid://21cxnf6nvso4" path="res://Assets/Fishingnet.png" id="5_ds207"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mxnmf"]
+size = Vector2(526, 324)
+
+[node name="Goal" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_yb8qm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-248, 62)
+shape = SubResource("RectangleShape2D_mxnmf")
+
+[node name="Beach" type="Sprite2D" parent="."]
+position = Vector2(-193, -133)
+texture = ExtResource("2_pxw8n")
+
+[node name="Steeg" type="Sprite2D" parent="."]
+position = Vector2(-372, -7)
+rotation = 0.00781791
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_el1fq")
+
+[node name="Harbor" type="Sprite2D" parent="."]
+position = Vector2(-112, 2)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_0psau")
+
+[node name="Fishingnet" type="Sprite2D" parent="."]
+position = Vector2(-737.057, 19)
+rotation = 0.0371339
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_ds207")
+
+[node name="Fishingnet2" type="Sprite2D" parent="."]
+position = Vector2(-974.057, -26)
+rotation = 0.0256211
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_ds207")
+
+[node name="Fishingnet3" type="Sprite2D" parent="."]
+position = Vector2(354.943, 59)
+rotation = 0.0256211
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_ds207")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

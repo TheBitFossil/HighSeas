@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://cy2wb7oh0kv1d"]
+
+[ext_resource type="Texture2D" uid="uid://1e8ur5ux5olx" path="res://Assets/Whirl.png" id="1_njsxi"]
+
+[sub_resource type="Animation" id="Animation_njsxi"]
+resource_name = "rotate"
+length = 10.0
+loop_mode = 1
+step = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-6.28319, 0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_k1y8r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tcrym"]
+_data = {
+&"RESET": SubResource("Animation_k1y8r"),
+&"rotate": SubResource("Animation_njsxi")
+}
+
+[node name="Whirl" type="Node2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+self_modulate = Color(0.0392157, 0.0941176, 0.145098, 0.666667)
+rotation = -6.28319
+texture = ExtResource("1_njsxi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_tcrym")
+}
+autoplay = "rotate"

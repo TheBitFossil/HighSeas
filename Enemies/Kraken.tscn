@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://driya5fjiq652"]
+[gd_scene load_steps=12 format=3 uid="uid://driya5fjiq652"]
 
 [ext_resource type="Texture2D" uid="uid://cuaxuogcrl7fd" path="res://Assets/Kraken.png" id="1_u613r"]
+[ext_resource type="Texture2D" uid="uid://dbhsjxo1cord3" path="res://Assets/Schatten_Fische.png" id="2_l76a3"]
 
 [sub_resource type="Animation" id="Animation_ow3ds"]
 length = 0.001
@@ -122,7 +123,52 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_u613r"]
 radius = 772.373
 
+[sub_resource type="Animation" id="Animation_ap2xy"]
+resource_name = "rotate"
+length = 8.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SchattenFische:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-6.28319, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_mwsbb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SchattenFische:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1883m"]
+_data = {
+&"RESET": SubResource("Animation_mwsbb"),
+&"rotate": SubResource("Animation_ap2xy")
+}
+
 [node name="Kraken" type="Node2D"]
+
+[node name="SchattenFische" type="Sprite2D" parent="."]
+position = Vector2(-25, 179)
+rotation = -6.28319
+scale = Vector2(1.09339, 1.0843)
+texture = ExtResource("2_l76a3")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 rotation = 0.302935
@@ -139,3 +185,10 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(6, 39)
 shape = SubResource("CircleShape2D_u613r")
+
+[node name="Anim_Fish" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1883m")
+}
+autoplay = "rotate"
+speed_scale = 0.5

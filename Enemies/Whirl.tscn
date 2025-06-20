@@ -1,6 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://cy2wb7oh0kv1d"]
+[gd_scene load_steps=8 format=3 uid="uid://cy2wb7oh0kv1d"]
 
+[ext_resource type="Script" uid="uid://cc1cgrpw6veck" path="res://Enemies/Whirl.gd" id="1_k1y8r"]
 [ext_resource type="Texture2D" uid="uid://1e8ur5ux5olx" path="res://Assets/Whirl.png" id="1_njsxi"]
+
+[sub_resource type="Animation" id="Animation_k1y8r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0392157, 0.0941176, 0.145098, 0.666667)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_njsxi"]
 resource_name = "rotate"
@@ -20,8 +60,10 @@ tracks/0/keys = {
 "values": [-6.28319, 0.0, 6.28319]
 }
 
-[sub_resource type="Animation" id="Animation_k1y8r"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_tcrym"]
+resource_name = "fade_out"
+length = 2.0
+step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -29,22 +71,52 @@ tracks/0/path = NodePath("Sprite:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [-6.28319]
+"values": [-6.28319, 0.0, 6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.0392157, 0.0941176, 0.145098, 0.666667), Color(0.0392157, 0.0941176, 0.145098, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tcrym"]
 _data = {
 &"RESET": SubResource("Animation_k1y8r"),
+&"fade_out": SubResource("Animation_tcrym"),
 &"rotate": SubResource("Animation_njsxi")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_njsxi"]
+radius = 341.884
+
 [node name="Whirl" type="Node2D"]
+script = ExtResource("1_k1y8r")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 self_modulate = Color(0.0392157, 0.0941176, 0.145098, 0.666667)
+position = Vector2(-19, 3)
 rotation = -6.28319
 texture = ExtResource("1_njsxi")
 
@@ -53,3 +125,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_tcrym")
 }
 autoplay = "rotate"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_njsxi")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

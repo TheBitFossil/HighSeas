@@ -9,3 +9,6 @@ signal tutorial_msg_closed()
 
 signal has_reached_goal()
 signal restart_game()
+
+signal camera_static()
+signal camera_follow()

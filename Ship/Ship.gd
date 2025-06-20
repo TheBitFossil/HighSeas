@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 signal lured_in()
 
-
 @export var default_speed := 200.0
 @export var lured_speed := 50.0		#when lured by siren
 var speed : float

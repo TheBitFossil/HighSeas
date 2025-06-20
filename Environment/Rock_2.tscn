@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://ceanecg3yiunj"]
+
+[ext_resource type="Texture2D" uid="uid://ctsrwmgdc8v24" path="res://Assets/Rock_A.png" id="1_5qmnx"]
+[ext_resource type="Texture2D" uid="uid://dbug2h3anxa7w" path="res://Assets/waves_flotsam.png" id="2_8x0dk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xdhln"]
+size = Vector2(385, 234)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kw707"]
+size = Vector2(272, 152)
+
+[node name="Rock2" type="Node2D"]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(589, -256)
+collision_layer = 2
+
+[node name="L_Rock" type="Node2D" parent="StaticBody2D2"]
+position = Vector2(152, -39)
+
+[node name="RockA2" type="Sprite2D" parent="StaticBody2D2/L_Rock"]
+position = Vector2(-119.414, 112)
+scale = Vector2(0.334906, 0.373096)
+texture = ExtResource("1_5qmnx")
+
+[node name="WavesFlotsam" type="Sprite2D" parent="StaticBody2D2/L_Rock"]
+position = Vector2(-132, 171)
+scale = Vector2(0.5015, 0.5015)
+texture = ExtResource("2_8x0dk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(27.5, 30)
+shape = SubResource("RectangleShape2D_xdhln")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(221, 158)
+rotation = 0.0929511
+collision_layer = 2
+
+[node name="S_Rock" type="Node2D" parent="StaticBody2D4"]
+
+[node name="RockA3" type="Sprite2D" parent="StaticBody2D4/S_Rock"]
+position = Vector2(23.1574, 32.8683)
+rotation = -3.12215
+scale = Vector2(0.234379, -0.234379)
+texture = ExtResource("1_5qmnx")
+
+[node name="WavesFlotsam4" type="Sprite2D" parent="StaticBody2D4/S_Rock"]
+position = Vector2(34.1574, 88.8683)
+scale = Vector2(0.263959, 0.346447)
+texture = ExtResource("2_8x0dk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(26, 18)
+shape = SubResource("RectangleShape2D_kw707")

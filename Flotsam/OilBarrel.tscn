@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://c3fc5er0qth8q"]
+[gd_scene load_steps=11 format=3 uid="uid://b0xxkgml3jlmk"]
 
-[ext_resource type="Script" uid="uid://booyhld367n38" path="res://Flotsam/Flotsam.gd" id="1_7ej5g"]
-[ext_resource type="Texture2D" uid="uid://db6c0xhctmo8q" path="res://Assets/Chest.png" id="2_bcqd8"]
-[ext_resource type="Texture2D" uid="uid://dbug2h3anxa7w" path="res://Assets/waves_flotsam.png" id="3_wi5lo"]
+[ext_resource type="Script" uid="uid://booyhld367n38" path="res://Flotsam/Flotsam.gd" id="1_ljdvn"]
+[ext_resource type="Texture2D" uid="uid://8lal17isoco0" path="res://Assets/Oil_barrel.png" id="2_ljdvn"]
+[ext_resource type="Texture2D" uid="uid://dbug2h3anxa7w" path="res://Assets/waves_flotsam.png" id="3_3ux4h"]
 
 [sub_resource type="Animation" id="Animation_hkml5"]
 length = 0.001
@@ -23,7 +23,7 @@ tracks/0/keys = {
 resource_name = "idle"
 length = 2.0
 loop_mode = 1
-step = 0.1
+step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -31,7 +31,7 @@ tracks/0/path = NodePath("WavesFlotsam:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.4, 1.9),
+"times": PackedFloat32Array(0, 0.6, 1.4, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(8, 49), Vector2(18, 49), Vector2(-4, 49), Vector2(8, 49)]
@@ -48,7 +48,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Chest:position")
+tracks/0/path = NodePath("Sprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -60,7 +60,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Chest:rotation")
+tracks/1/path = NodePath("Sprite:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -78,7 +78,7 @@ step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Chest:position")
+tracks/0/path = NodePath("Sprite:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -90,7 +90,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Chest:rotation")
+tracks/1/path = NodePath("Sprite:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -107,20 +107,21 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hkml5"]
-size = Vector2(832, 430)
+size = Vector2(832, 481.667)
 
-[node name="Flotsam" type="Node2D"]
+[node name="OilBarrel" type="Node2D"]
 scale = Vector2(0.12, 0.12)
-script = ExtResource("1_7ej5g")
+script = ExtResource("1_ljdvn")
+_is_dangerous = true
 
-[node name="Chest" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 rotation = 0.746123
-texture = ExtResource("2_bcqd8")
+texture = ExtResource("2_ljdvn")
 
 [node name="WavesFlotsam" type="Sprite2D" parent="."]
 position = Vector2(8, 49)
 scale = Vector2(1.15695, 1.11675)
-texture = ExtResource("3_wi5lo")
+texture = ExtResource("3_3ux4h")
 
 [node name="Anim_Waves" type="AnimationPlayer" parent="."]
 libraries = {
@@ -138,7 +139,8 @@ autoplay = "idle"
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-30, -178)
+position = Vector2(-30, -84.1667)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hkml5")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

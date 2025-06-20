@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://blx1q8opkq8fj"]
+
+[ext_resource type="Texture2D" uid="uid://c6ooinp0be6tk" path="res://Assets/BG.png" id="1_sstqx"]
+
+[node name="BG" type="Node2D"]
+
+[node name="BG3" type="Sprite2D" parent="."]
+position = Vector2(834, 967)
+texture = ExtResource("1_sstqx")
+
+[node name="BG" type="Sprite2D" parent="BG3"]
+position = Vector2(0, 1935)
+texture = ExtResource("1_sstqx")
+
+[node name="BG2" type="Sprite2D" parent="BG3"]
+position = Vector2(0, 3870)
+texture = ExtResource("1_sstqx")
+
+[node name="BG4" type="Sprite2D" parent="BG3"]
+position = Vector2(0, 5805)
+texture = ExtResource("1_sstqx")

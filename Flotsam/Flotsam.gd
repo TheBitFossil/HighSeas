@@ -2,9 +2,16 @@ extends Node2D
 
 @export var ship_health : int = 20
 #todo add ship health
-
+@export var _is_dangerous := false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.has_method("collect_flotsam"):
+	if not body.has_method("collect_flotsam"):
+		return
+		
+	if _is_dangerous:
+		if body.has_method("take_damage"):
+			body.take_damage(ship_health)
+			call_deferred("queue_free")
+	else:
 		if body.collect_flotsam(ship_health):
 			call_deferred("queue_free")

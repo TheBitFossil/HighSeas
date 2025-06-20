@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dj8kxsq5tqkct"]
+[gd_scene load_steps=41 format=3 uid="uid://dj8kxsq5tqkct"]
 
 [ext_resource type="Script" uid="uid://ctj7g03v4b4xd" path="res://GameRoot.gd" id="1_q4iis"]
 [ext_resource type="PackedScene" uid="uid://qobdm2gpnb67" path="res://Enemies/Siren.tscn" id="2_q4iis"]
@@ -18,14 +18,18 @@
 [ext_resource type="Script" uid="uid://t1edf56cwibo" path="res://UI/MashButtonModule.gd" id="12_dn5x0"]
 [ext_resource type="Texture2D" uid="uid://cvqwi4oxwfpif" path="res://Assets/GenericRegeneration/GenericRegeneration-Sheet.png" id="12_sypgb"]
 [ext_resource type="Texture2D" uid="uid://cuaxuogcrl7fd" path="res://Assets/Kraken.png" id="13_s0cgv"]
-[ext_resource type="Texture2D" uid="uid://bs1qymvppc6gy" path="res://Assets/icon.svg" id="14_3ppgv"]
 [ext_resource type="PackedScene" uid="uid://driya5fjiq652" path="res://Enemies/Kraken.tscn" id="14_esphl"]
 [ext_resource type="PackedScene" uid="uid://c3fc5er0qth8q" path="res://Flotsam/Flotsam.tscn" id="15_5qkpu"]
 [ext_resource type="Texture2D" uid="uid://db6c0xhctmo8q" path="res://Assets/Chest.png" id="15_wesx8"]
+[ext_resource type="Texture2D" uid="uid://xcm0v28b5577" path="res://Assets/Sailer_Bar.png" id="17_q2vmi"]
+[ext_resource type="Texture2D" uid="uid://cbncg85fbt6gn" path="res://Assets/Sailer_Bar_Filled.png" id="18_lwa2w"]
 [ext_resource type="Texture2D" uid="uid://hkv7yjgqc437" path="res://Assets/Sailor.png" id="18_qqkhr"]
 [ext_resource type="PackedScene" uid="uid://cy2wb7oh0kv1d" path="res://Enemies/Whirl.tscn" id="19_wesx8"]
+[ext_resource type="PackedScene" uid="uid://dkknsfwnhyx5g" path="res://Environment/Rock.tscn" id="21_b4adj"]
+[ext_resource type="PackedScene" uid="uid://ceanecg3yiunj" path="res://Environment/Rock_2.tscn" id="24_q2vmi"]
+[ext_resource type="PackedScene" uid="uid://bvmt82a6rvhem" path="res://Environment/Rock_3.tscn" id="25_lwa2w"]
+[ext_resource type="PackedScene" uid="uid://b0xxkgml3jlmk" path="res://Flotsam/OilBarrel.tscn" id="25_q2vmi"]
 [ext_resource type="PackedScene" uid="uid://c5ao8s1rmbr2l" path="res://Environment/Goal.tscn" id="25_wesx8"]
-[ext_resource type="Texture2D" uid="uid://ctsrwmgdc8v24" path="res://Assets/Rock_A.png" id="27_4vjci"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6u53"]
 size = Vector2(96, 98)
@@ -43,14 +47,14 @@ size = Vector2(96, 94)
 load_path = "res://.godot/imported/Anker.png-db260961cd890e3d87695b0b9c41c6a3.ctex"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s0cgv"]
-bg_color = Color(0.321569, 0.356863, 0.458824, 1)
+bg_color = Color(0.580392, 0.568627, 0.529412, 0.643137)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ppgv"]
-bg_color = Color(0.321569, 0.356863, 0.458824, 1)
+bg_color = Color(0.580392, 0.568627, 0.529412, 0.643137)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -97,7 +101,7 @@ _data = {
 [node name="Level" type="Node2D"]
 script = ExtResource("1_q4iis")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="."]
 offset_right = 1655.0
 offset_bottom = 15012.0
 color = Color(0.0980392, 0.160784, 0.270588, 1)
@@ -289,6 +293,7 @@ script = ExtResource("8_sypgb")
 
 [node name="Tutorial_Msg" type="Control" parent="HUD"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchor_left = 0.258594
 anchor_top = 0.0833333
@@ -491,7 +496,7 @@ anchor_left = -0.0282258
 anchor_top = 0.04
 anchor_right = 0.399194
 anchor_bottom = 0.533333
-texture = ExtResource("14_3ppgv")
+texture = ExtResource("18_qqkhr")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
@@ -704,10 +709,10 @@ grow_vertical = 2
 [node name="Crew" type="HBoxContainer" parent="HUD/Infos"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.849219
-anchor_top = 0.0638889
-anchor_right = 0.974981
-anchor_bottom = 0.10146
+anchor_left = 0.833594
+anchor_top = 0.00416667
+anchor_right = 0.970294
+anchor_bottom = 0.100071
 offset_right = -15.9763
 offset_bottom = -2.05091
 grow_horizontal = 0
@@ -718,7 +723,11 @@ metadata/_edit_use_anchors_ = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-max_value = 5.0
+max_value = 10.0
+value = 10.0
+nine_patch_stretch = true
+texture_under = ExtResource("17_q2vmi")
+texture_progress = ExtResource("18_lwa2w")
 
 [node name="Health" type="HBoxContainer" parent="HUD/Infos"]
 layout_mode = 1
@@ -745,54 +754,90 @@ size_flags_horizontal = 3
 max_value = 1.0
 step = 0.1
 
-[node name="Siren" parent="." instance=ExtResource("2_q4iis")]
-position = Vector2(1025, 11949)
-rotation = -1.07887
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Siren" parent="Enemies" instance=ExtResource("2_q4iis")]
+position = Vector2(1266, 12356)
+rotation = -0.221317
 scale = Vector2(0.2, 0.2)
 
-[node name="Siren2" parent="." instance=ExtResource("2_q4iis")]
-position = Vector2(345, 9645)
-rotation = 0.542975
+[node name="MusicCloud" parent="Enemies/Siren" index="3"]
+scale = Vector2(3.41946, 3.46629)
+
+[node name="Siren2" parent="Enemies" instance=ExtResource("2_q4iis")]
+position = Vector2(870, 11069)
+rotation = -0.254472
 scale = Vector2(0.2, 0.2)
 
-[node name="Siren_Small" parent="." instance=ExtResource("2_q4iis")]
+[node name="Siren_Small" parent="Enemies" instance=ExtResource("2_q4iis")]
 position = Vector2(911, 5111)
 rotation = 0.0722908
 scale = Vector2(0.2, 0.2)
 
-[node name="Siren4" parent="." instance=ExtResource("2_q4iis")]
+[node name="Siren4" parent="Enemies" instance=ExtResource("2_q4iis")]
 position = Vector2(107, 2799)
 rotation = 0.0428247
 scale = Vector2(0.2, 0.2)
 
-[node name="Siren5" parent="." instance=ExtResource("2_q4iis")]
+[node name="Siren5" parent="Enemies" instance=ExtResource("2_q4iis")]
 position = Vector2(1413, 2776)
 rotation = -0.236203
 scale = Vector2(0.2, 0.2)
 
-[node name="Kraken" parent="." instance=ExtResource("14_esphl")]
+[node name="Kraken" parent="Enemies" instance=ExtResource("14_esphl")]
 position = Vector2(666, 7567)
 scale = Vector2(0.7, 0.7)
 
-[node name="Flotsam" parent="." instance=ExtResource("15_5qkpu")]
-position = Vector2(551, 13394)
+[node name="Whirl3" parent="Enemies" instance=ExtResource("19_wesx8")]
+position = Vector2(924, 9698)
+scale = Vector2(0.5, 0.5)
 
-[node name="Flotsam2" parent="." instance=ExtResource("15_5qkpu")]
-position = Vector2(1168, 10562)
+[node name="Whirl2" parent="Enemies" instance=ExtResource("19_wesx8")]
+position = Vector2(329, 10728)
+scale = Vector2(0.5, 0.5)
 
-[node name="Flotsam3" parent="." instance=ExtResource("15_5qkpu")]
+[node name="Rocks" type="Node" parent="."]
+
+[node name="Rock" parent="Rocks" instance=ExtResource("21_b4adj")]
+position = Vector2(798, 11409)
+scale = Vector2(0.5, 0.5)
+
+[node name="Rock2" parent="Rocks" instance=ExtResource("24_q2vmi")]
+position = Vector2(780, 13307)
+
+[node name="Rock3" parent="Rocks" instance=ExtResource("25_lwa2w")]
+position = Vector2(-196, 13285)
+
+[node name="Flotsam" type="Node" parent="."]
+
+[node name="Flotsam" parent="Flotsam" instance=ExtResource("15_5qkpu")]
+position = Vector2(1374, 13397)
+
+[node name="Flotsam2" parent="Flotsam" instance=ExtResource("15_5qkpu")]
+position = Vector2(455, 10290)
+
+[node name="Flotsam3" parent="Flotsam" instance=ExtResource("15_5qkpu")]
 position = Vector2(1260, 6367)
 
-[node name="Flotsam4" parent="." instance=ExtResource("15_5qkpu")]
+[node name="Flotsam4" parent="Flotsam" instance=ExtResource("15_5qkpu")]
 position = Vector2(212, 9120)
 
-[node name="Whirl2" parent="." instance=ExtResource("19_wesx8")]
-position = Vector2(371, 11156)
-scale = Vector2(0.5, 0.5)
+[node name="Oil" type="Node" parent="."]
 
-[node name="Whirl3" parent="." instance=ExtResource("19_wesx8")]
-position = Vector2(1469, 9263)
-scale = Vector2(0.5, 0.5)
+[node name="OilBarrel" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(1479, 10233)
+
+[node name="OilBarrel3" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(1345, 10979)
+
+[node name="OilBarrel2" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(1424, 9512)
+
+[node name="Crew" type="Node" parent="."]
+
+[node name="Goal" parent="." instance=ExtResource("25_wesx8")]
+unique_name_in_owner = true
+position = Vector2(1057, 291)
 
 [node name="Camera" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -820,159 +865,15 @@ editor_draw_drag_margin = true
 
 [node name="Ship" parent="." instance=ExtResource("4_mxnmf")]
 unique_name_in_owner = true
+z_index = 10
 position = Vector2(823, 14374)
 rotation = -1.5708
 default_speed = 180.0
 lured_rot_speed = 1.0
 
-[node name="Goal" parent="." instance=ExtResource("25_wesx8")]
-unique_name_in_owner = true
-position = Vector2(1057, 291)
-
-[node name="RockA" type="Sprite2D" parent="."]
-position = Vector2(1492, 14074)
-rotation = 0.0287981
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("27_4vjci")
-
-[node name="RockA3" type="Sprite2D" parent="."]
-position = Vector2(1529, 14200)
-rotation = 0.0110809
-scale = Vector2(0.111849, 0.109199)
-texture = ExtResource("27_4vjci")
-
-[node name="RockA5" type="Sprite2D" parent="."]
-position = Vector2(1294.44, 11126.9)
-rotation = 0.109415
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("27_4vjci")
-
-[node name="RockA6" type="Sprite2D" parent="."]
-position = Vector2(1471.44, 11199.9)
-rotation = -0.205862
-scale = Vector2(0.111849, 0.109199)
-texture = ExtResource("27_4vjci")
-
-[node name="RockB3" type="Sprite2D" parent="."]
-position = Vector2(1530.44, 10898.9)
-rotation = 0.159941
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("11_viiqw")
-
-[node name="RockA17" type="Sprite2D" parent="."]
-position = Vector2(1294.44, 6112.88)
-rotation = 0.109415
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("27_4vjci")
-
-[node name="RockA18" type="Sprite2D" parent="."]
-position = Vector2(1471.44, 6185.88)
-rotation = -0.205862
-scale = Vector2(0.111849, 0.109199)
-texture = ExtResource("27_4vjci")
-
-[node name="RockB7" type="Sprite2D" parent="."]
-position = Vector2(1530.44, 5884.88)
-rotation = 0.159941
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("11_viiqw")
-
-[node name="RockA2" type="Sprite2D" parent="."]
-position = Vector2(348.476, 14153.4)
-rotation = 0.0625106
-scale = Vector2(-0.131722, 0.131722)
-texture = ExtResource("27_4vjci")
-
-[node name="RockA4" type="Sprite2D" parent="."]
-position = Vector2(212.476, 14210.4)
-rotation = 2.6121
-scale = Vector2(-0.0488778, 0.0600887)
-texture = ExtResource("27_4vjci")
-
-[node name="RockB2" type="Sprite2D" parent="."]
-position = Vector2(221, 13964)
-rotation = 0.721823
-scale = Vector2(-0.363721, 0.5)
-texture = ExtResource("11_viiqw")
-
-[node name="Ship2" parent="." instance=ExtResource("4_mxnmf")]
-unique_name_in_owner = true
-position = Vector2(823, 8709.85)
-rotation = -1.5708
-lured_rot_speed = 1.0
-
-[node name="RockA9" type="Sprite2D" parent="."]
-position = Vector2(1492, 8409.85)
-rotation = 0.0287981
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("27_4vjci")
-
-[node name="RockA10" type="Sprite2D" parent="."]
-position = Vector2(1529, 8535.85)
-rotation = 0.0110809
-scale = Vector2(0.111849, 0.109199)
-texture = ExtResource("27_4vjci")
-
-[node name="RockA22" type="Sprite2D" parent="."]
-position = Vector2(1564, 1218)
-rotation = 0.0110809
-scale = Vector2(0.111849, 0.109199)
-texture = ExtResource("27_4vjci")
-
-[node name="RockA11" type="Sprite2D" parent="."]
-position = Vector2(348.476, 8489.24)
-rotation = 0.0625106
-scale = Vector2(-0.131722, 0.131722)
-texture = ExtResource("27_4vjci")
-
-[node name="RockA12" type="Sprite2D" parent="."]
-position = Vector2(212.476, 8546.24)
-rotation = 2.6121
-scale = Vector2(-0.0488778, 0.0600887)
-texture = ExtResource("27_4vjci")
-
-[node name="RockB5" type="Sprite2D" parent="."]
-position = Vector2(221, 8299.85)
-rotation = 0.721823
-scale = Vector2(-0.363721, 0.5)
-texture = ExtResource("11_viiqw")
-
-[node name="RockA7" type="Sprite2D" parent="."]
-position = Vector2(345.882, 12275.5)
-rotation = 0.0625106
-scale = Vector2(-0.131722, 0.131722)
-texture = ExtResource("27_4vjci")
-
-[node name="RockA8" type="Sprite2D" parent="."]
-position = Vector2(209.882, 12332.5)
-rotation = 2.6121
-scale = Vector2(-0.0488778, 0.0600887)
-texture = ExtResource("27_4vjci")
-
-[node name="RockB4" type="Sprite2D" parent="."]
-position = Vector2(179.882, 12099.5)
-rotation = -0.0690435
-scale = Vector2(-0.363721, 0.5)
-texture = ExtResource("11_viiqw")
-
-[node name="RockA19" type="Sprite2D" parent="."]
-position = Vector2(345.882, 3952.52)
-rotation = 0.0625106
-scale = Vector2(-0.131722, 0.131722)
-texture = ExtResource("27_4vjci")
-
-[node name="RockA20" type="Sprite2D" parent="."]
-position = Vector2(209.882, 4009.52)
-rotation = 2.6121
-scale = Vector2(-0.0488778, 0.0600887)
-texture = ExtResource("27_4vjci")
-
-[node name="RockB8" type="Sprite2D" parent="."]
-position = Vector2(179.882, 3776.52)
-rotation = -0.0690435
-scale = Vector2(-0.363721, 0.5)
-texture = ExtResource("11_viiqw")
-
 [connection signal="timeout" from="UI/Action_Event_Resist_Siren_Song/MashButton_Module/MashButtonTimer" to="UI/Action_Event_Resist_Siren_Song/MashButton_Module" method="_on_mash_button_timer_timeout"]
 
-[editable path="Siren_Small"]
+[editable path="Enemies/Siren"]
+[editable path="Enemies/Siren_Small"]
+[editable path="Enemies/Whirl3"]
+[editable path="Rocks/Rock"]

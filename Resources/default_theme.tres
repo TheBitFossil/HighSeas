@@ -4,6 +4,11 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wrwbd"]
 bg_color = Color(0.0392157, 0.0941176, 0.145098, 0.666667)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.580392, 0.568627, 0.529412, 0.643137)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16

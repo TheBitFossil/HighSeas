@@ -17,7 +17,8 @@ func _ready() -> void:
 	EvBus.mash_button_success.connect(_on_mash_button_success)
 	EvBus.mash_button_failed.connect(_on_mash_button_failed)
 	EvBus.lured_in.connect(_on_ship_lured_in)
-
+	EvBus.game_over.connect(_on_game_over)
+	
 	audio_stream_player.set_playing(true)
 
 
@@ -55,3 +56,9 @@ func _on_mash_button_failed():
 
 func _on_restart_game():
 	get_tree().reload_current_scene()
+
+
+func _on_game_over():
+	ship.disable_controls()
+	$AudioStreamPlayer.stop()
+	EvBus.emit_signal("camera_static")

@@ -16,7 +16,6 @@ radius = 96.4065
 radius = 154.332
 
 [node name="Rock" type="Node2D"]
-position = Vector2(4, 0)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-152, 39)

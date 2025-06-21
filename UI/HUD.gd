@@ -8,25 +8,24 @@ signal tutorial_msg_closed()
 @onready var crew_container : HBoxContainer = %Crew
 @onready var crew_array: Array[TextureProgressBar]
 @onready var anim_infos: AnimationPlayer = %Anim_Infos
-@onready var tutorial_msg: Control = %Tutorial_Msg
 @onready var infos: Control = %Infos
 
-@onready var reached_goal_msg: Control = %ReachedGoal_Msg
-
-
-
+#Screens
 @onready var mash_button_module: Control = %MashButton_Module
-
+@onready var game_over: Control = %Game_Over
+@onready var tutorial_msg: Control = %Tutorial_Msg
+@onready var reached_goal_msg: Control = %ReachedGoal_Msg
 
 var tutorial_active : bool = true
 var has_reached_goal : bool = false
-
+var is_game_over : bool = false
 
 
 func _ready() -> void:
 	EvBus.has_reached_goal.connect(_on_has_reached_goal)
 	EvBus.crew_changed.connect(_on_crew_changed)
 	EvBus.health_changed.connect(_on_health_changed)
+	EvBus.game_over.connect(_on_game_over)
 	
 	infos.hide()
 	tutorial_msg.show()
@@ -61,7 +60,7 @@ func enable_mash_button():
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("move_to_target"):
+	if event.is_action_pressed("move_to_target") :
 		if tutorial_active:
 			close_tutorial_msg()
 		if has_reached_goal:
@@ -126,3 +125,22 @@ func update_stats():
 func update_crew():
 	for i in Data.crew:
 		crew_array[i].value = 1
+
+
+func _on_game_over():
+	is_game_over = true
+	mash_button_module.hide()
+	tutorial_msg.hide()
+	reached_goal_msg.hide()
+	
+	game_over.show()
+
+
+func _on_button_quit_pressed() -> void:
+	EvBus.emit_signal("game_over")
+	#TODO:give control to gameRoot
+	get_tree().quit()
+
+
+func _on_button_retry_pressed() -> void:
+	EvBus.emit_signal("restart_game")

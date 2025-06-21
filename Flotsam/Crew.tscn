@@ -104,6 +104,7 @@ position = Vector2(-8, 6)
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = 9
 position = Vector2(-7, -5)
 shape = SubResource("CircleShape2D_f6irc")
 

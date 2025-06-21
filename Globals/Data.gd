@@ -1,9 +1,10 @@
 extends Node
 
 var has_reached_goal : bool = false
+var is_game_over : bool = false
 
 const MAX_HP : float = 100.0
-var hp : float = 40.0
+var hp : float = 10.0
 
 const  MAX_CREW : float = 5
 var crew : int = 3
@@ -17,6 +18,7 @@ var siren_lost : int = 0
 var oil_hit : int = 0
 var time_taken_seconds : int = 0
 
+var hit_rock_damage : int = 10
 
 
 func reach_goal():
@@ -70,3 +72,7 @@ func add_siren_defeat():
 
 func add_siren_lost():
 	siren_lost += 1
+
+
+func player_hit_rock():
+	remove_hp(hit_rock_damage)

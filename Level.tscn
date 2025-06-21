@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dj8kxsq5tqkct"]
+[gd_scene load_steps=45 format=3 uid="uid://dj8kxsq5tqkct"]
 
 [ext_resource type="Script" uid="uid://ctj7g03v4b4xd" path="res://GameRoot.gd" id="1_q4iis"]
 [ext_resource type="PackedScene" uid="uid://qobdm2gpnb67" path="res://Enemies/Siren.tscn" id="2_q4iis"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://cy2wb7oh0kv1d" path="res://Enemies/Whirl.tscn" id="19_wesx8"]
 [ext_resource type="PackedScene" uid="uid://dkknsfwnhyx5g" path="res://Environment/Rock.tscn" id="21_b4adj"]
 [ext_resource type="PackedScene" uid="uid://ceanecg3yiunj" path="res://Environment/Rock_2.tscn" id="24_q2vmi"]
+[ext_resource type="Script" uid="uid://c13unwhnl0cwj" path="res://Rocks.gd" id="25_jpwbr"]
 [ext_resource type="PackedScene" uid="uid://bvmt82a6rvhem" path="res://Environment/Rock_3.tscn" id="25_lwa2w"]
 [ext_resource type="PackedScene" uid="uid://b0xxkgml3jlmk" path="res://Flotsam/OilBarrel.tscn" id="25_q2vmi"]
 [ext_resource type="PackedScene" uid="uid://c5ao8s1rmbr2l" path="res://Environment/Goal.tscn" id="25_wesx8"]
@@ -51,35 +52,11 @@ corner_radius_bottom_left = 16
 
 [sub_resource type="Animation" id="Animation_3ppgv"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Panel/RichTextLabel:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_s0cgv"]
 resource_name = "idle"
 length = 2.0
 loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Panel/RichTextLabel:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.933333, 1.8),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.517647), Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wesx8"]
 _data = {
@@ -160,6 +137,7 @@ script = ExtResource("1_q4iis")
 z_index = -10
 offset_right = 1655.0
 offset_bottom = 15012.0
+mouse_filter = 2
 color = Color(0.0980392, 0.160784, 0.270588, 1)
 metadata/_edit_lock_ = true
 
@@ -170,6 +148,7 @@ script = ExtResource("8_sypgb")
 
 [node name="MashButton_Module" type="Control" parent="HUD"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -182,6 +161,7 @@ offset_right = 20.0
 offset_bottom = 106.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("12_dn5x0")
 
 [node name="MashButtonTimer" type="Timer" parent="HUD/MashButton_Module"]
@@ -222,6 +202,7 @@ offset_top = 126.0
 offset_bottom = 126.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme = ExtResource("10_s0cgv")
 metadata/_edit_use_anchors_ = true
 
@@ -357,10 +338,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_s0cgv")
 [node name="RichTextLabel5" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect2"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-anchor_left = -1.15385
-anchor_top = 0.113334
-anchor_right = -0.623482
-anchor_bottom = 0.320001
+anchor_left = -1.17004
+anchor_top = 0.0866675
+anchor_right = -0.639672
+anchor_bottom = 0.293335
 offset_left = 295.0
 offset_right = 295.0
 size_flags_horizontal = 3
@@ -375,10 +356,10 @@ metadata/_edit_use_anchors_ = true
 [node name="RichTextLabel6" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect2"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-anchor_left = -0.753036
-anchor_top = 0.666667
-anchor_right = -0.340081
-anchor_bottom = 0.873334
+anchor_left = -0.736842
+anchor_top = 0.746667
+anchor_right = -0.323887
+anchor_bottom = 0.953334
 offset_left = 295.0
 offset_right = 295.0
 size_flags_horizontal = 3
@@ -393,10 +374,10 @@ metadata/_edit_use_anchors_ = true
 [node name="TextureRect2" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect2"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-anchor_left = 0.587649
-anchor_top = 0.204549
-anchor_right = 0.674649
-anchor_bottom = 0.360549
+anchor_left = 0.604211
+anchor_top = 0.129666
+anchor_right = 0.786287
+anchor_bottom = 0.405061
 offset_left = -8.55499
 offset_top = -50.4499
 offset_right = 88.4722
@@ -411,11 +392,11 @@ metadata/_edit_use_anchors_ = true
 [node name="TextureRect5" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect2"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-anchor_left = 0.67852
-anchor_top = 0.134883
-anchor_right = 1.06314
-anchor_bottom = 0.668216
-rotation = 0.727347
+anchor_left = 0.654596
+anchor_top = 0.0600008
+anchor_right = 1.12423
+anchor_bottom = 0.713334
+rotation = 0.975742
 pivot_offset = Vector2(43, 43)
 texture = ExtResource("13_s0cgv")
 expand_mode = 1
@@ -425,15 +406,15 @@ metadata/_edit_use_anchors_ = true
 [node name="TextureRect3" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect2"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.319034
-anchor_top = 0.438526
-anchor_right = 0.386481
-anchor_bottom = 0.734414
+anchor_left = 0.341978
+anchor_top = 0.305193
+anchor_right = 0.470153
+anchor_bottom = 0.701081
 offset_left = -8.80143
 offset_top = 5.22112
 offset_right = 7.53917
 offset_bottom = -6.16208
-rotation = 0.233815
+rotation = -0.155742
 scale = Vector2(1.34262, 1.34262)
 pivot_offset = Vector2(19, 22)
 texture = ExtResource("15_yr3df")
@@ -444,15 +425,15 @@ metadata/_edit_use_anchors_ = true
 [node name="TextureRect" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect2"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-anchor_left = -0.0503854
-anchor_top = 0.482512
-anchor_right = 0.35339
-anchor_bottom = 0.838629
+anchor_left = -0.0557821
+anchor_top = 0.42918
+anchor_right = 0.376333
+anchor_bottom = 0.831963
 offset_left = 10.4452
 offset_top = -13.3769
 offset_right = -9.2873
 offset_bottom = 13.2056
-rotation = -0.344044
+rotation = -0.525192
 pivot_offset = Vector2(40, 42)
 texture = ExtResource("11_viiqw")
 expand_mode = 1
@@ -463,10 +444,10 @@ metadata/_edit_use_anchors_ = true
 [node name="TextureRect4" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect2"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.245773
-anchor_top = 0.631192
-anchor_right = 0.430629
-anchor_bottom = 1.12041
+anchor_left = 0.25072
+anchor_top = 0.592654
+anchor_right = 0.435576
+anchor_bottom = 1.08187
 offset_left = -10.2608
 offset_top = 7.10196
 offset_right = 6.07977
@@ -580,6 +561,7 @@ anchor_right = 0.803125
 anchor_bottom = 0.7375
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme = ExtResource("10_s0cgv")
 metadata/_edit_use_anchors_ = true
 
@@ -921,14 +903,94 @@ libraries = {
 }
 autoplay = "idle"
 
+[node name="Game_Over" type="Control" parent="HUD"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchor_left = 0.197656
+anchor_top = 0.0791667
+anchor_right = 0.803125
+anchor_bottom = 0.7375
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("10_s0cgv")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="HUD/Game_Over"]
+custom_minimum_size = Vector2(500, 250)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.188387
+anchor_top = 0.170886
+anchor_right = 0.833548
+anchor_bottom = 0.698312
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HUD/Game_Over/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.236
+anchor_top = 0.236
+anchor_right = 0.764
+anchor_bottom = 0.448
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="RT_Headline" type="RichTextLabel" parent="HUD/Game_Over/Panel/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/normal_font_size = 42
+theme_override_font_sizes/bold_font_size = 42
+bbcode_enabled = true
+text = "[b]Game Over! [/b]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 161
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HUD/Game_Over/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.236
+anchor_top = 0.58
+anchor_right = 0.734
+anchor_bottom = 0.764
+theme_override_constants/separation = 36
+
+[node name="Button_Retry" type="Button" parent="HUD/Game_Over/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Retry !"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button_Quit" type="Button" parent="HUD/Game_Over/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Quit ?"
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Game_Over"]
+libraries = {
+&"": SubResource("AnimationLibrary_wesx8")
+}
+autoplay = "idle"
+
 [node name="Infos" type="Control" parent="HUD"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme = ExtResource("10_s0cgv")
 
 [node name="Quest" type="Control" parent="HUD/Infos"]
@@ -974,8 +1036,8 @@ anchor_left = 0.804688
 anchor_top = 0.0541667
 anchor_right = 0.951563
 anchor_bottom = 0.106944
-offset_left = 4.5
-offset_right = 4.5
+offset_left = 1.0
+offset_right = 1.0
 grow_horizontal = 0
 metadata/_edit_use_anchors_ = true
 
@@ -1083,7 +1145,7 @@ libraries = {
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Siren" parent="Enemies" instance=ExtResource("2_q4iis")]
-position = Vector2(1180, 12432)
+position = Vector2(1043, 12548)
 rotation = -0.221317
 scale = Vector2(0.2, 0.2)
 
@@ -1091,8 +1153,23 @@ scale = Vector2(0.2, 0.2)
 position = Vector2(252, 35)
 
 [node name="Siren2" parent="Enemies" instance=ExtResource("2_q4iis")]
-position = Vector2(170, 11062)
+position = Vector2(222, 11161)
 rotation = 0.587798
+scale = Vector2(0.2, 0.2)
+
+[node name="Siren3" parent="Enemies" instance=ExtResource("2_q4iis")]
+position = Vector2(932, 9642)
+rotation = -0.374664
+scale = Vector2(0.2, 0.2)
+
+[node name="Siren9" parent="Enemies" instance=ExtResource("2_q4iis")]
+position = Vector2(1237, 8821)
+rotation = -0.636315
+scale = Vector2(0.2, 0.2)
+
+[node name="Siren10" parent="Enemies" instance=ExtResource("2_q4iis")]
+position = Vector2(402, 8674)
+rotation = 0.776763
 scale = Vector2(0.2, 0.2)
 
 [node name="Siren_Small" parent="Enemies" instance=ExtResource("2_q4iis")]
@@ -1113,34 +1190,55 @@ position = Vector2(429, 6381)
 rotation = 0.322317
 scale = Vector2(0.2, 0.2)
 
+[node name="Siren6" parent="Enemies" instance=ExtResource("2_q4iis")]
+position = Vector2(659, 4443)
+rotation = 0.322317
+scale = Vector2(0.2, 0.2)
+
+[node name="Siren7" parent="Enemies" instance=ExtResource("2_q4iis")]
+position = Vector2(237, 2629)
+rotation = 0.322317
+scale = Vector2(0.2, 0.2)
+
+[node name="Siren8" parent="Enemies" instance=ExtResource("2_q4iis")]
+position = Vector2(1044, 2592)
+rotation = 0.322317
+scale = Vector2(0.2, 0.2)
+
 [node name="Kraken" parent="Enemies" instance=ExtResource("14_esphl")]
 position = Vector2(813, 7567)
 scale = Vector2(0.7, 0.7)
 
 [node name="Whirl3" parent="Enemies" instance=ExtResource("19_wesx8")]
-position = Vector2(657, 9663)
+position = Vector2(427, 9700)
 scale = Vector2(0.5, 0.5)
 
 [node name="Whirl4" parent="Enemies" instance=ExtResource("19_wesx8")]
-position = Vector2(1390, 8228)
+position = Vector2(1407, 8125)
 scale = Vector2(0.5, 0.5)
 
 [node name="Whirl5" parent="Enemies" instance=ExtResource("19_wesx8")]
-position = Vector2(222, 8253)
+position = Vector2(219, 8130)
 scale = Vector2(0.5, 0.5)
 
 [node name="Whirl6" parent="Enemies" instance=ExtResource("19_wesx8")]
-position = Vector2(1167, 6873)
+position = Vector2(1064, 6753)
 scale = Vector2(0.5, 0.5)
 
 [node name="Whirl2" parent="Enemies" instance=ExtResource("19_wesx8")]
-position = Vector2(1192, 10798)
+position = Vector2(1385, 10902)
+scale = Vector2(0.5, 0.5)
+
+[node name="Whirl7" parent="Enemies" instance=ExtResource("19_wesx8")]
+position = Vector2(785, 2269)
 scale = Vector2(0.5, 0.5)
 
 [node name="Rocks" type="Node" parent="."]
+script = ExtResource("25_jpwbr")
 
 [node name="Rock" parent="Rocks" instance=ExtResource("21_b4adj")]
-position = Vector2(798, 11409)
+position = Vector2(861, 11612)
+rotation = 0.235191
 scale = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" parent="Rocks/Rock/StaticBody2D3" index="1"]
@@ -1150,8 +1248,14 @@ position = Vector2(-4.29105, -35.9804)
 position = Vector2(54, 5540)
 scale = Vector2(0.5, 0.5)
 
+[node name="StaticBody2D3" parent="Rocks/Rock4" index="2"]
+position = Vector2(2886, 1160)
+
 [node name="CollisionShape2D" parent="Rocks/Rock4/StaticBody2D3" index="1"]
 position = Vector2(-4.29105, -35.9804)
+
+[node name="StaticBody2D4" parent="Rocks/Rock4" index="3"]
+position = Vector2(1016, 358)
 
 [node name="Rock2" parent="Rocks" instance=ExtResource("24_q2vmi")]
 position = Vector2(780, 13307)
@@ -1172,13 +1276,13 @@ rotation = 0.127984
 [node name="Flotsam" type="Node" parent="."]
 
 [node name="Flotsam" parent="Flotsam" instance=ExtResource("15_5qkpu")]
-position = Vector2(1383, 13487)
+position = Vector2(1447, 13640)
 
 [node name="Flotsam5" parent="Flotsam" instance=ExtResource("15_5qkpu")]
-position = Vector2(402, 13468)
+position = Vector2(206, 13518)
 
 [node name="Flotsam2" parent="Flotsam" instance=ExtResource("15_5qkpu")]
-position = Vector2(455, 10290)
+position = Vector2(679, 10096)
 
 [node name="Flotsam3" parent="Flotsam" instance=ExtResource("15_5qkpu")]
 position = Vector2(658, 6390)
@@ -1187,7 +1291,7 @@ position = Vector2(658, 6390)
 position = Vector2(396, 9294)
 
 [node name="Flotsam6" parent="Flotsam" instance=ExtResource("15_5qkpu")]
-position = Vector2(1448, 9160)
+position = Vector2(1508, 9160)
 
 [node name="Flotsam7" parent="Flotsam" instance=ExtResource("15_5qkpu")]
 position = Vector2(1084, 5772)
@@ -1207,28 +1311,28 @@ position = Vector2(1449, 1562)
 [node name="Oil" type="Node" parent="."]
 
 [node name="OilBarrel" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(1479, 10233)
+position = Vector2(1212, 9943)
 
 [node name="OilBarrel3" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(1451, 11167)
+position = Vector2(1482, 11599)
 
 [node name="OilBarrel4" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(730, 11031)
+position = Vector2(657, 11208)
 
 [node name="OilBarrel2" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(259, 9743)
+position = Vector2(341, 10345)
 
 [node name="OilBarrel5" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(905, 9307)
+position = Vector2(237, 9420)
 
 [node name="OilBarrel6" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(1215, 9179)
+position = Vector2(1050, 9264)
 
 [node name="OilBarrel7" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(1411, 9417)
+position = Vector2(1287, 9488)
 
 [node name="OilBarrel8" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(633, 9059)
+position = Vector2(123, 8967)
 
 [node name="OilBarrel9" parent="Oil" instance=ExtResource("25_q2vmi")]
 position = Vector2(202, 7081)
@@ -1249,34 +1353,46 @@ position = Vector2(651, 2770)
 position = Vector2(848, 1767)
 
 [node name="OilBarrel15" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(622, 13948)
-
-[node name="OilBarrel16" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(1097, 13819)
+position = Vector2(521, 13979)
 
 [node name="OilBarrel17" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(681, 13583)
+position = Vector2(170, 3083)
+
+[node name="OilBarrel18" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(1324, 2173)
+
+[node name="OilBarrel19" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(1455, 6445)
+
+[node name="OilBarrel20" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(1275, 5019)
+
+[node name="OilBarrel21" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(1486, 4373)
+
+[node name="OilBarrel22" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(989, 3610)
 
 [node name="Crew" type="Node" parent="."]
 
 [node name="Crew2" parent="Crew" instance=ExtResource("28_lwa2w")]
-position = Vector2(817, 13131)
+position = Vector2(333, 12861)
 scale = Vector2(0.5, 0.5)
 
 [node name="Crew3" parent="Crew" instance=ExtResource("28_lwa2w")]
-position = Vector2(283, 11222)
+position = Vector2(335, 11321)
 scale = Vector2(0.5, 0.5)
 
 [node name="Crew5" parent="Crew" instance=ExtResource("28_lwa2w")]
-position = Vector2(1207, 10788)
+position = Vector2(1400, 10892)
 scale = Vector2(0.5, 0.5)
 
 [node name="Crew6" parent="Crew" instance=ExtResource("28_lwa2w")]
-position = Vector2(281, 9444)
+position = Vector2(277, 9148)
 scale = Vector2(0.5, 0.5)
 
 [node name="Crew4" parent="Crew" instance=ExtResource("28_lwa2w")]
-position = Vector2(1207, 8955)
+position = Vector2(1329, 9256)
 scale = Vector2(0.5, 0.5)
 
 [node name="Crew7" parent="Crew" instance=ExtResource("28_lwa2w")]
@@ -1296,7 +1412,7 @@ position = Vector2(418, 4843)
 scale = Vector2(0.5, 0.5)
 
 [node name="Crew11" parent="Crew" instance=ExtResource("28_lwa2w")]
-position = Vector2(564, 3919)
+position = Vector2(1351, 4147)
 scale = Vector2(0.5, 0.5)
 
 [node name="Goal" parent="." instance=ExtResource("25_wesx8")]
@@ -1330,16 +1446,17 @@ editor_draw_drag_margin = true
 [node name="Ship" parent="." instance=ExtResource("4_mxnmf")]
 unique_name_in_owner = true
 position = Vector2(823, 14374)
-rotation = -1.5708
 default_speed = 180.0
 lured_speed = 10.0
 lured_rot_speed = 1.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("32_hkpnj")
-volume_db = -80.0
+volume_db = -10.0
 
 [connection signal="timeout" from="HUD/MashButton_Module/MashButtonTimer" to="HUD/MashButton_Module" method="_on_mash_button_timer_timeout"]
+[connection signal="pressed" from="HUD/Game_Over/Panel/HBoxContainer/Button_Retry" to="HUD" method="_on_button_retry_pressed"]
+[connection signal="pressed" from="HUD/Game_Over/Panel/HBoxContainer/Button_Quit" to="HUD" method="_on_button_quit_pressed"]
 
 [editable path="Enemies/Siren"]
 [editable path="Enemies/Siren_Small"]

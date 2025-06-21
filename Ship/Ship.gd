@@ -13,13 +13,12 @@ var is_drawn_in : bool = false
 var has_controls_enabled: bool = false
 var target : Vector2 = Vector2.ZERO
 var siren_target : Siren = null
-
-
-var health := 50.0
-@export var max_health := 100.0
+var is_damage_cooldown : bool = false
 
 @onready var anim_trails: AnimatedSprite2D = $AnimatedSprite2D
 @onready var mouse_marker: Node2D = %MouseMarker
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var damage_cool_down_timer: Timer = %DamageCoolDown
 
 
 func _ready() -> void:
@@ -29,6 +28,10 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if not has_controls_enabled:
+		if event.is_action_pressed("move_to_target"):
+			#TODO: make sure that the game is over here
+			print("Ship does not have controls, how do I make sure that the mouse still works?")
+			pass
 		return
 		
 	if event.is_action_pressed("move_to_target") and not is_drawn_in:
@@ -70,6 +73,23 @@ func _physics_process(delta: float) -> void:
 			velocity = Vector2.ZERO
 	
 	trail_animation(velocity)
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		print("Collided with: ", collision.get_collider().name)
+		hit_rock()
+
+
+
+func hit_rock():
+	if is_damage_cooldown:
+		return
+		
+	is_damage_cooldown = true
+	damage_cool_down_timer.start()
+	#TODO: this is for ALL Collisions regardless, need to check SPECIFIC for a Rock if needed
+	%HitRockVFX.set_emitting(true)
+	Data.player_hit_rock()
+	animation_player.play("hit_rock")
 
 
 
@@ -113,7 +133,6 @@ func resist_siren_failed():
 	enable_controls()
 
 
-
 func get_siren_pos() -> Vector2:
 	if siren_target != null:
 		return siren_target.global_position
@@ -139,8 +158,14 @@ func trail_animation(velocity):
 
 
 func collect_flotsam(ship_health) -> bool:
-	if (health + ship_health) > max_health:
-		health = max_health
-	else:
-		health += ship_health
+	Data.add_hp(ship_health)
 	return true
+
+
+func start_whirl():
+	print("Caught in Whirl!")
+	animation_player.play("hit_whirl")
+
+
+func _on_damage_cool_down_timeout() -> void:
+	is_damage_cooldown = false

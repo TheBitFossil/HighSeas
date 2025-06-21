@@ -4,6 +4,7 @@ extends Node2D
 #todo add ship health
 @export var _is_dangerous := false
 
+var speed : float = 50.0
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -19,3 +20,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		if body.collect_flotsam(ship_health):
 			Data.add_flotsam()
 			call_deferred("queue_free")
+
+
+func _physics_process(delta: float) -> void:
+	position.y += speed * delta

@@ -1,6 +1,42 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dompoh3p3ckpa"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dompoh3p3ckpa"]
 
 [ext_resource type="FontFile" uid="uid://cbnei45rtolkl" path="res://Assets/Fonts/ConvincingPirate.ttf" id="1_76a3c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_76a3c"]
+bg_color = Color(0.0392157, 0.0941176, 0.145098, 0.666667)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.213658, 0.383209, 0.662883, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ot8jh"]
+bg_color = Color(0.213658, 0.383209, 0.662883, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.580392, 0.568627, 0.529412, 0.643137)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8fd2c"]
+bg_color = Color(0.580392, 0.568627, 0.529412, 0.643137)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0980392, 0.160784, 0.270588, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wrwbd"]
 bg_color = Color(0.0392157, 0.0941176, 0.145098, 0.666667)
@@ -15,6 +51,9 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
 [resource]
+Button/styles/hover = SubResource("StyleBoxFlat_76a3c")
+Button/styles/normal = SubResource("StyleBoxFlat_ot8jh")
+Button/styles/pressed = SubResource("StyleBoxFlat_8fd2c")
 Panel/styles/panel = SubResource("StyleBoxFlat_wrwbd")
 RichTextLabel/font_sizes/bold_font_size = 24
 RichTextLabel/font_sizes/normal_font_size = 18

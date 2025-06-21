@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6j1hu3ibjr3r"]
+
+[ext_resource type="Script" uid="uid://cub2nb7trdvex" path="res://MouseMarker.gd" id="1_ofpgp"]
+[ext_resource type="Texture2D" uid="uid://c6gr3qrqyo323" path="res://Assets/Klick.png" id="2_g76ml"]
+
+[sub_resource type="Animation" id="Animation_ofpgp"]
+resource_name = "idle"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Klick:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.0266667, 0.0266667), Vector2(0.08, 0.08), Vector2(0.2, 0.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Klick:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.74902), Color(1, 1, 1, 0.74902), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_g76ml"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Klick:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.103333, 0.103333)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Klick:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_asilb"]
+_data = {
+&"RESET": SubResource("Animation_g76ml"),
+&"idle": SubResource("Animation_ofpgp")
+}
+
+[node name="MouseMarker" type="Node2D"]
+z_index = 9
+script = ExtResource("1_ofpgp")
+
+[node name="Klick" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.103333, 0.103333)
+texture = ExtResource("2_g76ml")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_asilb")
+}

@@ -1,0 +1,63 @@
+{
+    "name": "root",
+    "nodes": [
+        {
+            "children": [],
+            "frame_index": 0,
+            "name": "Paint_Layer_1",
+            "node_path": "Paint_Layer_1",
+            "offset": [
+                -458.0,
+                185.0
+            ],
+            "opacity": 1.0,
+            "pivot_offset": [
+                0.0,
+                0.0
+            ],
+            "position": [
+                0,
+                0
+            ],
+            "resource_path": "export/Paint_Layer_1.png",
+            "rotation": 0.0,
+            "scale": [
+                1.0,
+                1.0
+            ],
+            "tiles_x": 1,
+            "tiles_y": 1,
+            "type": "SPRITE",
+            "z": -1
+        },
+        {
+            "children": [],
+            "frame_index": 0,
+            "name": "Background",
+            "node_path": "Background",
+            "offset": [
+                -458.0,
+                185.0
+            ],
+            "opacity": 1.0,
+            "pivot_offset": [
+                0.0,
+                0.0
+            ],
+            "position": [
+                -82,
+                -32
+            ],
+            "resource_path": "export/Background.png",
+            "rotation": 0.0,
+            "scale": [
+                1.0,
+                1.0
+            ],
+            "tiles_x": 1,
+            "tiles_y": 1,
+            "type": "SPRITE",
+            "z": 0
+        }
+    ]
+}

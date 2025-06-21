@@ -6,4 +6,5 @@ extends Node2D
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.has_method("collect_crew"):
-		body.collect_crew(crew_value)
+		if body.collect_crew(crew_value):
+			call_deferred("queue_free")

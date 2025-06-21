@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dbug2h3anxa7w" path="res://Assets/waves_flotsam.png" id="2_8x0dk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xdhln"]
-size = Vector2(385, 234)
+size = Vector2(277, 178)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kw707"]
-size = Vector2(272, 152)
+size = Vector2(221.037, 123.721)
 
 [node name="Rock2" type="Node2D"]
 

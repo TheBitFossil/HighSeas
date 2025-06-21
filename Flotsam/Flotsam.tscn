@@ -110,6 +110,7 @@ _data = {
 size = Vector2(832, 430)
 
 [node name="Flotsam" type="Node2D"]
+z_index = 6
 scale = Vector2(0.12, 0.12)
 script = ExtResource("1_7ej5g")
 

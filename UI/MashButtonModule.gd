@@ -1,20 +1,21 @@
 extends Control
 
-signal mash_button_success()
-
 @onready var MashButtonTimer: Timer = %MashButtonTimer
-@onready var sprite: Sprite2D = %Sprite
+@onready var mash_button_progress: TextureProgressBar = %TextureProgressBar
+
 
 var is_active : bool = false
 var mash_button_idx : int = 0
-var max_sprites : int
-var idx : int
-
+var max_button_hits : int = 10
+@export var amount_to_increase : int = 1
+@export var amount_to_decrease : int = 3
 
 
 func _ready() -> void:
-	max_sprites = sprite.vframes -5
 	set_disabled()
+	mash_button_progress.value = 0
+	mash_button_progress.max_value = max_button_hits
+	mash_button_progress.step = 1
 
 
 func set_enabled():
@@ -26,32 +27,32 @@ func set_disabled():
 	is_active = false
 	hide()
 
-func reset_idx():
-	idx = 0
 
-func set_sprite(idx : int):
-	sprite.frame = idx
+func reset_idx():
+	mash_button_idx = 0
 
 
 func _input(event: InputEvent) -> void:
-	if is_active:
+	if not is_active:
+		return
 		
-		if event.is_action_pressed("move_to_target"):
-			idx += 1
+	if event.is_action_pressed("move_to_target"):
+		mash_button_idx += amount_to_increase
+		
+		if mash_button_idx > max_button_hits:
+			mash_button_idx = max_button_hits
+			EvBus.emit_signal("mash_button_success")
+			set_disabled()
+			reset_idx()
+		else:
+			mash_button_progress.value = mash_button_idx
 			MashButtonTimer.start()
-			if idx > max_sprites:
-				idx = max_sprites
-				emit_signal("mash_button_success")
-				set_disabled()
-				reset_idx()
-				
-			set_sprite(idx)
 
 
 func _on_mash_button_timer_timeout() -> void:
-	idx -= 1
-	if idx <= 0:
-		idx = 0
-	
-	set_sprite(idx)
+	mash_button_progress.value = mash_button_idx
+	mash_button_idx -= amount_to_decrease
+	if mash_button_idx <= 0:
+		mash_button_idx = 0
+		print("Button Mash: ", mash_button_idx)
 	MashButtonTimer.start()

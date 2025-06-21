@@ -1,29 +1,31 @@
-[gd_scene load_steps=43 format=3 uid="uid://dj8kxsq5tqkct"]
+[gd_scene load_steps=44 format=3 uid="uid://dj8kxsq5tqkct"]
 
 [ext_resource type="Script" uid="uid://ctj7g03v4b4xd" path="res://GameRoot.gd" id="1_q4iis"]
 [ext_resource type="PackedScene" uid="uid://qobdm2gpnb67" path="res://Enemies/Siren.tscn" id="2_q4iis"]
 [ext_resource type="PackedScene" uid="uid://0ax2r5qkb4rj" path="res://Ship/Ship.tscn" id="4_mxnmf"]
 [ext_resource type="Script" uid="uid://djkatwykv31eg" path="res://Camera.gd" id="5_86ljf"]
-[ext_resource type="Script" uid="uid://ddu364typwhh" path="res://UI/UI.gd" id="7_4eo0i"]
-[ext_resource type="Script" uid="uid://d1c5hqhc4mt2i" path="res://CountDown.gd" id="8_3ppgv"]
+[ext_resource type="Texture2D" uid="uid://beo62o51345qm" path="res://Assets/QTE_White.png" id="8_i6xau"]
 [ext_resource type="Script" uid="uid://b7t74tlcxvj7t" path="res://UI/HUD.gd" id="8_sypgb"]
-[ext_resource type="Texture2D" uid="uid://btqnu8wrqc5gf" path="res://Assets/Inputs/Inputs_QuickTime/T_Up_Key_White.png" id="9_3ywx5"]
+[ext_resource type="Texture2D" uid="uid://dwje38401vkmf" path="res://Assets/QTE_Resist.png" id="9_i1p0x"]
+[ext_resource type="Texture2D" uid="uid://x2kkhujlllcg" path="res://Assets/QTE_Circle.png" id="10_0e475"]
 [ext_resource type="Texture2D" uid="uid://cmg0xaieig8ao" path="res://Assets/Ship.png" id="10_5qkpu"]
 [ext_resource type="Texture2D" uid="uid://csahpmachfty5" path="res://Assets/Inputs/Blanks/T_Blank_Black_Mouse.png" id="10_dcckh"]
-[ext_resource type="Texture2D" uid="uid://nd2kd2v8h3i6" path="res://Assets/Inputs/Inputs_QuickTime/T_Left_Key_White.png" id="10_ofirr"]
 [ext_resource type="Theme" uid="uid://dompoh3p3ckpa" path="res://Resources/default_theme.tres" id="10_s0cgv"]
-[ext_resource type="Texture2D" uid="uid://c6v7vyj5ufi45" path="res://Assets/Inputs/Inputs_QuickTime/T_Right_Key_White.png" id="11_ofirr"]
 [ext_resource type="Texture2D" uid="uid://c1o8ahm5as1hj" path="res://Assets/Rock_B.png" id="11_viiqw"]
 [ext_resource type="Texture2D" uid="uid://216hxrbi2ple" path="res://Assets/Siren.png" id="12_105nu"]
 [ext_resource type="Script" uid="uid://t1edf56cwibo" path="res://UI/MashButtonModule.gd" id="12_dn5x0"]
-[ext_resource type="Texture2D" uid="uid://cvqwi4oxwfpif" path="res://Assets/GenericRegeneration/GenericRegeneration-Sheet.png" id="12_sypgb"]
+[ext_resource type="Texture2D" uid="uid://df0pbiwojgsqy" path="res://Assets/Wheel.png" id="12_jpwbr"]
 [ext_resource type="Texture2D" uid="uid://cuaxuogcrl7fd" path="res://Assets/Kraken.png" id="13_s0cgv"]
 [ext_resource type="PackedScene" uid="uid://driya5fjiq652" path="res://Enemies/Kraken.tscn" id="14_esphl"]
 [ext_resource type="PackedScene" uid="uid://c3fc5er0qth8q" path="res://Flotsam/Flotsam.tscn" id="15_5qkpu"]
 [ext_resource type="Texture2D" uid="uid://db6c0xhctmo8q" path="res://Assets/Chest.png" id="15_wesx8"]
-[ext_resource type="Texture2D" uid="uid://xcm0v28b5577" path="res://Assets/Sailer_Bar.png" id="17_q2vmi"]
+[ext_resource type="Texture2D" uid="uid://8lal17isoco0" path="res://Assets/Oil_barrel.png" id="15_yr3df"]
+[ext_resource type="Texture2D" uid="uid://ck75t7uc3qjra" path="res://Assets/Crew_Under.png" id="17_33gbk"]
+[ext_resource type="Texture2D" uid="uid://ctsrwmgdc8v24" path="res://Assets/Rock_A.png" id="17_dss6r"]
+[ext_resource type="Texture2D" uid="uid://cdnbugla3ctxe" path="res://Assets/Crew_Fill.png" id="18_jpwbr"]
 [ext_resource type="Texture2D" uid="uid://cbncg85fbt6gn" path="res://Assets/Sailer_Bar_Filled.png" id="18_lwa2w"]
 [ext_resource type="Texture2D" uid="uid://hkv7yjgqc437" path="res://Assets/Sailor.png" id="18_qqkhr"]
+[ext_resource type="Texture2D" uid="uid://bdd53l7uibrul" path="res://Assets/HP_Under.png" id="19_kr1e0"]
 [ext_resource type="PackedScene" uid="uid://cy2wb7oh0kv1d" path="res://Enemies/Whirl.tscn" id="19_wesx8"]
 [ext_resource type="PackedScene" uid="uid://dkknsfwnhyx5g" path="res://Environment/Rock.tscn" id="21_b4adj"]
 [ext_resource type="PackedScene" uid="uid://ceanecg3yiunj" path="res://Environment/Rock_2.tscn" id="24_q2vmi"]
@@ -32,21 +34,6 @@
 [ext_resource type="PackedScene" uid="uid://c5ao8s1rmbr2l" path="res://Environment/Goal.tscn" id="25_wesx8"]
 [ext_resource type="PackedScene" uid="uid://be83roh20rrbm" path="res://Flotsam/Crew.tscn" id="28_lwa2w"]
 [ext_resource type="AudioStream" uid="uid://ogrvwxwiyn4m" path="res://Assets/SFX/Pirate 2.ogg" id="32_hkpnj"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6u53"]
-size = Vector2(96, 98)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sypgb"]
-size = Vector2(96, 100)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dn5x0"]
-size = Vector2(94, 94)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_esphl"]
-size = Vector2(96, 94)
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qqkhr"]
-load_path = "res://.godot/imported/Anker.png-db260961cd890e3d87695b0b9c41c6a3.ctex"
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s0cgv"]
 bg_color = Color(0.580392, 0.568627, 0.529412, 0.643137)
@@ -100,144 +87,90 @@ _data = {
 &"idle": SubResource("Animation_s0cgv")
 }
 
+[sub_resource type="Animation" id="Animation_s8mmm"]
+resource_name = "loose_crew"
+length = 0.16667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Crew:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.1, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1037, 80), Vector2(1031, 80), Vector2(1043, 80), Vector2(1037, 80)]
+}
+
+[sub_resource type="Animation" id="Animation_5ekwc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Crew:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1037, 80)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Health:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1031, 39)]
+}
+
+[sub_resource type="Animation" id="Animation_i6xau"]
+resource_name = "loose_health"
+length = 0.16667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Health:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.1, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1031, 39), Vector2(1038, 39), Vector2(1031, 39), Vector2(1034.5, 39)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i1p0x"]
+_data = {
+&"RESET": SubResource("Animation_5ekwc"),
+&"loose_crew": SubResource("Animation_s8mmm"),
+&"loose_health": SubResource("Animation_i6xau")
+}
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_q4iis")
 
 [node name="Background" type="ColorRect" parent="."]
+z_index = -10
 offset_right = 1655.0
 offset_bottom = 15012.0
 color = Color(0.0980392, 0.160784, 0.270588, 1)
 metadata/_edit_lock_ = true
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="HUD" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
-script = ExtResource("7_4eo0i")
+layer = 2
+script = ExtResource("8_sypgb")
 
-[node name="Action_Event_Resist_Siren_Song" type="Control" parent="UI"]
+[node name="MashButton_Module" type="Control" parent="HUD"]
+unique_name_in_owner = true
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ArrowKeys" type="VBoxContainer" parent="UI/Action_Event_Resist_Siren_Song"]
-visible = false
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -63.5
-offset_top = -141.0
-offset_right = 63.5
-offset_bottom = -37.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/Action_Event_Resist_Siren_Song/ArrowKeys"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 3
-
-[node name="Button" type="Button" parent="UI/Action_Event_Resist_Siren_Song/ArrowKeys/HBoxContainer"]
-custom_minimum_size = Vector2(70, 40)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "^"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="UI/Action_Event_Resist_Siren_Song/ArrowKeys"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Button2" type="Button" parent="UI/Action_Event_Resist_Siren_Song/ArrowKeys/HBoxContainer2"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.5
-text = "<"
-
-[node name="Button3" type="Button" parent="UI/Action_Event_Resist_Siren_Song/ArrowKeys/HBoxContainer2"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.5
-text = ">"
-
-[node name="Song_By_Keys" type="VBoxContainer" parent="UI/Action_Event_Resist_Siren_Song"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -74.5
-offset_top = -79.5
-offset_right = 74.5
-offset_bottom = 79.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Keys" type="HBoxContainer" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys"]
-layout_mode = 2
-
-[node name="TUpKeyWhite" type="TextureRect" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys/Keys"]
-layout_mode = 2
-texture = ExtResource("9_3ywx5")
-metadata/_edit_use_anchors_ = true
-
-[node name="Area2D4" type="Area2D" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys/Keys/TUpKeyWhite"]
-position = Vector2(62, 66)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys/Keys/TUpKeyWhite/Area2D4"]
-shape = SubResource("RectangleShape2D_d6u53")
-
-[node name="TLeftKeyWhite" type="TextureRect" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys/Keys"]
-layout_mode = 2
-texture = ExtResource("10_ofirr")
-metadata/_edit_use_anchors_ = true
-
-[node name="Area2D3" type="Area2D" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys/Keys/TLeftKeyWhite"]
-position = Vector2(61, 64)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys/Keys/TLeftKeyWhite/Area2D3"]
-shape = SubResource("RectangleShape2D_sypgb")
-
-[node name="TRightKeyWhite" type="TextureRect" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys/Keys"]
-layout_mode = 2
-texture = ExtResource("11_ofirr")
-metadata/_edit_use_anchors_ = true
-
-[node name="Area2D2" type="Area2D" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys/Keys/TRightKeyWhite"]
-position = Vector2(66, 65)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys/Keys/TRightKeyWhite/Area2D2"]
-shape = SubResource("RectangleShape2D_dn5x0")
-
-[node name="TUpKeyWhite2" type="TextureRect" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys/Keys"]
-layout_mode = 2
-texture = ExtResource("9_3ywx5")
-metadata/_edit_use_anchors_ = true
-
-[node name="Area2D" type="Area2D" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys/Keys/TUpKeyWhite2"]
-position = Vector2(65, 64)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys/Keys/TUpKeyWhite2/Area2D"]
-shape = SubResource("RectangleShape2D_esphl")
-
-[node name="ProgressBar" type="ProgressBar" parent="UI/Action_Event_Resist_Siren_Song/Song_By_Keys"]
-layout_mode = 2
-size_flags_vertical = 3
-max_value = 3.0
-step = 1.0
-show_percentage = false
-
-[node name="MashButton_Module" type="Control" parent="UI/Action_Event_Resist_Siren_Song"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -251,47 +184,31 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("12_dn5x0")
 
-[node name="MashButtonTimer" type="Timer" parent="UI/Action_Event_Resist_Siren_Song/MashButton_Module"]
+[node name="MashButtonTimer" type="Timer" parent="HUD/MashButton_Module"]
 unique_name_in_owner = true
-wait_time = 0.3
+wait_time = 0.2
 one_shot = true
 
-[node name="Sprite" type="Sprite2D" parent="UI/Action_Event_Resist_Siren_Song/MashButton_Module"]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HUD/MashButton_Module"]
 unique_name_in_owner = true
-texture_filter = 1
-scale = Vector2(3.15625, 2.75)
-texture = ExtResource("12_sypgb")
-vframes = 18
-
-[node name="CountDownTimer" type="Control" parent="UI"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("8_3ppgv")
-
-[node name="Label" type="Label" parent="UI/CountDownTimer"]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 600.0
-offset_top = 328.5
-offset_right = 640.0
-offset_bottom = 351.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Timer" type="Timer" parent="UI/CountDownTimer"]
-unique_name_in_owner = true
-one_shot = true
-
-[node name="HUD" type="CanvasLayer" parent="."]
-layer = 2
-script = ExtResource("8_sypgb")
+layout_mode = 0
+anchor_left = -1.8
+anchor_top = -3.31569
+anchor_right = 1.66869
+anchor_bottom = 0.11552
+offset_left = 0.374969
+offset_top = -0.372574
+offset_right = -0.372711
+offset_bottom = 0.379196
+rotation = -0.00543283
+pivot_offset = Vector2(68.3916, 69.2059)
+value = 100.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_under = ExtResource("8_i6xau")
+texture_over = ExtResource("9_i1p0x")
+texture_progress = ExtResource("10_0e475")
+metadata/_edit_use_anchors_ = true
 
 [node name="Tutorial_Msg" type="Control" parent="HUD"]
 unique_name_in_owner = true
@@ -340,14 +257,6 @@ metadata/_edit_use_anchors_ = true
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-size_flags_stretch_ratio = 0.1
-texture = SubResource("CompressedTexture2D_qqkhr")
-expand_mode = 1
-stretch_mode = 5
-
 [node name="RichTextLabel3" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(80, 40)
 layout_mode = 2
@@ -363,28 +272,32 @@ vertical_alignment = 1
 [node name="TextureRect" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 size_flags_stretch_ratio = 0.1
 texture = ExtResource("10_dcckh")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_stretch_ratio = 0.1
-text = "to move"
+bbcode_enabled = true
+text = "[b][LMB] [/b]to move"
 fit_content = true
 scroll_active = false
+horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Quest" type="HBoxContainer" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/Quest"]
+[node name="Icon" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/Quest"]
 clip_contents = true
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-texture = ExtResource("15_wesx8")
+texture = ExtResource("12_jpwbr")
 expand_mode = 1
 stretch_mode = 5
 
@@ -414,7 +327,7 @@ size_flags_vertical = 3
 theme_override_font_sizes/bold_italics_font_size = 40
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "[color=\"8c242d\"][b]Beware[/b][/color]"
+text = "[color=\"8c242d\"][b]Beware -> Deadly![/b][/color]"
 fit_content = true
 scroll_active = false
 vertical_alignment = 1
@@ -425,7 +338,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "[color=\"527529\"][b]Collect[/b][/color]"
+text = "[color=\"527529\"][b]Collect -> Resources[/b][/color]"
 fit_content = true
 scroll_active = false
 vertical_alignment = 1
@@ -441,32 +354,54 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_s0cgv")
 
-[node name="TextureRect" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect2"]
-custom_minimum_size = Vector2(80, 80)
+[node name="RichTextLabel5" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect2"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-anchor_left = 0.548387
-anchor_top = 0.0714286
-anchor_right = 0.870968
-anchor_bottom = 0.479592
-rotation = 0.665428
-pivot_offset = Vector2(40, 42)
-texture = ExtResource("11_viiqw")
-expand_mode = 1
-stretch_mode = 5
+anchor_left = -1.15385
+anchor_top = 0.113334
+anchor_right = -0.623482
+anchor_bottom = 0.320001
+offset_left = 295.0
+offset_right = 295.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Sea Monsters ->"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect2"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+anchor_left = -0.753036
+anchor_top = 0.666667
+anchor_right = -0.340081
+anchor_bottom = 0.873334
+offset_left = 295.0
+offset_right = 295.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "<- Obstacles"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect2" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect2"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-anchor_left = -0.0241838
-anchor_top = 0.0153006
-anchor_right = 0.459613
-anchor_bottom = 0.62202
-offset_left = 45.9976
-offset_top = 2.00108
-offset_right = 45.016
-offset_bottom = 3.08399
-rotation = 1.79103
+anchor_left = 0.587649
+anchor_top = 0.204549
+anchor_right = 0.674649
+anchor_bottom = 0.360549
+offset_left = -8.55499
+offset_top = -50.4499
+offset_right = 88.4722
+offset_bottom = 18.2409
+rotation = 1.66739
 pivot_offset = Vector2(38, 36)
 texture = ExtResource("12_105nu")
 expand_mode = 1
@@ -476,12 +411,70 @@ metadata/_edit_use_anchors_ = true
 [node name="TextureRect5" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect2"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-anchor_left = 0.245968
-anchor_top = 0.479592
-anchor_right = 0.633065
-anchor_bottom = 0.959184
+anchor_left = 0.67852
+anchor_top = 0.134883
+anchor_right = 1.06314
+anchor_bottom = 0.668216
+rotation = 0.727347
 pivot_offset = Vector2(43, 43)
 texture = ExtResource("13_s0cgv")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect3" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.319034
+anchor_top = 0.438526
+anchor_right = 0.386481
+anchor_bottom = 0.734414
+offset_left = -8.80143
+offset_top = 5.22112
+offset_right = 7.53917
+offset_bottom = -6.16208
+rotation = 0.233815
+scale = Vector2(1.34262, 1.34262)
+pivot_offset = Vector2(19, 22)
+texture = ExtResource("15_yr3df")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect2"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+anchor_left = -0.0503854
+anchor_top = 0.482512
+anchor_right = 0.35339
+anchor_bottom = 0.838629
+offset_left = 10.4452
+offset_top = -13.3769
+offset_right = -9.2873
+offset_bottom = 13.2056
+rotation = -0.344044
+pivot_offset = Vector2(40, 42)
+texture = ExtResource("11_viiqw")
+expand_mode = 1
+stretch_mode = 5
+flip_h = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect4" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.245773
+anchor_top = 0.631192
+anchor_right = 0.430629
+anchor_bottom = 1.12041
+offset_left = -10.2608
+offset_top = 7.10196
+offset_right = 6.07977
+offset_bottom = -4.28123
+rotation = 0.135657
+scale = Vector2(0.647488, 0.647488)
+pivot_offset = Vector2(30.9717, 29.7826)
+texture = ExtResource("17_dss6r")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
@@ -503,16 +496,54 @@ expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
+[node name="RichTextLabel3" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+offset_left = 94.0
+offset_top = 36.0001
+offset_right = 243.0
+offset_bottom = 67.0001
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "<- Rescue Crew"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+
 [node name="TextureRect4" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-anchor_left = 0.471774
-anchor_top = 0.46
-anchor_right = 0.794355
-anchor_bottom = 0.886667
+anchor_left = 0.60063
+anchor_top = 0.617864
+anchor_right = 0.73263
+anchor_bottom = 0.869864
+offset_left = -2.35555
+offset_top = -6.67944
+offset_right = 29.0405
+offset_bottom = 6.52055
+rotation = -0.17001
+scale = Vector2(1.57907, 1.52417)
+pivot_offset = Vector2(32.2404, 26.9065)
 texture = ExtResource("15_wesx8")
 expand_mode = 1
 stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+anchor_left = 0.0890688
+anchor_top = 0.673334
+anchor_right = 0.692308
+anchor_bottom = 0.880001
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Repair Ship ->"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel"]
@@ -543,10 +574,10 @@ autoplay = "idle"
 unique_name_in_owner = true
 visible = false
 layout_mode = 3
-anchor_left = 0.258594
-anchor_top = 0.145833
-anchor_right = 0.741406
-anchor_bottom = 0.670833
+anchor_left = 0.197656
+anchor_top = 0.0791667
+anchor_right = 0.803125
+anchor_bottom = 0.7375
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("10_s0cgv")
@@ -584,7 +615,7 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Headline"]
+[node name="RT_Headline" type="RichTextLabel" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Headline"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/normal_font_size = 42
@@ -597,14 +628,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 justification_flags = 161
 
-[node name="Crew" type="HBoxContainer" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2"]
+[node name="Crew_Rescue" type="HBoxContainer" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.3
 alignment = 1
 
-[node name="TextureRect2" type="TextureRect" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Crew"]
+[node name="TextureRect2" type="TextureRect" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Crew_Rescue"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_stretch_ratio = 0.1
@@ -612,7 +643,7 @@ texture = ExtResource("18_qqkhr")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Crew"]
+[node name="RT_Crew" type="RichTextLabel" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Crew_Rescue"]
 custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
 size_flags_stretch_ratio = 0.1
@@ -626,12 +657,50 @@ shortcut_keys_enabled = false
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Crew"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Crew_Rescue"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 32
 theme_override_font_sizes/bold_font_size = 32
 text = "Crew Rescued"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+
+[node name="Crew_Lost" type="HBoxContainer" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Crew_Lost"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+texture = ExtResource("15_wesx8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RT_Crew_Lost" type="RichTextLabel" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Crew_Lost"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
+bbcode_enabled = true
+text = "[b]2/5[/b]"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Crew_Lost"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+text = "Crew Lost"
 fit_content = true
 scroll_active = false
 vertical_alignment = 1
@@ -650,7 +719,7 @@ texture = ExtResource("15_wesx8")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="RichTextLabel4" type="RichTextLabel" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Flotsam"]
+[node name="RT_Flotsam" type="RichTextLabel" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Flotsam"]
 custom_minimum_size = Vector2(100, 40)
 layout_mode = 2
 size_flags_stretch_ratio = 0.1
@@ -670,6 +739,160 @@ layout_mode = 2
 theme_override_font_sizes/normal_font_size = 32
 theme_override_font_sizes/bold_font_size = 32
 text = "Flotsam Collected"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+
+[node name="Siren_Defeated" type="HBoxContainer" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Siren_Defeated"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+texture = ExtResource("15_wesx8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RT_Siren_Def" type="RichTextLabel" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Siren_Defeated"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
+bbcode_enabled = true
+text = "[b]2/5[/b]"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Siren_Defeated"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+text = "Sirens Defeated"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+
+[node name="Siren_Lost" type="HBoxContainer" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Siren_Lost"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+texture = ExtResource("15_wesx8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RT_Siren_Lost" type="RichTextLabel" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Siren_Lost"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
+bbcode_enabled = true
+text = "[b]2/5[/b]"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Siren_Lost"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+text = "Sirens Escaped"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+
+[node name="Oil_Hit" type="HBoxContainer" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Oil_Hit"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+texture = ExtResource("15_wesx8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RT_Oil" type="RichTextLabel" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Oil_Hit"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
+bbcode_enabled = true
+text = "[b]2/5[/b]"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Oil_Hit"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+text = "Oil Barrels Hit"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+
+[node name="Time_Taken" type="HBoxContainer" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+alignment = 1
+
+[node name="TextureRect3" type="TextureRect" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Time_Taken"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+texture = ExtResource("15_wesx8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RT_Time_Taken" type="RichTextLabel" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Time_Taken"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_stretch_ratio = 0.1
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 36
+bbcode_enabled = true
+text = "[b]2/5[/b]"
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="HUD/ReachedGoal_Msg/Panel/VBoxContainer2/Time_Taken"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+text = "Elapsed Time"
 fit_content = true
 scroll_active = false
 vertical_alignment = 1
@@ -700,102 +923,218 @@ autoplay = "idle"
 
 [node name="Infos" type="Control" parent="HUD"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("10_s0cgv")
 
-[node name="Crew" type="HBoxContainer" parent="HUD/Infos"]
+[node name="Quest" type="Control" parent="HUD/Infos"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.833594
-anchor_top = 0.00416667
-anchor_right = 0.970294
-anchor_bottom = 0.100071
-offset_right = -15.9763
-offset_bottom = -2.05091
-grow_horizontal = 0
-scale = Vector2(1.11018, 1.08204)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -49.0
+offset_top = 5.0
+offset_right = -49.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_s0cgv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/Infos/Quest"]
+layout_mode = 0
+anchor_left = 0.0523437
+anchor_top = 0.025
+anchor_right = 0.233594
+anchor_bottom = 0.105556
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureProgressBar_Crew" type="TextureProgressBar" parent="HUD/Infos/Crew"]
-unique_name_in_owner = true
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/Infos/Quest/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-max_value = 10.0
-value = 10.0
-nine_patch_stretch = true
-texture_under = ExtResource("17_q2vmi")
-texture_progress = ExtResource("18_lwa2w")
+bbcode_enabled = true
+text = "[color=\"orange\"][b]Mission[/b][/color]"
+fit_content = true
+scroll_active = false
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="HUD/Infos/Quest/VBoxContainer"]
+layout_mode = 2
+text = "Bring your crew to safety !"
+fit_content = true
+scroll_active = false
+metadata/_edit_use_anchors_ = true
 
 [node name="Health" type="HBoxContainer" parent="HUD/Infos"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.801562
-anchor_top = 0.102778
-anchor_right = 0.982031
-anchor_bottom = 0.140278
+anchor_left = 0.804688
+anchor_top = 0.0541667
+anchor_right = 0.951563
+anchor_bottom = 0.106944
+offset_left = 4.5
+offset_right = 4.5
 grow_horizontal = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="HUD/Infos/Health"]
+[node name="ProgressBar_Hp" type="TextureProgressBar" parent="HUD/Infos/Health"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
+nine_patch_stretch = true
+texture_under = ExtResource("19_kr1e0")
+texture_progress = ExtResource("18_lwa2w")
+
+[node name="Health_Text" type="RichTextLabel" parent="HUD/Infos/Health/ProgressBar_Hp"]
+unique_name_in_owner = true
+layout_mode = 2
+anchor_left = 0.542553
+anchor_top = -0.0263158
+anchor_right = 0.93617
+anchor_bottom = 0.973684
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+bbcode_enabled = true
+text = "[b]2/100[/b]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Crew" type="HBoxContainer" parent="HUD/Infos"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.736719
+anchor_top = 0.138889
+anchor_right = 0.874382
+anchor_bottom = 0.173904
+offset_left = 93.9999
+offset_top = -20.0
+offset_right = 80.7915
+offset_bottom = -21.2108
+grow_horizontal = 0
+scale = Vector2(1.07379, 1.04657)
+metadata/_edit_use_anchors_ = true
+
+[node name="01" type="TextureProgressBar" parent="HUD/Infos/Crew"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+value = 1.0
+nine_patch_stretch = true
+texture_under = ExtResource("17_33gbk")
+texture_progress = ExtResource("18_jpwbr")
+
+[node name="02" type="TextureProgressBar" parent="HUD/Infos/Crew"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+nine_patch_stretch = true
+texture_under = ExtResource("17_33gbk")
+texture_progress = ExtResource("18_jpwbr")
+
+[node name="03" type="TextureProgressBar" parent="HUD/Infos/Crew"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+nine_patch_stretch = true
+texture_under = ExtResource("17_33gbk")
+texture_progress = ExtResource("18_jpwbr")
+
+[node name="04" type="TextureProgressBar" parent="HUD/Infos/Crew"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+nine_patch_stretch = true
+texture_under = ExtResource("17_33gbk")
+texture_progress = ExtResource("18_jpwbr")
+
+[node name="05" type="TextureProgressBar" parent="HUD/Infos/Crew"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+nine_patch_stretch = true
+texture_under = ExtResource("17_33gbk")
+texture_progress = ExtResource("18_jpwbr")
+
+[node name="TextureRect" type="TextureRect" parent="HUD/Infos"]
+layout_mode = 0
+offset_left = 956.377
+offset_top = 78.0
+offset_right = 1040.38
+offset_bottom = 162.0
+rotation = -1.57626
+pivot_offset = Vector2(15, 18)
 texture = ExtResource("10_5qkpu")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ProgressBar_Hp" type="ProgressBar" parent="HUD/Infos/Health"]
+[node name="Anim_Infos" type="AnimationPlayer" parent="HUD/Infos"]
 unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-max_value = 1.0
-step = 0.1
+libraries = {
+&"": SubResource("AnimationLibrary_i1p0x")
+}
 
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Siren" parent="Enemies" instance=ExtResource("2_q4iis")]
-position = Vector2(1266, 12356)
+position = Vector2(1180, 12432)
 rotation = -0.221317
 scale = Vector2(0.2, 0.2)
 
-[node name="MusicCloud" parent="Enemies/Siren" index="3"]
-scale = Vector2(3.41946, 3.46629)
+[node name="MusicCloud" parent="Enemies/Siren" index="4"]
+position = Vector2(252, 35)
 
 [node name="Siren2" parent="Enemies" instance=ExtResource("2_q4iis")]
-position = Vector2(870, 11069)
-rotation = -0.254472
+position = Vector2(170, 11062)
+rotation = 0.587798
 scale = Vector2(0.2, 0.2)
 
 [node name="Siren_Small" parent="Enemies" instance=ExtResource("2_q4iis")]
-position = Vector2(911, 5111)
-rotation = 0.0722908
+position = Vector2(1225, 5732)
+rotation = -0.17423
 scale = Vector2(0.2, 0.2)
 
+[node name="MusicCloud" parent="Enemies/Siren_Small" index="4"]
+position = Vector2(252, 35)
+
 [node name="Siren4" parent="Enemies" instance=ExtResource("2_q4iis")]
-position = Vector2(107, 2799)
+position = Vector2(1241, 3249)
 rotation = 0.0428247
 scale = Vector2(0.2, 0.2)
 
 [node name="Siren5" parent="Enemies" instance=ExtResource("2_q4iis")]
-position = Vector2(1413, 2776)
-rotation = -0.236203
+position = Vector2(429, 6381)
+rotation = 0.322317
 scale = Vector2(0.2, 0.2)
 
 [node name="Kraken" parent="Enemies" instance=ExtResource("14_esphl")]
-position = Vector2(666, 7567)
+position = Vector2(813, 7567)
 scale = Vector2(0.7, 0.7)
 
 [node name="Whirl3" parent="Enemies" instance=ExtResource("19_wesx8")]
-position = Vector2(924, 9698)
+position = Vector2(657, 9663)
+scale = Vector2(0.5, 0.5)
+
+[node name="Whirl4" parent="Enemies" instance=ExtResource("19_wesx8")]
+position = Vector2(1390, 8228)
+scale = Vector2(0.5, 0.5)
+
+[node name="Whirl5" parent="Enemies" instance=ExtResource("19_wesx8")]
+position = Vector2(222, 8253)
+scale = Vector2(0.5, 0.5)
+
+[node name="Whirl6" parent="Enemies" instance=ExtResource("19_wesx8")]
+position = Vector2(1167, 6873)
 scale = Vector2(0.5, 0.5)
 
 [node name="Whirl2" parent="Enemies" instance=ExtResource("19_wesx8")]
-position = Vector2(329, 10728)
+position = Vector2(1192, 10798)
 scale = Vector2(0.5, 0.5)
 
 [node name="Rocks" type="Node" parent="."]
@@ -804,25 +1143,66 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(798, 11409)
 scale = Vector2(0.5, 0.5)
 
+[node name="CollisionShape2D" parent="Rocks/Rock/StaticBody2D3" index="1"]
+position = Vector2(-4.29105, -35.9804)
+
+[node name="Rock4" parent="Rocks" instance=ExtResource("21_b4adj")]
+position = Vector2(54, 5540)
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" parent="Rocks/Rock4/StaticBody2D3" index="1"]
+position = Vector2(-4.29105, -35.9804)
+
 [node name="Rock2" parent="Rocks" instance=ExtResource("24_q2vmi")]
 position = Vector2(780, 13307)
+
+[node name="Rock5" parent="Rocks" instance=ExtResource("24_q2vmi")]
+position = Vector2(554, 4809)
+
+[node name="Rock7" parent="Rocks" instance=ExtResource("24_q2vmi")]
+position = Vector2(589, 1104)
 
 [node name="Rock3" parent="Rocks" instance=ExtResource("25_lwa2w")]
 position = Vector2(-196, 13285)
 
+[node name="Rock6" parent="Rocks" instance=ExtResource("25_lwa2w")]
+position = Vector2(-78, 4307)
+rotation = 0.127984
+
 [node name="Flotsam" type="Node" parent="."]
 
 [node name="Flotsam" parent="Flotsam" instance=ExtResource("15_5qkpu")]
-position = Vector2(1374, 13397)
+position = Vector2(1383, 13487)
+
+[node name="Flotsam5" parent="Flotsam" instance=ExtResource("15_5qkpu")]
+position = Vector2(402, 13468)
 
 [node name="Flotsam2" parent="Flotsam" instance=ExtResource("15_5qkpu")]
 position = Vector2(455, 10290)
 
 [node name="Flotsam3" parent="Flotsam" instance=ExtResource("15_5qkpu")]
-position = Vector2(1260, 6367)
+position = Vector2(658, 6390)
 
 [node name="Flotsam4" parent="Flotsam" instance=ExtResource("15_5qkpu")]
-position = Vector2(212, 9120)
+position = Vector2(396, 9294)
+
+[node name="Flotsam6" parent="Flotsam" instance=ExtResource("15_5qkpu")]
+position = Vector2(1448, 9160)
+
+[node name="Flotsam7" parent="Flotsam" instance=ExtResource("15_5qkpu")]
+position = Vector2(1084, 5772)
+
+[node name="Flotsam8" parent="Flotsam" instance=ExtResource("15_5qkpu")]
+position = Vector2(124, 4402)
+
+[node name="Flotsam9" parent="Flotsam" instance=ExtResource("15_5qkpu")]
+position = Vector2(1479, 3634)
+
+[node name="Flotsam10" parent="Flotsam" instance=ExtResource("15_5qkpu")]
+position = Vector2(236, 2123)
+
+[node name="Flotsam11" parent="Flotsam" instance=ExtResource("15_5qkpu")]
+position = Vector2(1449, 1562)
 
 [node name="Oil" type="Node" parent="."]
 
@@ -830,10 +1210,52 @@ position = Vector2(212, 9120)
 position = Vector2(1479, 10233)
 
 [node name="OilBarrel3" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(1345, 10979)
+position = Vector2(1451, 11167)
+
+[node name="OilBarrel4" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(730, 11031)
 
 [node name="OilBarrel2" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(1424, 9512)
+position = Vector2(259, 9743)
+
+[node name="OilBarrel5" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(905, 9307)
+
+[node name="OilBarrel6" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(1215, 9179)
+
+[node name="OilBarrel7" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(1411, 9417)
+
+[node name="OilBarrel8" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(633, 9059)
+
+[node name="OilBarrel9" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(202, 7081)
+
+[node name="OilBarrel10" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(1487, 7579)
+
+[node name="OilBarrel11" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(1218, 6260)
+
+[node name="OilBarrel12" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(470, 5005)
+
+[node name="OilBarrel13" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(651, 2770)
+
+[node name="OilBarrel14" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(848, 1767)
+
+[node name="OilBarrel15" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(622, 13948)
+
+[node name="OilBarrel16" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(1097, 13819)
+
+[node name="OilBarrel17" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(681, 13583)
 
 [node name="Crew" type="Node" parent="."]
 
@@ -842,11 +1264,39 @@ position = Vector2(817, 13131)
 scale = Vector2(0.5, 0.5)
 
 [node name="Crew3" parent="Crew" instance=ExtResource("28_lwa2w")]
-position = Vector2(252, 11376)
+position = Vector2(283, 11222)
+scale = Vector2(0.5, 0.5)
+
+[node name="Crew5" parent="Crew" instance=ExtResource("28_lwa2w")]
+position = Vector2(1207, 10788)
+scale = Vector2(0.5, 0.5)
+
+[node name="Crew6" parent="Crew" instance=ExtResource("28_lwa2w")]
+position = Vector2(281, 9444)
 scale = Vector2(0.5, 0.5)
 
 [node name="Crew4" parent="Crew" instance=ExtResource("28_lwa2w")]
 position = Vector2(1207, 8955)
+scale = Vector2(0.5, 0.5)
+
+[node name="Crew7" parent="Crew" instance=ExtResource("28_lwa2w")]
+position = Vector2(601, 7386)
+scale = Vector2(0.5, 0.5)
+
+[node name="Crew8" parent="Crew" instance=ExtResource("28_lwa2w")]
+position = Vector2(1114, 7602)
+scale = Vector2(0.5, 0.5)
+
+[node name="Crew9" parent="Crew" instance=ExtResource("28_lwa2w")]
+position = Vector2(191, 5644)
+scale = Vector2(0.5, 0.5)
+
+[node name="Crew10" parent="Crew" instance=ExtResource("28_lwa2w")]
+position = Vector2(418, 4843)
+scale = Vector2(0.5, 0.5)
+
+[node name="Crew11" parent="Crew" instance=ExtResource("28_lwa2w")]
+position = Vector2(564, 3919)
 scale = Vector2(0.5, 0.5)
 
 [node name="Goal" parent="." instance=ExtResource("25_wesx8")]
@@ -879,18 +1329,23 @@ editor_draw_drag_margin = true
 
 [node name="Ship" parent="." instance=ExtResource("4_mxnmf")]
 unique_name_in_owner = true
-z_index = 10
 position = Vector2(823, 14374)
 rotation = -1.5708
 default_speed = 180.0
+lured_speed = 10.0
 lured_rot_speed = 1.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("32_hkpnj")
+volume_db = -80.0
 
-[connection signal="timeout" from="UI/Action_Event_Resist_Siren_Song/MashButton_Module/MashButtonTimer" to="UI/Action_Event_Resist_Siren_Song/MashButton_Module" method="_on_mash_button_timer_timeout"]
+[connection signal="timeout" from="HUD/MashButton_Module/MashButtonTimer" to="HUD/MashButton_Module" method="_on_mash_button_timer_timeout"]
 
 [editable path="Enemies/Siren"]
 [editable path="Enemies/Siren_Small"]
 [editable path="Enemies/Whirl3"]
+[editable path="Enemies/Whirl4"]
+[editable path="Enemies/Whirl5"]
+[editable path="Enemies/Whirl6"]
 [editable path="Rocks/Rock"]
+[editable path="Rocks/Rock4"]

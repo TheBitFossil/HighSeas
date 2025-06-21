@@ -1,6 +1,5 @@
 extends CharacterBody2D
-
-signal lured_in()
+class_name Player
 
 @export var default_speed := 200.0
 @export var lured_speed := 50.0		#when lured by siren
@@ -20,6 +19,7 @@ var health := 50.0
 @export var max_health := 100.0
 
 @onready var anim_trails: AnimatedSprite2D = $AnimatedSprite2D
+@onready var mouse_marker: Node2D = %MouseMarker
 
 
 func _ready() -> void:
@@ -48,6 +48,8 @@ func _physics_process(delta: float) -> void:
 		target = get_siren_pos()
 	
 	if target != Vector2.ZERO:
+		mouse_marker.show()
+		
 		# Cal dir vec towards the target
 		var direction := position.direction_to(target)
 		
@@ -61,11 +63,15 @@ func _physics_process(delta: float) -> void:
 		var dist = position.distance_to(target)
 		# Stay within distance
 		if dist > 10:
+			mouse_marker.set_pos(target)
 			move_and_slide()
 		else:
+			mouse_marker.hide()
 			velocity = Vector2.ZERO
 	
 	trail_animation(velocity)
+
+
 
 # Called from reaching Goal Area
 func reached_goal():
@@ -86,20 +92,26 @@ func get_lured_by_siren(antagonist : Siren):
 	speed = lured_speed
 	rot_speed = lured_rot_speed
 	disable_controls()
-	emit_signal("lured_in")
+	EvBus.emit_signal("lured_in")
 
 
 func resist_siren_success():
 	is_drawn_in = false
-	siren_target.resist_siren_song()
+	#TODO: remove dependancy here, this is not really needed
+	siren_target.player_resist_siren_song()
 	siren_target = null
 	speed = default_speed
 	rot_speed = default_rot_speed
 	enable_controls()
 
 
-func resist_siren_fail():
-	take_damage()
+func resist_siren_failed():
+	is_drawn_in = false
+	siren_target = null
+	speed = default_speed
+	rot_speed = default_rot_speed
+	enable_controls()
+
 
 
 func get_siren_pos() -> Vector2:
@@ -108,12 +120,13 @@ func get_siren_pos() -> Vector2:
 	return Vector2.ZERO
 
 
-func take_damage():
-	health -= 2
+func take_damage(val : int):
+	Data.remove_hp(val)
 
 
-func collect_crew(val : int):
+func collect_crew(val : int) -> bool:
 	Data.add_crew(val)
+	return true
 
 
 func trail_animation(velocity):

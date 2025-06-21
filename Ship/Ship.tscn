@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bdsrawr0p528" path="res://Assets/Trail_A.png" id="2_s441t"]
 [ext_resource type="Texture2D" uid="uid://dj8el8glsfgtp" path="res://Assets/Trail_B.png" id="3_7se24"]
 [ext_resource type="Texture2D" uid="uid://dlq36hvk12dxg" path="res://Assets/Trail_C.png" id="4_qyh8x"]
+[ext_resource type="PackedScene" uid="uid://b6j1hu3ibjr3r" path="res://Environment/Mouse_Marker.tscn" id="6_pf3e3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0p50t"]
 animations = [{
@@ -23,10 +24,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_k7qg1"]
-points = PackedVector2Array(171, 1, 95, -9, 34, -40, -92, -37, -95, 43, 42, 47, 94, 10)
-
 [node name="Ship" type="CharacterBody2D"]
+z_index = 10
 collision_mask = 6
 script = ExtResource("1_h40nn")
 
@@ -45,6 +44,11 @@ position = Vector2(24, -1)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_xljvd")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(-9, -2)
-shape = SubResource("ConvexPolygonShape2D_k7qg1")
+polygon = PackedVector2Array(56, 40, 172, 1, 55, -43, -35, -40, -53, -30, -95, -37, -108, 3, -93, 37, -53, 35, -31, 43)
+
+[node name="MouseMarker" parent="." instance=ExtResource("6_pf3e3")]
+unique_name_in_owner = true
+visible = false
+z_as_relative = false

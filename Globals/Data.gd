@@ -1,13 +1,14 @@
 extends Node
 
 var has_reached_goal : bool = false
-var is_game_over : bool = false
 
 const MAX_HP : float = 100.0
-var hp : float = 10.0
+var default_hp : float = 30.0
+var hp : float
 
 const  MAX_CREW : float = 5
-var crew : int = 3
+var default_crew : int = 2
+var crew : int
 
 # Stats
 var crew_collected : int = 0
@@ -19,6 +20,13 @@ var oil_hit : int = 0
 var time_taken_seconds : int = 0
 
 var hit_rock_damage : int = 10
+var enter_whirl_damage : int = 15
+
+
+
+func reset_hud_stats():
+	hp = default_hp
+	crew = default_crew
 
 
 func reach_goal():
@@ -28,6 +36,7 @@ func reach_goal():
 func remove_hp(val : int):
 	hp -= abs(val)
 	if hp <= 0:
+		hp = 0
 		EvBus.emit_signal("game_over")
 	
 	EvBus.emit_signal("health_changed")

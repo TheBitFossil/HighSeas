@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dj8kxsq5tqkct"]
+[gd_scene load_steps=42 format=3 uid="uid://dj8kxsq5tqkct"]
 
 [ext_resource type="Script" uid="uid://ctj7g03v4b4xd" path="res://GameRoot.gd" id="1_q4iis"]
 [ext_resource type="PackedScene" uid="uid://qobdm2gpnb67" path="res://Enemies/Siren.tscn" id="2_q4iis"]
@@ -50,36 +50,6 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
-[sub_resource type="Animation" id="Animation_3ppgv"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_s0cgv"]
-resource_name = "idle"
-length = 2.0
-loop_mode = 1
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wesx8"]
-_data = {
-&"RESET": SubResource("Animation_3ppgv"),
-&"idle": SubResource("Animation_s0cgv")
-}
-
-[sub_resource type="Animation" id="Animation_s8mmm"]
-resource_name = "loose_crew"
-length = 0.16667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("%Crew:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.1, 0.166667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(1037, 80), Vector2(1031, 80), Vector2(1043, 80), Vector2(1037, 80)]
-}
-
 [sub_resource type="Animation" id="Animation_5ekwc"]
 length = 0.001
 tracks/0/type = "value"
@@ -105,6 +75,22 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1031, 39)]
+}
+
+[sub_resource type="Animation" id="Animation_s8mmm"]
+resource_name = "loose_crew"
+length = 0.16667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("%Crew:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.1, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1037, 80), Vector2(1031, 80), Vector2(1043, 80), Vector2(1037, 80)]
 }
 
 [sub_resource type="Animation" id="Animation_i6xau"]
@@ -143,6 +129,7 @@ metadata/_edit_lock_ = true
 
 [node name="HUD" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
+process_mode = 3
 layer = 2
 script = ExtResource("8_sypgb")
 
@@ -545,12 +532,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Tutorial_Msg"]
-libraries = {
-&"": SubResource("AnimationLibrary_wesx8")
-}
-autoplay = "idle"
-
 [node name="ReachedGoal_Msg" type="Control" parent="HUD"]
 unique_name_in_owner = true
 visible = false
@@ -879,29 +860,21 @@ fit_content = true
 scroll_active = false
 vertical_alignment = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="HUD/ReachedGoal_Msg/Panel"]
+[node name="Goal_Button" type="Button" parent="HUD/ReachedGoal_Msg/Panel"]
+unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0733333
-anchor_top = 1.02857
-anchor_right = 0.926667
-anchor_bottom = 1.12286
-offset_bottom = -3.05176e-05
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -152.5
+offset_top = -33.9521
+offset_right = 133.5
+offset_bottom = 24.0479
 grow_horizontal = 2
 grow_vertical = 0
-bbcode_enabled = true
-text = "[b]Press LMB to start[/b]"
-fit_content = true
-scroll_active = false
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/ReachedGoal_Msg"]
-libraries = {
-&"": SubResource("AnimationLibrary_wesx8")
-}
-autoplay = "idle"
+text = "Restart"
 
 [node name="Game_Over" type="Control" parent="HUD"]
 unique_name_in_owner = true
@@ -957,11 +930,12 @@ justification_flags = 161
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/Game_Over/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.236
-anchor_top = 0.58
-anchor_right = 0.734
-anchor_bottom = 0.764
+anchor_left = 0.116
+anchor_top = 0.536
+anchor_right = 0.852
+anchor_bottom = 0.808
 theme_override_constants/separation = 36
+metadata/_edit_use_anchors_ = true
 
 [node name="Button_Retry" type="Button" parent="HUD/Game_Over/Panel/HBoxContainer"]
 layout_mode = 2
@@ -975,15 +949,8 @@ size_flags_horizontal = 3
 text = "Quit ?"
 metadata/_edit_use_anchors_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Game_Over"]
-libraries = {
-&"": SubResource("AnimationLibrary_wesx8")
-}
-autoplay = "idle"
-
 [node name="Infos" type="Control" parent="HUD"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1022,6 +989,12 @@ fit_content = true
 scroll_active = false
 metadata/_edit_use_anchors_ = true
 
+[node name="ColorRect" type="ColorRect" parent="HUD/Infos/Quest/VBoxContainer"]
+custom_minimum_size = Vector2(100, 2)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(0.854457, 0.532634, 0.172594, 1)
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="HUD/Infos/Quest/VBoxContainer"]
 layout_mode = 2
 text = "Bring your crew to safety !"
@@ -1036,8 +1009,10 @@ anchor_left = 0.804688
 anchor_top = 0.0541667
 anchor_right = 0.951563
 anchor_bottom = 0.106944
-offset_left = 1.0
-offset_right = 1.0
+offset_left = 0.99939
+offset_top = -2.28882e-05
+offset_right = 0.99939
+offset_bottom = -2.28882e-05
 grow_horizontal = 0
 metadata/_edit_use_anchors_ = true
 
@@ -1075,10 +1050,10 @@ anchor_left = 0.736719
 anchor_top = 0.138889
 anchor_right = 0.874382
 anchor_bottom = 0.173904
-offset_left = 93.9999
-offset_top = -20.0
-offset_right = 80.7915
-offset_bottom = -21.2108
+offset_left = 93.9996
+offset_top = -20.0001
+offset_right = 80.7913
+offset_bottom = -21.2109
 grow_horizontal = 0
 scale = Vector2(1.07379, 1.04657)
 metadata/_edit_use_anchors_ = true
@@ -1149,9 +1124,6 @@ position = Vector2(1043, 12548)
 rotation = -0.221317
 scale = Vector2(0.2, 0.2)
 
-[node name="MusicCloud" parent="Enemies/Siren" index="4"]
-position = Vector2(252, 35)
-
 [node name="Siren2" parent="Enemies" instance=ExtResource("2_q4iis")]
 position = Vector2(222, 11161)
 rotation = 0.587798
@@ -1176,9 +1148,6 @@ scale = Vector2(0.2, 0.2)
 position = Vector2(1225, 5732)
 rotation = -0.17423
 scale = Vector2(0.2, 0.2)
-
-[node name="MusicCloud" parent="Enemies/Siren_Small" index="4"]
-position = Vector2(252, 35)
 
 [node name="Siren4" parent="Enemies" instance=ExtResource("2_q4iis")]
 position = Vector2(1241, 3249)
@@ -1241,18 +1210,12 @@ position = Vector2(861, 11612)
 rotation = 0.235191
 scale = Vector2(0.5, 0.5)
 
-[node name="CollisionShape2D" parent="Rocks/Rock/StaticBody2D3" index="1"]
-position = Vector2(-4.29105, -35.9804)
-
 [node name="Rock4" parent="Rocks" instance=ExtResource("21_b4adj")]
 position = Vector2(54, 5540)
 scale = Vector2(0.5, 0.5)
 
 [node name="StaticBody2D3" parent="Rocks/Rock4" index="2"]
 position = Vector2(2886, 1160)
-
-[node name="CollisionShape2D" parent="Rocks/Rock4/StaticBody2D3" index="1"]
-position = Vector2(-4.29105, -35.9804)
 
 [node name="StaticBody2D4" parent="Rocks/Rock4" index="3"]
 position = Vector2(1016, 358)
@@ -1421,9 +1384,9 @@ position = Vector2(1057, 291)
 
 [node name="Camera" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(807, 14647)
+position = Vector2(807, 3307)
 script = ExtResource("5_86ljf")
-speed = 150.0
+speed = 120.0
 
 [node name="Camera2D" type="Camera2D" parent="Camera"]
 rotation = -0.0111869
@@ -1445,7 +1408,7 @@ editor_draw_drag_margin = true
 
 [node name="Ship" parent="." instance=ExtResource("4_mxnmf")]
 unique_name_in_owner = true
-position = Vector2(823, 14374)
+position = Vector2(823, 3034)
 default_speed = 180.0
 lured_speed = 10.0
 lured_rot_speed = 1.0
@@ -1455,6 +1418,7 @@ stream = ExtResource("32_hkpnj")
 volume_db = -10.0
 
 [connection signal="timeout" from="HUD/MashButton_Module/MashButtonTimer" to="HUD/MashButton_Module" method="_on_mash_button_timer_timeout"]
+[connection signal="pressed" from="HUD/ReachedGoal_Msg/Panel/Goal_Button" to="HUD" method="_on_goal_button_pressed"]
 [connection signal="pressed" from="HUD/Game_Over/Panel/HBoxContainer/Button_Retry" to="HUD" method="_on_button_retry_pressed"]
 [connection signal="pressed" from="HUD/Game_Over/Panel/HBoxContainer/Button_Quit" to="HUD" method="_on_button_quit_pressed"]
 

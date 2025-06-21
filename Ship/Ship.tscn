@@ -49,6 +49,21 @@ scale_max = 0.02
 turbulence_noise_strength = 4.64
 turbulence_noise_scale = 9.674
 
+[sub_resource type="Animation" id="Animation_av5tj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_mi5fi"]
 resource_name = "hit_rock"
 length = 0.2
@@ -81,21 +96,6 @@ tracks/0/keys = {
 "values": [-6.28319, 6.28319]
 }
 
-[sub_resource type="Animation" id="Animation_av5tj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n7n8h"]
 _data = {
 &"RESET": SubResource("Animation_av5tj"),
@@ -103,7 +103,7 @@ _data = {
 &"hit_whirl": SubResource("Animation_n1716")
 }
 
-[node name="Ship" type="CharacterBody2D"]
+[node name="Ship" type="CharacterBody2D" groups=["NPC"]]
 z_index = 10
 rotation = -1.5708
 collision_mask = 6
@@ -158,4 +158,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_n7n8h")
 }
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
 [connection signal="timeout" from="DamageCoolDown" to="." method="_on_damage_cool_down_timeout"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

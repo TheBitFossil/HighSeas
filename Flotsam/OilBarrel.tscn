@@ -109,7 +109,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hkml5"]
 size = Vector2(832, 481.667)
 
-[node name="OilBarrel" type="Node2D"]
+[node name="OilBarrel" type="Node2D" groups=["NPC"]]
 z_index = 6
 scale = Vector2(0.12, 0.12)
 script = ExtResource("1_ljdvn")

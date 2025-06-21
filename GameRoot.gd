@@ -20,6 +20,10 @@ func _ready() -> void:
 	EvBus.game_over.connect(_on_game_over)
 	
 	audio_stream_player.set_playing(true)
+	Data.reset_hud_stats()
+	hud.init_stats()
+	
+	get_tree().paused = false
 
 
 func _on_ship_lured_in():
@@ -55,10 +59,14 @@ func _on_mash_button_failed():
 
 
 func _on_restart_game():
+	Data.reset_hud_stats()
 	get_tree().reload_current_scene()
 
 
 func _on_game_over():
+	#show hud
+	hud.show_game_over_screen()
 	ship.disable_controls()
-	$AudioStreamPlayer.stop()
 	EvBus.emit_signal("camera_static")
+	$AudioStreamPlayer.stop()
+	get_tree().paused = true

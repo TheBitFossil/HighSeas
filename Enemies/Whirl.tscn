@@ -111,7 +111,7 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_njsxi"]
 radius = 341.884
 
-[node name="Whirl" type="Node2D"]
+[node name="Whirl" type="Node2D" groups=["NPC"]]
 script = ExtResource("1_k1y8r")
 
 [node name="Sprite" type="Sprite2D" parent="."]

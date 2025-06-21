@@ -5,7 +5,7 @@ extends Node2D
 @export var _is_dangerous := false
 
 var speed : float = 50.0
-
+var is_moving : bool = false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if not body.has_method("collect_flotsam"):
@@ -23,4 +23,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	position.y += speed * delta
+	if is_moving:
+		position.y += speed * delta

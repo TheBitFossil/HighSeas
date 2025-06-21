@@ -163,9 +163,16 @@ func collect_flotsam(ship_health) -> bool:
 
 
 func start_whirl():
-	print("Caught in Whirl!")
 	animation_player.play("hit_whirl")
+	#Loose Crew
+	Data.remove_crew()
+	#Loose Health
+	Data.remove_hp(Data.enter_whirl_damage)
 
 
 func _on_damage_cool_down_timeout() -> void:
 	is_damage_cooldown = false
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	print("Left Screen")

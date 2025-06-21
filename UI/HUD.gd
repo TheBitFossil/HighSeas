@@ -10,6 +10,8 @@ signal tutorial_msg_closed()
 @onready var anim_infos: AnimationPlayer = %Anim_Infos
 @onready var infos: Control = %Infos
 
+@onready var goal_button: Button = %Goal_Button
+
 #Screens
 @onready var mash_button_module: Control = %MashButton_Module
 @onready var game_over: Control = %Game_Over
@@ -18,21 +20,9 @@ signal tutorial_msg_closed()
 
 var tutorial_active : bool = true
 var has_reached_goal : bool = false
-var is_game_over : bool = false
 
 
-func _ready() -> void:
-	EvBus.has_reached_goal.connect(_on_has_reached_goal)
-	EvBus.crew_changed.connect(_on_crew_changed)
-	EvBus.health_changed.connect(_on_health_changed)
-	EvBus.game_over.connect(_on_game_over)
-	
-	infos.hide()
-	tutorial_msg.show()
-	
-	progress_bar_hp.max_value = Data.MAX_HP
-	progress_bar_hp.step = 1
-
+func init_stats():
 	update_health()
 	update_stats()
 
@@ -44,6 +34,21 @@ func _ready() -> void:
 		crew_array.append(child)
 
 	update_crew()
+
+
+func _ready() -> void:
+	EvBus.has_reached_goal.connect(_on_has_reached_goal)
+	EvBus.crew_changed.connect(_on_crew_changed)
+	EvBus.health_changed.connect(_on_health_changed)
+	
+	infos.hide()
+	tutorial_msg.show()
+	
+	progress_bar_hp.max_value = Data.MAX_HP
+	progress_bar_hp.step = 1
+
+	init_stats()
+
 
 
 func update_health():
@@ -127,11 +132,11 @@ func update_crew():
 		crew_array[i].value = 1
 
 
-func _on_game_over():
-	is_game_over = true
+func show_game_over_screen():
 	mash_button_module.hide()
 	tutorial_msg.hide()
 	reached_goal_msg.hide()
+	infos.hide()
 	
 	game_over.show()
 
@@ -143,4 +148,8 @@ func _on_button_quit_pressed() -> void:
 
 
 func _on_button_retry_pressed() -> void:
+	EvBus.emit_signal("restart_game")
+
+
+func _on_goal_button_pressed() -> void:
 	EvBus.emit_signal("restart_game")

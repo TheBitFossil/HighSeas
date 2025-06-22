@@ -115,7 +115,7 @@ func get_lured_by_siren(antagonist : Siren):
 	speed = lured_speed
 	rot_speed = lured_rot_speed
 	disable_controls()
-	EvBus.emit_signal("lured_in")
+	EvBus.emit_signal("lured_in", siren_target)
 
 
 func resist_siren_success():

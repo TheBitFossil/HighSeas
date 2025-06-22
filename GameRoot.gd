@@ -48,12 +48,13 @@ func _on_enter_screen():
 	$HUD/OutOfScreenFeedback/RichTextLabel.hide()
 
 
-func _on_ship_lured_in():
-	camera_2d.lure_in_mode_active()
+func _on_ship_lured_in(siren):
+	camera_2d.lure_in_mode_active(siren)
 	hud.enable_mash_button()
 
+
 """
-func _on_ui_countdown_timeout():
+	func _on_ui_countdown_timeout():
 	ship.enable_controls()
 	camera_2d.activate_scroll()
 """
@@ -67,7 +68,9 @@ func _on_tutorial_msg_closed()-> void:
 func _on_mash_button_success():
 	ship.enable_controls()
 	ship.resist_siren_success()
+	
 	camera_2d.lure_in_mode_deactived()
+	
 	mash_button_module.set_disabled()
 	mash_button_module.reset_idx()
 
@@ -75,7 +78,9 @@ func _on_mash_button_success():
 func _on_mash_button_failed():
 	ship.enable_controls()
 	ship.resist_siren_failed()
+	
 	camera_2d.lure_in_mode_deactived()
+	
 	mash_button_module.set_disabled()
 	mash_button_module.reset_idx()
 

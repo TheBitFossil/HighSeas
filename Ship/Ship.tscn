@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dj8el8glsfgtp" path="res://Assets/Trail_B.png" id="3_7se24"]
 [ext_resource type="Texture2D" uid="uid://dlq36hvk12dxg" path="res://Assets/Trail_C.png" id="4_qyh8x"]
 [ext_resource type="PackedScene" uid="uid://b6j1hu3ibjr3r" path="res://Environment/Mouse_Marker.tscn" id="6_pf3e3"]
-[ext_resource type="Texture2D" uid="uid://cfitn7al6x6x1" path="res://Assets/Steg.png" id="7_av5tj"]
+[ext_resource type="Texture2D" uid="uid://c7cccchoff4l4" path="res://Assets/Wood_Particles.png" id="7_mi5fi"]
 [ext_resource type="Texture2D" uid="uid://cgoy311wh57jm" path="res://Assets/Ship_Damaged.png" id="8_mi5fi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0p50t"]
@@ -309,7 +309,7 @@ rotation = 1.57346
 emitting = false
 amount = 12
 amount_ratio = 0.7
-texture = ExtResource("7_av5tj")
+texture = ExtResource("7_mi5fi")
 lifetime = 0.12
 one_shot = true
 speed_scale = 0.5

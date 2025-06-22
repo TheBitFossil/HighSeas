@@ -1192,6 +1192,14 @@ position = Vector2(1043, 12520)
 rotation = 0.014986
 scale = Vector2(0.2, 0.2)
 
+[node name="SirenRock" parent="Enemies/Siren" index="0"]
+position = Vector2(202, -168)
+scale = Vector2(2.02538, 2.02538)
+
+[node name="WavesFlotsam" parent="Enemies/Siren" index="1"]
+position = Vector2(170, 597)
+scale = Vector2(1.97208, 1.97208)
+
 [node name="MusicCloud" parent="Enemies/Siren" index="5"]
 position = Vector2(54, -11)
 
@@ -1223,6 +1231,14 @@ scale = Vector2(0.2, 0.2)
 position = Vector2(1225, 5732)
 rotation = -0.17423
 scale = Vector2(0.2, 0.2)
+
+[node name="SirenRock" parent="Enemies/Siren_Small" index="0"]
+position = Vector2(202, -168)
+scale = Vector2(2.02538, 2.02538)
+
+[node name="WavesFlotsam" parent="Enemies/Siren_Small" index="1"]
+position = Vector2(170, 597)
+scale = Vector2(1.97208, 1.97208)
 
 [node name="MusicCloud" parent="Enemies/Siren_Small" index="5"]
 position = Vector2(54, -11)
@@ -1288,6 +1304,10 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(785, 2269)
 scale = Vector2(0.5, 0.5)
 
+[node name="Whirl8" parent="Enemies" instance=ExtResource("19_wesx8")]
+position = Vector2(1017, 13991)
+scale = Vector2(0.5, 0.5)
+
 [node name="Wolken" type="Node" parent="."]
 
 [node name="Normal_Cloud" parent="Wolken" instance=ExtResource("32_77ek3")]
@@ -1295,11 +1315,14 @@ position = Vector2(1389, 12838)
 rotation = -0.0765013
 
 [node name="Normal_Cloud2" parent="Wolken" instance=ExtResource("32_77ek3")]
-position = Vector2(-31, 13958)
+position = Vector2(1386, 13964)
 scale = Vector2(0.3, 0.3)
 
 [node name="Big_Cloud" parent="Wolken" instance=ExtResource("33_u4i8u")]
-position = Vector2(311, 13751)
+position = Vector2(345, 13892)
+
+[node name="Big_Cloud19" parent="Wolken" instance=ExtResource("33_u4i8u")]
+position = Vector2(1403, 14854)
 
 [node name="Big_Cloud2" parent="Wolken" instance=ExtResource("33_u4i8u")]
 position = Vector2(959, 12985)
@@ -1357,6 +1380,10 @@ scale = Vector2(0.2, 0.2)
 position = Vector2(3, 1586)
 rotation = 0.0952437
 scale = Vector2(0.3, 0.3)
+
+[node name="Normal_Cloud14" parent="Wolken" instance=ExtResource("32_77ek3")]
+position = Vector2(459, 14857)
+rotation = -0.0599226
 
 [node name="Big_Cloud16" parent="Wolken" instance=ExtResource("33_u4i8u")]
 position = Vector2(345, 1379)
@@ -1715,7 +1742,7 @@ position = Vector2(1057, 291)
 
 [node name="Camera" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(757, 14534)
+position = Vector2(817, 14508)
 script = ExtResource("5_86ljf")
 speed = 120.0
 
@@ -1723,6 +1750,7 @@ speed = 120.0
 rotation = -0.0111869
 scale = Vector2(5, 5)
 offset = Vector2(0, -100)
+zoom = Vector2(0.8, 0.8)
 process_callback = 0
 limit_left = 0
 limit_top = 0
@@ -1739,7 +1767,7 @@ editor_draw_drag_margin = true
 
 [node name="Ship" parent="." instance=ExtResource("4_mxnmf")]
 unique_name_in_owner = true
-position = Vector2(807, 14566)
+position = Vector2(848, 14493)
 default_speed = 180.0
 lured_speed = 25.0
 lured_rot_speed = 1.0

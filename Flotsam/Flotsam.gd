@@ -25,25 +25,27 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			body.take_damage(ship_health)
 			Data.add_oil()
 			
-			
 			var new_explosion = explosion_prefab.instantiate()
 			new_explosion.position = global_position
 			path.add_child(new_explosion)
 			new_explosion.play()
 			
-			var f_msg = tweener.instantiate()
-			f_msg.position = global_position
-			path.add_child(f_msg)
-			f_msg.show_message_floating_up('[color="Red"]%s Damage Taken[/color]' % [ship_health])
+			#var f_msg = tweener.instantiate()
+			#f_msg.position = global_position
+			#path.add_child(f_msg)
+			#f_msg.show_message_floating_up('[color="Red"]%s Damage Taken[/color]' % [ship_health])
+			await get_tree().create_timer(.2).timeout
+			call_deferred("queue_free")
 	else:
 		if body.collect_flotsam(ship_health):
 			Data.add_flotsam()
 			
-			var f_msg = tweener.instantiate()
-			f_msg.position = global_position
-			path.add_child(f_msg)
-			f_msg.show_message_floating_up('[color="Green"] +1 Flotsam [/color]')
-
+			#var f_msg = tweener.instantiate()
+			#f_msg.position = global_position
+			#path.add_child(f_msg)
+			#f_msg.show_message_floating_up('[color="Green"] +1 Flotsam [/color]')
+			await get_tree().create_timer(.2).timeout
+			call_deferred("queue_free")
 
 
 func _physics_process(delta: float) -> void:

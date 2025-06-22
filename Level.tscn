@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://dj8kxsq5tqkct"]
+[gd_scene load_steps=48 format=3 uid="uid://dj8kxsq5tqkct"]
 
 [ext_resource type="Script" uid="uid://ctj7g03v4b4xd" path="res://GameRoot.gd" id="1_q4iis"]
 [ext_resource type="PackedScene" uid="uid://qobdm2gpnb67" path="res://Enemies/Siren.tscn" id="2_q4iis"]
@@ -32,9 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://bdd53l7uibrul" path="res://Assets/HP_Under.png" id="19_kr1e0"]
 [ext_resource type="PackedScene" uid="uid://cy2wb7oh0kv1d" path="res://Enemies/Whirl.tscn" id="19_wesx8"]
 [ext_resource type="Texture2D" uid="uid://1e8ur5ux5olx" path="res://Assets/Whirl.png" id="21_0e475"]
-[ext_resource type="Texture2D" uid="uid://dmbkx2w56hh2r" path="res://Assets/Button_gruen.png" id="21_53f8w"]
 [ext_resource type="PackedScene" uid="uid://dkknsfwnhyx5g" path="res://Environment/Rock.tscn" id="21_b4adj"]
-[ext_resource type="Texture2D" uid="uid://bl8itvbpcisix" path="res://Assets/Button_rot.png" id="22_77ek3"]
 [ext_resource type="Texture2D" uid="uid://b4rm0krvosexx" path="res://Assets/MusicCloud.png" id="22_bc3ha"]
 [ext_resource type="PackedScene" uid="uid://ceanecg3yiunj" path="res://Environment/Rock_2.tscn" id="24_q2vmi"]
 [ext_resource type="Script" uid="uid://c13unwhnl0cwj" path="res://Rocks.gd" id="25_jpwbr"]
@@ -145,19 +143,16 @@ script = ExtResource("8_sypgb")
 unique_name_in_owner = true
 visible = false
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = 66.0
-offset_right = 20.0
-offset_bottom = 106.0
+anchor_left = 0.50625
+anchor_top = 0.623611
+anchor_right = 0.547656
+anchor_bottom = 0.695833
+offset_top = 3.05176e-05
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("12_dn5x0")
+metadata/_edit_use_anchors_ = true
 
 [node name="MashButtonTimer" type="Timer" parent="HUD/MashButton_Module"]
 unique_name_in_owner = true
@@ -166,13 +161,14 @@ one_shot = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="HUD/MashButton_Module"]
 unique_name_in_owner = true
-layout_mode = 0
-anchor_left = -1.8
-anchor_top = -3.31569
-anchor_right = 1.66869
-anchor_bottom = 0.11552
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -1.3337
+anchor_top = -1.10242
+anchor_right = 2.13499
+anchor_bottom = 2.32879
 offset_left = 0.374969
-offset_top = -0.372574
+offset_top = -0.372581
 offset_right = -0.372711
 offset_bottom = 0.379196
 rotation = -0.00543283
@@ -918,23 +914,20 @@ mouse_filter = 1
 theme = ExtResource("10_s0cgv")
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel" type="TextureRect" parent="HUD/Game_Over"]
+[node name="Panel" type="Panel" parent="HUD/Game_Over"]
 custom_minimum_size = Vector2(500, 250)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.188387
-anchor_top = 0.170886
-anchor_right = 0.833548
-anchor_bottom = 0.698312
+anchor_left = 0.0825806
+anchor_top = 0.0843883
+anchor_right = 0.939354
+anchor_bottom = 0.78481
 offset_left = -3.05176e-05
 offset_top = -5.34058e-05
 offset_bottom = 6.10352e-05
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("8_kr1e0")
-expand_mode = 1
-stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HUD/Game_Over/Panel"]
@@ -974,60 +967,18 @@ metadata/_edit_use_anchors_ = true
 [node name="Button_Retry" type="Button" parent="HUD/Game_Over/Panel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-icon = ExtResource("21_53f8w")
-flat = true
+text = "Retry?"
 icon_alignment = 1
 expand_icon = true
 metadata/_edit_use_anchors_ = true
-
-[node name="RichTextLabel" type="RichTextLabel" parent="HUD/Game_Over/Panel/HBoxContainer/Button_Retry"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -154.0
-offset_top = -40.0
-offset_right = 153.0
-offset_bottom = 41.0
-grow_horizontal = 2
-grow_vertical = 2
-bbcode_enabled = true
-text = "Retry!"
-fit_content = true
-scroll_active = false
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Button_Quit" type="Button" parent="HUD/Game_Over/Panel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-icon = ExtResource("22_77ek3")
-flat = true
+text = "Quit?"
 icon_alignment = 1
 expand_icon = true
 metadata/_edit_use_anchors_ = true
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="HUD/Game_Over/Panel/HBoxContainer/Button_Quit"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -38.0
-offset_top = -11.0
-offset_right = 38.0
-offset_bottom = 13.0
-grow_horizontal = 2
-grow_vertical = 2
-bbcode_enabled = true
-text = "Quit?"
-fit_content = true
-scroll_active = false
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Infos" type="Control" parent="HUD"]
 unique_name_in_owner = true

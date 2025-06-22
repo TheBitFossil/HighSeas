@@ -1,7 +1,7 @@
 extends Node2D
 class_name Siren
 
-@onready var anim_player: AnimationPlayer = $AnimationPlayer
+@onready var anim_player: AnimationPlayer = %AnimationPlayer
 @onready var attack_cool_down_timer: Timer = %CoolDownTimer
 @export var time_in_sec_to_attack : int = 2
 
@@ -21,10 +21,6 @@ func start_attack_timer():
 func stop_attack_timer():
 	attack_cool_down_timer.stop()
 
-
-func _process(delta: float) -> void:
-	if attack_cool_down_timer.get_time_left():
-		print("Running: ", attack_cool_down_timer.get_time_left())
 
 
 func remove_crew():

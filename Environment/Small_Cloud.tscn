@@ -16,7 +16,7 @@ _data = {
 z_index = 20
 
 [node name="Wolken3" type="Sprite2D" parent="."]
-self_modulate = Color(0, 0, 0, 0.156863)
+self_modulate = Color(0, 0, 0, 0.313726)
 z_index = 11
 position = Vector2(-5.31456, -11.0083)
 rotation = -3.05369
@@ -24,7 +24,7 @@ scale = Vector2(0.1, -0.12)
 texture = ExtResource("1_b5x4w")
 
 [node name="Wolken5" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0.372549)
+self_modulate = Color(1, 1, 1, 0.258824)
 z_index = 11
 position = Vector2(2.68544, -23.0083)
 rotation = -3.05369

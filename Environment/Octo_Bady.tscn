@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfx21cd42t2pc"]
+
+[ext_resource type="Texture2D" uid="uid://bhmstg302u0i7" path="res://Assets/Siren_Rock.png" id="1_1op1a"]
+[ext_resource type="Texture2D" uid="uid://dbug2h3anxa7w" path="res://Assets/waves_flotsam.png" id="2_npppp"]
+[ext_resource type="Texture2D" uid="uid://bemin45nj52ct" path="res://Assets/Octo_Arm_L.png" id="3_piqhq"]
+[ext_resource type="Texture2D" uid="uid://t5s2laxpucei" path="res://Assets/Octo_Arm_R.png" id="4_j8pnb"]
+[ext_resource type="Texture2D" uid="uid://dcewvp67vthlt" path="res://Assets/Octo_Body.png" id="5_tn000"]
+
+[node name="Octo_Baby" type="Node2D"]
+
+[node name="SirenRock" type="Sprite2D" parent="."]
+position = Vector2(202, -161)
+scale = Vector2(2.02538, 2.02538)
+texture = ExtResource("1_1op1a")
+
+[node name="WavesFlotsam" type="Sprite2D" parent="."]
+position = Vector2(169.999, 596.996)
+scale = Vector2(1.97208, 1.97208)
+texture = ExtResource("2_npppp")
+
+[node name="OctoArmL" type="Sprite2D" parent="."]
+position = Vector2(-99.2605, 42.1562)
+rotation = -0.151067
+scale = Vector2(2, 2)
+texture = ExtResource("3_piqhq")
+
+[node name="OctoArmR" type="Sprite2D" parent="."]
+position = Vector2(-99.2605, 42.1562)
+rotation = -0.151067
+scale = Vector2(2, 2)
+texture = ExtResource("4_j8pnb")
+
+[node name="OctoBody" type="Sprite2D" parent="."]
+position = Vector2(-99.2605, 42.1562)
+rotation = -0.151067
+scale = Vector2(2, 2)
+texture = ExtResource("5_tn000")

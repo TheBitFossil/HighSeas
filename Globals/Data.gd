@@ -3,7 +3,7 @@ extends Node
 var has_reached_goal : bool = false
 
 const MAX_HP : float = 100.0
-var default_hp : float = 30.0
+var default_hp : float = 80.0
 var hp : float
 
 const  MAX_CREW : float = 5

@@ -123,6 +123,21 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_u613r"]
 radius = 772.373
 
+[sub_resource type="Animation" id="Animation_mwsbb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SchattenFische:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-6.28319]
+}
+
 [sub_resource type="Animation" id="Animation_ap2xy"]
 resource_name = "rotate"
 length = 8.0
@@ -141,21 +156,6 @@ tracks/0/keys = {
 "values": [-6.28319, 6.28319]
 }
 
-[sub_resource type="Animation" id="Animation_mwsbb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SchattenFische:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-6.28319]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1883m"]
 _data = {
 &"RESET": SubResource("Animation_mwsbb"),
@@ -165,7 +165,8 @@ _data = {
 [node name="Kraken" type="Node2D"]
 
 [node name="SchattenFische" type="Sprite2D" parent="."]
-position = Vector2(-25, 179)
+self_modulate = Color(1, 1, 1, 0.482353)
+position = Vector2(-8, 113)
 rotation = -6.28319
 scale = Vector2(1.09339, 1.0843)
 texture = ExtResource("2_l76a3")
@@ -181,6 +182,7 @@ libraries = {
 autoplay = "idle"
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(6, 39)

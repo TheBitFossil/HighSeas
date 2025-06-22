@@ -9,7 +9,7 @@ class_name GameRoot
 @onready var mash_button_module: Control = %MashButton_Module
 @onready var hud: HUD = %HUD
 @onready var out_of_screen_feedback: CenterContainer = %OutOfScreenFeedback
-@onready var out_of_screen_feedback_timer: Timer = $HUD/OutOfScreenFeedback/OutOfScreenFeedbackTimer
+@onready var out_of_screen_feedback_timer: Timer = %OutOfScreenFeedbackTimer
 
 
 

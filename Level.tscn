@@ -1,10 +1,10 @@
-[gd_scene load_steps=57 format=3 uid="uid://dj8kxsq5tqkct"]
+[gd_scene load_steps=75 format=3 uid="uid://dj8kxsq5tqkct"]
 
 [ext_resource type="Script" uid="uid://ctj7g03v4b4xd" path="res://GameRoot.gd" id="1_q4iis"]
 [ext_resource type="PackedScene" uid="uid://qobdm2gpnb67" path="res://Enemies/Siren.tscn" id="2_q4iis"]
 [ext_resource type="PackedScene" uid="uid://0ax2r5qkb4rj" path="res://Ship/Ship.tscn" id="4_mxnmf"]
 [ext_resource type="Script" uid="uid://djkatwykv31eg" path="res://Camera.gd" id="5_86ljf"]
-[ext_resource type="Texture2D" uid="uid://dxx6dxp5kfy1j" path="res://Assets/Mouse_Icon_LMB.png" id="8_77ek3"]
+[ext_resource type="Texture2D" uid="uid://glf2wb30tr53" path="res://Assets/Mouse.png" id="8_1213o"]
 [ext_resource type="Texture2D" uid="uid://beo62o51345qm" path="res://Assets/QTE_White.png" id="8_i6xau"]
 [ext_resource type="Script" uid="uid://b7t74tlcxvj7t" path="res://UI/HUD.gd" id="8_sypgb"]
 [ext_resource type="Texture2D" uid="uid://dwje38401vkmf" path="res://Assets/QTE_Resist.png" id="9_i1p0x"]
@@ -29,23 +29,30 @@
 [ext_resource type="Texture2D" uid="uid://cdnbugla3ctxe" path="res://Assets/Crew_Fill.png" id="18_jpwbr"]
 [ext_resource type="Texture2D" uid="uid://cbncg85fbt6gn" path="res://Assets/Sailer_Bar_Filled.png" id="18_lwa2w"]
 [ext_resource type="Texture2D" uid="uid://hkv7yjgqc437" path="res://Assets/Sailor.png" id="18_qqkhr"]
-[ext_resource type="Texture2D" uid="uid://bdd53l7uibrul" path="res://Assets/HP_Under.png" id="19_kr1e0"]
 [ext_resource type="PackedScene" uid="uid://cy2wb7oh0kv1d" path="res://Enemies/Whirl.tscn" id="19_wesx8"]
-[ext_resource type="Texture2D" uid="uid://1e8ur5ux5olx" path="res://Assets/Whirl.png" id="21_0e475"]
 [ext_resource type="PackedScene" uid="uid://dkknsfwnhyx5g" path="res://Environment/Rock.tscn" id="21_b4adj"]
-[ext_resource type="Texture2D" uid="uid://b4rm0krvosexx" path="res://Assets/MusicCloud.png" id="22_bc3ha"]
+[ext_resource type="Texture2D" uid="uid://cxwcctylq6v1p" path="res://Assets/Title_Octo_Eyes.png" id="21_n4kpv"]
+[ext_resource type="Texture2D" uid="uid://hg1gft3f4a44" path="res://Assets/Lifebouy.png" id="24_1213o"]
 [ext_resource type="PackedScene" uid="uid://ceanecg3yiunj" path="res://Environment/Rock_2.tscn" id="24_q2vmi"]
+[ext_resource type="Texture2D" uid="uid://dtipqhwbmrf87" path="res://Assets/Cross.png" id="25_073mt"]
 [ext_resource type="Script" uid="uid://c13unwhnl0cwj" path="res://Rocks.gd" id="25_jpwbr"]
 [ext_resource type="PackedScene" uid="uid://bvmt82a6rvhem" path="res://Environment/Rock_3.tscn" id="25_lwa2w"]
 [ext_resource type="PackedScene" uid="uid://b0xxkgml3jlmk" path="res://Flotsam/OilBarrel.tscn" id="25_q2vmi"]
 [ext_resource type="PackedScene" uid="uid://c5ao8s1rmbr2l" path="res://Environment/Goal.tscn" id="25_wesx8"]
+[ext_resource type="Texture2D" uid="uid://bxpw5kpkck0k2" path="res://Assets/Nebelhorn.png" id="26_26x21"]
 [ext_resource type="Script" uid="uid://bi6i7hr8c7nas" path="res://out_of_screen_feedback.gd" id="28_53f8w"]
+[ext_resource type="Texture2D" uid="uid://xcm0v28b5577" path="res://Assets/Sailer_Bar.png" id="28_1213o"]
 [ext_resource type="PackedScene" uid="uid://be83roh20rrbm" path="res://Flotsam/Crew.tscn" id="28_lwa2w"]
 [ext_resource type="PackedScene" uid="uid://lucr2xkrphla" path="res://Environment/Normal_Cloud.tscn" id="32_77ek3"]
 [ext_resource type="AudioStream" uid="uid://ogrvwxwiyn4m" path="res://Assets/SFX/Pirate 2.ogg" id="32_hkpnj"]
+[ext_resource type="Script" uid="uid://bwqlamrq561m3" path="res://Enemies/Siren.gd" id="33_1213o"]
 [ext_resource type="Texture2D" uid="uid://dbug2h3anxa7w" path="res://Assets/waves_flotsam.png" id="33_i1p0x"]
 [ext_resource type="PackedScene" uid="uid://ccceyqjvl74ba" path="res://Environment/Big_Cloud.tscn" id="33_u4i8u"]
 [ext_resource type="PackedScene" uid="uid://5vqxwlw64ogh" path="res://Environment/Small_Cloud.tscn" id="34_lilnj"]
+[ext_resource type="Texture2D" uid="uid://bemin45nj52ct" path="res://Assets/Octo_Arm_L.png" id="35_073mt"]
+[ext_resource type="Texture2D" uid="uid://t5s2laxpucei" path="res://Assets/Octo_Arm_R.png" id="36_26x21"]
+[ext_resource type="Texture2D" uid="uid://dcewvp67vthlt" path="res://Assets/Octo_Body.png" id="37_k44y5"]
+[ext_resource type="Texture2D" uid="uid://dixvycoskh3uc" path="res://Assets/Siren_Rock_B.png" id="38_pbpq5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s0cgv"]
 bg_color = Color(0.580392, 0.568627, 0.529412, 0.643137)
@@ -96,6 +103,43 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_77ek3"),
 &"blink": SubResource("Animation_53f8w")
+}
+
+[sub_resource type="Animation" id="Animation_608kq"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TitleOctoEyes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.223265, 0.553512, 0.788405, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-238, -457), Vector2(-248, -460), Vector2(-234, -462), Vector2(-242, -453), Vector2(-238, -457)]
+}
+
+[sub_resource type="Animation" id="Animation_26x21"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TitleOctoEyes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-238, -457)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ndm73"]
+_data = {
+&"RESET": SubResource("Animation_26x21"),
+&"idle": SubResource("Animation_608kq")
 }
 
 [sub_resource type="Animation" id="Animation_5ekwc"]
@@ -162,6 +206,363 @@ _data = {
 &"RESET": SubResource("Animation_5ekwc"),
 &"loose_crew": SubResource("Animation_s8mmm"),
 &"loose_health": SubResource("Animation_i6xau")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cmocw"]
+radius = 1563.15
+
+[sub_resource type="Animation" id="Animation_cmocw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerDetector:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MusicCloud:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4.35157, 4.41117)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../../../../../../../../../../../../../../../../../../../../../../Node2D/SirenRock:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_77ek3")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../../../../../../../../../../../../../../../../../../../../../../Node2D/SirenRock:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(202, -161)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MusicCloud:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(54, -11)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MusicCloud:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.0231956]
+}
+
+[sub_resource type="Animation" id="Animation_encha"]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PlayerDetector:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MusicCloud:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.333333, 0.5, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(3.782, 3.833), Vector2(5.877, 5.957), Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../../../../../../../../../../../../../../../../../../../../../../Node2D/SirenRock:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0564671),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("10_77ek3"), ExtResource("38_pbpq5")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../../../../../../../../../../../../../../../../../../../../../../Node2D/SirenRock:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(202, -161)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ep6gl"]
+_data = {
+&"RESET": SubResource("Animation_cmocw"),
+&"hide": SubResource("Animation_encha")
+}
+
+[sub_resource type="Animation" id="Animation_g4vxw"]
+resource_name = "hide"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Octo_Baby/OctoArmL:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-99.2605, 42.1562)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Octo_Baby/OctoArmR:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-99.2605, 42.1562)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Octo_Baby/OctoBody:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-99.2605, 42.1562)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Octo_Baby/OctoArmL:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2.09, 2.09), Vector2(1e-05, 1e-05)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Octo_Baby/OctoArmR:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2.09, 2.09), Vector2(1e-05, 1e-05)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Octo_Baby/OctoBody:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2.09, 2.09), Vector2(1e-05, 1e-05)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Octo_Baby/TitleOctoEyes:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.135659),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-95.0543, 34.8526), Vector2(-90.0385, 24.8652)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Octo_Baby/TitleOctoEyes:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.135659, 0.267462),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2, 2), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_1213o"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Octo_Baby/TitleOctoEyes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.353503, 0.618631, 0.966667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-95.0543, 34.8526), Vector2(-90.0931, 59.8603), Vector2(-85.0621, 39.8681), Vector2(-95.0543, 34.8526)]
+}
+
+[sub_resource type="Animation" id="Animation_073mt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Octo_Baby/TitleOctoEyes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-95.0543, 34.8526)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Octo_Baby/OctoArmL:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-99.2605, 42.1562)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Octo_Baby/OctoArmR:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-99.2605, 42.1562)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Octo_Baby/OctoBody:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-99.2605, 42.1562)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Octo_Baby/OctoArmL:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Octo_Baby/OctoArmR:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Octo_Baby/OctoBody:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Octo_Baby/TitleOctoEyes:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_26x21"]
+_data = {
+&"RESET": SubResource("Animation_073mt"),
+&"hide": SubResource("Animation_g4vxw"),
+&"idle": SubResource("Animation_1213o")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xdhln"]
@@ -292,7 +693,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.1
-texture = ExtResource("8_77ek3")
+texture = ExtResource("8_1213o")
 expand_mode = 1
 stretch_mode = 5
 
@@ -534,7 +935,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 offset_left = 592.0
 offset_top = 256.0
-offset_right = 753.0
+offset_right = 738.0
 offset_bottom = 356.0
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_3ppgv")
@@ -631,77 +1032,66 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="TentacleTitle" type="TextureRect" parent="HUD/Tutorial_Msg"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-offset_left = 571.0
-offset_top = -100.0
-offset_right = 863.0
-offset_bottom = 408.0
-texture = ExtResource("11_i1p0x")
-expand_mode = 1
-stretch_mode = 5
+[node name="TitleOcto" type="TextureRect" parent="HUD/Tutorial_Msg"]
+layout_mode = 0
+offset_left = -243.0
+offset_top = -460.0
+offset_right = 872.0
+offset_bottom = 328.0
+rotation = 0.024754
+texture = ExtResource("37_k44y5")
+
+[node name="TitleOcto2" type="TextureRect" parent="HUD/Tutorial_Msg"]
+layout_mode = 0
+offset_left = -243.0
+offset_top = -460.0
+offset_right = 872.0
+offset_bottom = 328.0
+rotation = 0.024754
+texture = ExtResource("35_073mt")
 
 [node name="Banner" type="TextureRect" parent="HUD/Tutorial_Msg"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-offset_left = -212.0
-offset_top = -129.0
-offset_right = 816.0
-offset_bottom = 65.0
+offset_left = -4.00034
+offset_top = -35.0
+offset_right = 897.0
+offset_bottom = 135.0
+rotation = 0.22488
+pivot_offset = Vector2(486.439, 63.336)
 texture = ExtResource("12_0e475")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="TentacleTitle2" type="TextureRect" parent="HUD/Tutorial_Msg"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-offset_left = -438.0
-offset_top = -45.0
-offset_right = 253.0
-offset_bottom = 397.0
-texture = ExtResource("11_i1p0x")
-expand_mode = 1
-stretch_mode = 5
-flip_h = true
-
-[node name="TentacleTitle3" type="TextureRect" parent="HUD/Tutorial_Msg"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-offset_left = 428.0
-offset_top = 168.0
-offset_right = 678.0
-offset_bottom = 604.0
-rotation = 1.54599
-pivot_offset = Vector2(142, 271)
-texture = ExtResource("11_i1p0x")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="TentacleTitle4" type="TextureRect" parent="HUD/Tutorial_Msg"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
-offset_left = -140.0
-offset_top = 190.0
-offset_right = 79.0
-offset_bottom = 571.0
-rotation = 1.54599
-pivot_offset = Vector2(142, 271)
-texture = ExtResource("11_i1p0x")
-expand_mode = 1
-stretch_mode = 5
-flip_v = true
+[node name="TitleOcto3" type="TextureRect" parent="HUD/Tutorial_Msg"]
+layout_mode = 0
+offset_left = -244.0
+offset_top = -461.0
+offset_right = 871.0
+offset_bottom = 327.0
+rotation = 0.024754
+texture = ExtResource("36_26x21")
 
 [node name="Title" type="TextureRect" parent="HUD/Tutorial_Msg"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-offset_left = -91.0003
-offset_top = -200.0
-offset_right = 672.0
-offset_bottom = -56.0
+offset_left = -189.0
+offset_top = -169.0
+offset_right = 816.0
+offset_bottom = 21.0
+rotation = 0.0238848
 texture = ExtResource("13_bc3ha")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="TitleOctoEyes" type="TextureRect" parent="HUD/Tutorial_Msg"]
+layout_mode = 0
+offset_left = -238.0
+offset_top = -457.0
+offset_right = 877.0
+offset_bottom = 331.0
+rotation = 0.024754
+texture = ExtResource("21_n4kpv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Tutorial_Msg"]
 libraries = {
@@ -709,6 +1099,13 @@ libraries = {
 }
 autoplay = "blink"
 speed_scale = 0.5
+
+[node name="AP_Octo" type="AnimationPlayer" parent="HUD/Tutorial_Msg"]
+libraries = {
+&"": SubResource("AnimationLibrary_ndm73")
+}
+autoplay = "idle"
+speed_scale = 0.2
 
 [node name="ReachedGoal_Msg" type="Control" parent="HUD"]
 unique_name_in_owner = true
@@ -780,7 +1177,7 @@ alignment = 1
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_stretch_ratio = 0.1
-texture = ExtResource("18_qqkhr")
+texture = ExtResource("24_1213o")
 expand_mode = 1
 stretch_mode = 5
 
@@ -818,7 +1215,7 @@ alignment = 1
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_stretch_ratio = 0.1
-texture = ExtResource("21_0e475")
+texture = ExtResource("25_073mt")
 expand_mode = 1
 stretch_mode = 5
 
@@ -894,7 +1291,7 @@ alignment = 1
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_stretch_ratio = 0.1
-texture = ExtResource("22_bc3ha")
+texture = ExtResource("26_26x21")
 expand_mode = 1
 stretch_mode = 5
 
@@ -1058,39 +1455,37 @@ text = "Restart"
 unique_name_in_owner = true
 visible = false
 layout_mode = 3
-anchor_left = 0.197656
-anchor_top = 0.0791667
-anchor_right = 0.803125
-anchor_bottom = 0.7375
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 theme = ExtResource("10_s0cgv")
-metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="HUD/Game_Over"]
-custom_minimum_size = Vector2(500, 250)
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0825806
-anchor_top = 0.0843883
-anchor_right = 0.939354
-anchor_bottom = 0.78481
-offset_left = -3.05176e-05
-offset_top = -5.34058e-05
-offset_bottom = 6.10352e-05
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -258.0
+offset_top = -86.0
+offset_right = 258.0
+offset_bottom = 86.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HUD/Game_Over/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.236
-anchor_top = 0.236
-anchor_right = 0.764
-anchor_bottom = 0.448
+anchor_left = 0.213794
+anchor_top = 0.170103
+anchor_right = 0.82069
+anchor_bottom = 0.525773
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
@@ -1111,17 +1506,17 @@ justification_flags = 161
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/Game_Over/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.200001
-anchor_top = 0.512
-anchor_right = 0.780001
-anchor_bottom = 0.824
+anchor_left = 0.0445736
+anchor_top = 0.761628
+anchor_right = 0.959302
+anchor_bottom = 1.12209
 theme_override_constants/separation = 36
 metadata/_edit_use_anchors_ = true
 
 [node name="Button_Retry" type="Button" parent="HUD/Game_Over/Panel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Retry?"
+text = "Set Sail !"
 icon_alignment = 1
 expand_icon = true
 metadata/_edit_use_anchors_ = true
@@ -1129,10 +1524,60 @@ metadata/_edit_use_anchors_ = true
 [node name="Button_Quit" type="Button" parent="HUD/Game_Over/Panel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Quit?"
+text = "To Mainland ?"
 icon_alignment = 1
 expand_icon = true
 metadata/_edit_use_anchors_ = true
+
+[node name="TentacleTitle" type="TextureRect" parent="HUD/Game_Over"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 765.0
+offset_top = -51.0
+offset_right = 1057.0
+offset_bottom = 457.0
+texture = ExtResource("11_i1p0x")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TentacleTitle2" type="TextureRect" parent="HUD/Game_Over"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 26.0
+offset_top = 20.0
+offset_right = 717.0
+offset_bottom = 462.0
+texture = ExtResource("11_i1p0x")
+expand_mode = 1
+stretch_mode = 5
+flip_h = true
+
+[node name="TentacleTitle3" type="TextureRect" parent="HUD/Game_Over"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 750.0
+offset_top = 227.0
+offset_right = 1000.0
+offset_bottom = 663.0
+rotation = 1.54599
+pivot_offset = Vector2(142, 271)
+texture = ExtResource("11_i1p0x")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TentacleTitle4" type="TextureRect" parent="HUD/Game_Over"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 172.0
+offset_top = 248.0
+offset_right = 391.0
+offset_bottom = 629.0
+rotation = 1.54599
+pivot_offset = Vector2(142, 271)
+texture = ExtResource("11_i1p0x")
+expand_mode = 1
+stretch_mode = 5
+flip_v = true
 
 [node name="Infos" type="Control" parent="HUD"]
 unique_name_in_owner = true
@@ -1207,16 +1652,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.3
 nine_patch_stretch = true
-texture_under = ExtResource("19_kr1e0")
+texture_under = ExtResource("28_1213o")
 texture_progress = ExtResource("18_lwa2w")
 
 [node name="Health_Text" type="RichTextLabel" parent="HUD/Infos/Health/ProgressBar_Hp"]
 unique_name_in_owner = true
 layout_mode = 2
 anchor_left = 0.542553
-anchor_top = -0.0263158
+anchor_top = -0.72973
 anchor_right = 0.93617
-anchor_bottom = 0.973684
+anchor_bottom = 0.27027
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
 bbcode_enabled = true
@@ -1324,6 +1769,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="OutOfScreenFeedbackTimer" type="Timer" parent="HUD/OutOfScreenFeedback"]
+unique_name_in_owner = true
 one_shot = true
 
 [node name="OutOfScreenFeedback" type="AnimationPlayer" parent="HUD/OutOfScreenFeedback"]
@@ -1331,28 +1777,13 @@ root_node = NodePath("")
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="Siren" parent="Enemies" instance=ExtResource("2_q4iis")]
-position = Vector2(1043, 12520)
-rotation = 0.014986
-scale = Vector2(0.2, 0.2)
-
-[node name="SirenRock" parent="Enemies/Siren" index="0"]
-position = Vector2(202, -168)
-scale = Vector2(2.02538, 2.02538)
-
-[node name="WavesFlotsam" parent="Enemies/Siren" index="1"]
-position = Vector2(170, 597)
-scale = Vector2(1.97208, 1.97208)
-
-[node name="MusicCloud" parent="Enemies/Siren" index="5"]
-position = Vector2(54, -11)
-
-[node name="Notes" parent="Enemies/Siren/MusicCloud" index="0"]
-position = Vector2(-30.6716, 42.5254)
-scale = Vector2(1.30698, 1.30725)
-
 [node name="Siren2" parent="Enemies" instance=ExtResource("2_q4iis")]
 position = Vector2(260, 11154)
+rotation = -0.0410531
+scale = Vector2(0.2, 0.2)
+
+[node name="Siren11" parent="Enemies" instance=ExtResource("2_q4iis")]
+position = Vector2(1057, 13889)
 rotation = -0.0410531
 scale = Vector2(0.2, 0.2)
 
@@ -1384,13 +1815,16 @@ scale = Vector2(2.02538, 2.02538)
 position = Vector2(170, 597)
 scale = Vector2(1.97208, 1.97208)
 
-[node name="MusicCloud" parent="Enemies/Siren_Small" index="5"]
-position = Vector2(54, -11)
-rotation = 0.210177
+[node name="CollisionShape2D" parent="Enemies/Siren_Small/PlayerDetector" index="0"]
+shape = SubResource("CircleShape2D_cmocw")
 
-[node name="Notes" parent="Enemies/Siren_Small/MusicCloud" index="0"]
-position = Vector2(-30.6716, 42.5254)
-scale = Vector2(1.30698, 1.30725)
+[node name="AnimationPlayer" parent="Enemies/Siren_Small" index="4"]
+libraries = {
+&"": SubResource("AnimationLibrary_ep6gl")
+}
+
+[node name="MusicCloud" parent="Enemies/Siren_Small" index="5"]
+scale = Vector2(4.35157, 4.41117)
 
 [node name="Siren4" parent="Enemies" instance=ExtResource("2_q4iis")]
 position = Vector2(1207, 3341)
@@ -1416,6 +1850,145 @@ scale = Vector2(0.2, 0.2)
 position = Vector2(1097, 2687)
 rotation = -0.0769687
 scale = Vector2(0.2, 0.2)
+
+[node name="Octo_Baby" type="Node2D" parent="Enemies" groups=["NPC"]]
+z_index = 7
+position = Vector2(731, 7598)
+rotation = -0.0769687
+scale = Vector2(0.2, 0.2)
+script = ExtResource("33_1213o")
+time_in_sec_to_attack = 3
+
+[node name="Octo_Baby" type="Node2D" parent="Enemies/Octo_Baby"]
+visible = false
+rotation = 0.0754178
+scale = Vector2(1, 1)
+
+[node name="SirenRock" type="Sprite2D" parent="Enemies/Octo_Baby/Octo_Baby"]
+position = Vector2(202, -161)
+scale = Vector2(2.02538, 2.02538)
+texture = ExtResource("10_77ek3")
+
+[node name="WavesFlotsam" type="Sprite2D" parent="Enemies/Octo_Baby/Octo_Baby"]
+position = Vector2(169.999, 596.996)
+scale = Vector2(1.97208, 1.97208)
+texture = ExtResource("33_i1p0x")
+
+[node name="OctoArmL" type="Sprite2D" parent="Enemies/Octo_Baby/Octo_Baby"]
+position = Vector2(-99.2605, 42.1562)
+rotation = -0.151067
+scale = Vector2(2, 2)
+texture = ExtResource("35_073mt")
+
+[node name="OctoArmR" type="Sprite2D" parent="Enemies/Octo_Baby/Octo_Baby"]
+position = Vector2(-99.2605, 42.1562)
+rotation = -0.151067
+scale = Vector2(2, 2)
+texture = ExtResource("36_26x21")
+
+[node name="OctoBody" type="Sprite2D" parent="Enemies/Octo_Baby/Octo_Baby"]
+position = Vector2(-99.2605, 42.1562)
+rotation = -0.151067
+scale = Vector2(2, 2)
+texture = ExtResource("37_k44y5")
+
+[node name="TitleOctoEyes" type="Sprite2D" parent="Enemies/Octo_Baby/Octo_Baby"]
+position = Vector2(-95.0543, 34.8526)
+rotation = -0.139894
+scale = Vector2(2, 2)
+texture = ExtResource("21_n4kpv")
+
+[node name="PlayerDetector" type="Area2D" parent="Enemies/Octo_Baby"]
+position = Vector2(251.554, 54.504)
+collision_layer = 2
+gravity_space_override = 1
+gravity_point = true
+gravity_point_unit_distance = 4.302
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Octo_Baby/PlayerDetector"]
+position = Vector2(141, -13)
+shape = SubResource("CircleShape2D_cmocw")
+
+[node name="CoolDownTimer" type="Timer" parent="Enemies/Octo_Baby"]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Octo_Baby"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_26x21")
+}
+autoplay = "idle"
+speed_scale = 0.2
+
+[node name="Octo_Baby2" type="Node2D" parent="Enemies" groups=["NPC"]]
+z_index = 7
+position = Vector2(240, 10223)
+rotation = -0.0769687
+scale = Vector2(0.2, 0.2)
+script = ExtResource("33_1213o")
+time_in_sec_to_attack = 3
+
+[node name="Octo_Baby" type="Node2D" parent="Enemies/Octo_Baby2"]
+rotation = 0.0754178
+scale = Vector2(1, 1)
+
+[node name="SirenRock" type="Sprite2D" parent="Enemies/Octo_Baby2/Octo_Baby"]
+position = Vector2(202, -161)
+scale = Vector2(2.02538, 2.02538)
+texture = ExtResource("10_77ek3")
+
+[node name="WavesFlotsam" type="Sprite2D" parent="Enemies/Octo_Baby2/Octo_Baby"]
+position = Vector2(169.999, 596.996)
+scale = Vector2(1.97208, 1.97208)
+texture = ExtResource("33_i1p0x")
+
+[node name="OctoArmL" type="Sprite2D" parent="Enemies/Octo_Baby2/Octo_Baby"]
+position = Vector2(-99.2605, 42.1562)
+rotation = -0.151067
+scale = Vector2(2, 2)
+texture = ExtResource("35_073mt")
+
+[node name="OctoArmR" type="Sprite2D" parent="Enemies/Octo_Baby2/Octo_Baby"]
+position = Vector2(-99.2605, 42.1562)
+rotation = -0.151067
+scale = Vector2(2, 2)
+texture = ExtResource("36_26x21")
+
+[node name="OctoBody" type="Sprite2D" parent="Enemies/Octo_Baby2/Octo_Baby"]
+position = Vector2(-99.2605, 42.1562)
+rotation = -0.151067
+scale = Vector2(2, 2)
+texture = ExtResource("37_k44y5")
+
+[node name="TitleOctoEyes" type="Sprite2D" parent="Enemies/Octo_Baby2/Octo_Baby"]
+position = Vector2(-95.0543, 34.8526)
+rotation = -0.139894
+scale = Vector2(2, 2)
+texture = ExtResource("21_n4kpv")
+
+[node name="PlayerDetector" type="Area2D" parent="Enemies/Octo_Baby2"]
+position = Vector2(251.554, 54.504)
+collision_layer = 2
+gravity_space_override = 1
+gravity_point = true
+gravity_point_unit_distance = 4.302
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemies/Octo_Baby2/PlayerDetector"]
+position = Vector2(141, -13)
+shape = SubResource("CircleShape2D_cmocw")
+
+[node name="CoolDownTimer" type="Timer" parent="Enemies/Octo_Baby2"]
+wait_time = 0.2
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Octo_Baby2"]
+libraries = {
+&"": SubResource("AnimationLibrary_26x21")
+}
+autoplay = "idle"
+speed_scale = 0.2
 
 [node name="Kraken" parent="Enemies" instance=ExtResource("14_esphl")]
 position = Vector2(813, 7567)
@@ -1766,7 +2339,7 @@ position = Vector2(1482, 11599)
 position = Vector2(657, 11208)
 
 [node name="OilBarrel2" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(341, 10345)
+position = Vector2(672, 10398)
 
 [node name="OilBarrel5" parent="Oil" instance=ExtResource("25_q2vmi")]
 position = Vector2(143, 9469)
@@ -1882,7 +2455,7 @@ position = Vector2(1057, 291)
 
 [node name="Camera" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(817, 14508)
+position = Vector2(817, 14529)
 script = ExtResource("5_86ljf")
 speed = 120.0
 
@@ -1907,7 +2480,7 @@ editor_draw_drag_margin = true
 
 [node name="Ship" parent="." instance=ExtResource("4_mxnmf")]
 unique_name_in_owner = true
-position = Vector2(848, 14493)
+position = Vector2(852, 14470)
 default_speed = 180.0
 lured_speed = 25.0
 lured_rot_speed = 1.0
@@ -1924,9 +2497,13 @@ volume_db = -10.0
 [connection signal="pressed" from="HUD/Game_Over/Panel/HBoxContainer/Button_Retry" to="HUD" method="_on_button_retry_pressed"]
 [connection signal="pressed" from="HUD/Game_Over/Panel/HBoxContainer/Button_Quit" to="HUD" method="_on_button_quit_pressed"]
 [connection signal="timeout" from="HUD/OutOfScreenFeedback/OutOfScreenFeedbackTimer" to="HUD/OutOfScreenFeedback" method="_on_out_of_screen_feedback_timer_timeout"]
+[connection signal="body_entered" from="Enemies/Octo_Baby/PlayerDetector" to="Enemies/Octo_Baby" method="_on_player_detector_body_entered"]
+[connection signal="timeout" from="Enemies/Octo_Baby/CoolDownTimer" to="Enemies/Octo_Baby" method="_on_cool_down_timer_timeout"]
+[connection signal="body_entered" from="Enemies/Octo_Baby2/PlayerDetector" to="Enemies/Octo_Baby2" method="_on_player_detector_body_entered"]
+[connection signal="timeout" from="Enemies/Octo_Baby2/CoolDownTimer" to="Enemies/Octo_Baby2" method="_on_cool_down_timer_timeout"]
 
-[editable path="Enemies/Siren"]
 [editable path="Enemies/Siren_Small"]
+[editable path="Enemies/Kraken"]
 [editable path="Enemies/Whirl3"]
 [editable path="Enemies/Whirl4"]
 [editable path="Enemies/Whirl5"]

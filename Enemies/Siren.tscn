@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://qobdm2gpnb67"]
+[gd_scene load_steps=15 format=3 uid="uid://qobdm2gpnb67"]
 
 [ext_resource type="Script" uid="uid://bwqlamrq561m3" path="res://Enemies/Siren.gd" id="1_encha"]
 [ext_resource type="Texture2D" uid="uid://216hxrbi2ple" path="res://Assets/Siren.png" id="1_skyaa"]
@@ -6,60 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://c676w84mxf1ur" path="res://Assets/Nebel.png" id="3_67xhn"]
 [ext_resource type="Texture2D" uid="uid://dbug2h3anxa7w" path="res://Assets/waves_flotsam.png" id="3_njhuu"]
 [ext_resource type="Texture2D" uid="uid://b03c8g70vny27" path="res://Assets/Notes.png" id="4_5vdh3"]
+[ext_resource type="Texture2D" uid="uid://dixvycoskh3uc" path="res://Assets/Siren_Rock_B.png" id="5_k4ey0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cmocw"]
 radius = 1563.15
 
 [sub_resource type="Animation" id="Animation_cmocw"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2, 2)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PlayerDetector:monitoring")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite:self_modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("MusicCloud:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4.35157, 4.41117)]
-}
 
 [sub_resource type="Animation" id="Animation_encha"]
 resource_name = "hide"
@@ -111,11 +64,108 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(3.782, 3.833), Vector2(5.877, 5.957), Vector2(1e-05, 1e-05)]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SirenRock:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0564671),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_5vdh3"), ExtResource("5_k4ey0")]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ep6gl"]
 _data = {
 &"RESET": SubResource("Animation_cmocw"),
 &"hide": SubResource("Animation_encha")
+}
+
+[sub_resource type="Animation" id="Animation_tuuq8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Notes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-30.6716, 42.5254)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Notes:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.00226668]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Notes:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.30698, 1.30725)]
+}
+
+[sub_resource type="Animation" id="Animation_nxr4d"]
+resource_name = "sing"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Notes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.423274, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-30.6716, 42.5254), Vector2(-26.462, 45.5846), Vector2(-30.6716, 42.5254)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Notes:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.337224, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.00226668, -0.0698132, 0.00226668]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Notes:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.218614, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.30698, 1.30725), Vector2(1.257, 1.257), Vector2(1.30698, 1.30725)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_trxe2"]
+_data = {
+&"RESET": SubResource("Animation_tuuq8"),
+&"sing": SubResource("Animation_nxr4d")
 }
 
 [node name="Siren" type="Node2D" groups=["NPC"]]
@@ -124,7 +174,7 @@ script = ExtResource("1_encha")
 time_in_sec_to_attack = 3
 
 [node name="SirenRock" type="Sprite2D" parent="."]
-position = Vector2(202, -168)
+position = Vector2(202, -161)
 scale = Vector2(2.02538, 2.02538)
 texture = ExtResource("2_5vdh3")
 
@@ -149,6 +199,7 @@ position = Vector2(141, -13)
 shape = SubResource("CircleShape2D_cmocw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_ep6gl")
 }
@@ -156,7 +207,7 @@ libraries = {
 [node name="MusicCloud" type="Sprite2D" parent="."]
 position = Vector2(54, -11)
 rotation = -0.0231956
-scale = Vector2(4.35157, 4.41117)
+scale = Vector2(3.782, 3.833)
 texture = ExtResource("3_67xhn")
 
 [node name="Notes" type="Sprite2D" parent="MusicCloud"]
@@ -164,6 +215,12 @@ position = Vector2(-30.6716, 42.5254)
 rotation = 0.00226668
 scale = Vector2(1.30698, 1.30725)
 texture = ExtResource("4_5vdh3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MusicCloud"]
+libraries = {
+&"": SubResource("AnimationLibrary_trxe2")
+}
+autoplay = "sing"
 
 [node name="CoolDownTimer" type="Timer" parent="."]
 unique_name_in_owner = true

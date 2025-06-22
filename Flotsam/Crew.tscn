@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://be83roh20rrbm"]
+[gd_scene load_steps=8 format=3 uid="uid://be83roh20rrbm"]
 
 [ext_resource type="Script" uid="uid://cvdixestjgr70" path="res://Crew.gd" id="1_f6irc"]
 [ext_resource type="Texture2D" uid="uid://hkv7yjgqc437" path="res://Assets/Sailor.png" id="2_jcyi5"]
+[ext_resource type="Texture2D" uid="uid://dv6hffwimckyl" path="res://Assets/Help_Sign.png" id="3_jcyi5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f6irc"]
-radius = 93.6483
+radius = 78.2304
 
 [sub_resource type="Animation" id="Animation_jcyi5"]
 length = 0.001
@@ -43,6 +44,30 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0.5, 0.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HelpSign:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(31, -275)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HelpSign:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.196793]
 }
 
 [sub_resource type="Animation" id="Animation_f6irc"]
@@ -84,6 +109,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(0.5, 0.5), Vector2(0.5, 0.5)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HelpSign:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.464285, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(31, -275), Vector2(32, -288), Vector2(31, -275)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HelpSign:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.464285, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.196793, 0.0855211, -0.196793]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kgg7n"]
 _data = {
@@ -105,7 +154,7 @@ collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 z_index = 9
-position = Vector2(-7, -5)
+position = Vector2(-12, -54)
 shape = SubResource("CircleShape2D_f6irc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -113,5 +162,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_kgg7n")
 }
 autoplay = "idle"
+
+[node name="HelpSign" type="Sprite2D" parent="."]
+position = Vector2(31, -275)
+rotation = -0.196793
+scale = Vector2(0.203046, 0.203046)
+texture = ExtResource("3_jcyi5")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

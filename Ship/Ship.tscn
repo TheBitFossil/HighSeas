@@ -45,8 +45,8 @@ linear_accel_min = -56.11
 linear_accel_max = 38.33
 tangential_accel_min = -66.67
 tangential_accel_max = 64.44
-scale_min = 0.01
-scale_max = 0.02
+scale_min = 0.12
+scale_max = 0.18
 turbulence_noise_strength = 4.64
 turbulence_noise_scale = 9.674
 

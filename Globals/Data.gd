@@ -65,6 +65,8 @@ func remove_crew():
 	crew -= 1
 	if crew <= 0:
 		crew = 0
+		EvBus.emit_signal("game_over")
+		
 	EvBus.emit_signal("crew_changed", crew)
 	crew_lost += 1
 

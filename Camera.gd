@@ -40,11 +40,13 @@ func deactivate_scroll():
 
 
 func camera_zoom_siren():
-	camera_2d.zoom = siren_zoom
+	var tween = get_tree().create_tween()
+	tween.tween_property(camera_2d, "zoom", siren_zoom, 2.0).set_trans(Tween.TRANS_CUBIC)
 
 
 func camera_zoom_reset():
-	camera_2d.zoom = default_zoom
+	var tween = get_tree().create_tween()
+	tween.tween_property(camera_2d, "zoom", default_zoom, 2.0).set_trans(Tween.TRANS_CUBIC)
 
 
 func lure_in_mode_active():

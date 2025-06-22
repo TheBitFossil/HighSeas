@@ -57,3 +57,7 @@ move_to_target={
 2d_physics/layer_2="Enemy"
 2d_physics/layer_3="Neutrals"
 2d_physics/layer_4="Bullets"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

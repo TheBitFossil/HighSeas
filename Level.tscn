@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://dj8kxsq5tqkct"]
+[gd_scene load_steps=77 format=3 uid="uid://dj8kxsq5tqkct"]
 
 [ext_resource type="Script" uid="uid://ctj7g03v4b4xd" path="res://GameRoot.gd" id="1_q4iis"]
 [ext_resource type="PackedScene" uid="uid://qobdm2gpnb67" path="res://Enemies/Siren.tscn" id="2_q4iis"]
@@ -48,8 +48,10 @@
 [ext_resource type="Script" uid="uid://bwqlamrq561m3" path="res://Enemies/Siren.gd" id="33_1213o"]
 [ext_resource type="Texture2D" uid="uid://dbug2h3anxa7w" path="res://Assets/waves_flotsam.png" id="33_i1p0x"]
 [ext_resource type="PackedScene" uid="uid://ccceyqjvl74ba" path="res://Environment/Big_Cloud.tscn" id="33_u4i8u"]
+[ext_resource type="Texture2D" uid="uid://c834fuedypghp" path="res://Assets/ya-flunked.png" id="34_26x21"]
 [ext_resource type="PackedScene" uid="uid://5vqxwlw64ogh" path="res://Environment/Small_Cloud.tscn" id="34_lilnj"]
 [ext_resource type="Texture2D" uid="uid://bemin45nj52ct" path="res://Assets/Octo_Arm_L.png" id="35_073mt"]
+[ext_resource type="Texture2D" uid="uid://dakivc70q4i2d" path="res://Assets/Michael-Bay-wannabe.png" id="35_k44y5"]
 [ext_resource type="Texture2D" uid="uid://t5s2laxpucei" path="res://Assets/Octo_Arm_R.png" id="36_26x21"]
 [ext_resource type="Texture2D" uid="uid://dcewvp67vthlt" path="res://Assets/Octo_Body.png" id="37_k44y5"]
 [ext_resource type="Texture2D" uid="uid://dixvycoskh3uc" path="res://Assets/Siren_Rock_B.png" id="38_pbpq5"]
@@ -68,6 +70,21 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
+[sub_resource type="Animation" id="Animation_77ek3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/RichTextLabel:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_53f8w"]
 resource_name = "blink"
 loop_mode = 1
@@ -84,25 +101,25 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.376471), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_77ek3"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u4i8u"]
+_data = {
+&"RESET": SubResource("Animation_77ek3"),
+&"blink": SubResource("Animation_53f8w")
+}
+
+[sub_resource type="Animation" id="Animation_26x21"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Panel/RichTextLabel:self_modulate")
+tracks/0/path = NodePath("TitleOctoEyes:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_u4i8u"]
-_data = {
-&"RESET": SubResource("Animation_77ek3"),
-&"blink": SubResource("Animation_53f8w")
+"values": [Vector2(-238, -457)]
 }
 
 [sub_resource type="Animation" id="Animation_608kq"]
@@ -119,21 +136,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(-238, -457), Vector2(-248, -460), Vector2(-234, -462), Vector2(-242, -453), Vector2(-238, -457)]
-}
-
-[sub_resource type="Animation" id="Animation_26x21"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TitleOctoEyes:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-238, -457)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ndm73"]
@@ -343,6 +345,105 @@ _data = {
 &"hide": SubResource("Animation_encha")
 }
 
+[sub_resource type="Animation" id="Animation_073mt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Octo_Baby/TitleOctoEyes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-95.0543, 34.8526)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Octo_Baby/OctoArmL:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-99.2605, 42.1562)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Octo_Baby/OctoArmR:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-99.2605, 42.1562)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Octo_Baby/OctoBody:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-99.2605, 42.1562)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Octo_Baby/OctoArmL:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Octo_Baby/OctoArmR:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Octo_Baby/OctoBody:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Octo_Baby/TitleOctoEyes:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
 [sub_resource type="Animation" id="Animation_g4vxw"]
 resource_name = "hide"
 length = 0.3
@@ -457,105 +558,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(-95.0543, 34.8526), Vector2(-90.0931, 59.8603), Vector2(-85.0621, 39.8681), Vector2(-95.0543, 34.8526)]
-}
-
-[sub_resource type="Animation" id="Animation_073mt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Octo_Baby/TitleOctoEyes:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-95.0543, 34.8526)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Octo_Baby/OctoArmL:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-99.2605, 42.1562)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Octo_Baby/OctoArmR:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-99.2605, 42.1562)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Octo_Baby/OctoBody:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-99.2605, 42.1562)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Octo_Baby/OctoArmL:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2, 2)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Octo_Baby/OctoArmR:scale")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2, 2)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Octo_Baby/OctoBody:scale")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2, 2)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Octo_Baby/TitleOctoEyes:scale")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2, 2)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_26x21"]
@@ -1775,6 +1777,42 @@ one_shot = true
 [node name="OutOfScreenFeedback" type="AnimationPlayer" parent="HUD/OutOfScreenFeedback"]
 root_node = NodePath("")
 
+[node name="Ya-flunked" type="TextureRect" parent="HUD"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 1097.25
+offset_top = 518.773
+offset_right = 1267.25
+offset_bottom = 688.773
+rotation = 0.237097
+pivot_offset = Vector2(67.4352, 73.8749)
+texture = ExtResource("34_26x21")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Michael-bay-wannabe" type="TextureRect" parent="HUD"]
+custom_minimum_size = Vector2(40, 40)
+offset_left = 986.247
+offset_top = 514.773
+offset_right = 1151.25
+offset_bottom = 686.773
+rotation = -0.0466867
+pivot_offset = Vector2(67.7992, 71.1544)
+texture = ExtResource("35_k44y5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD"]
+offset_left = 32.0
+offset_top = 654.0
+offset_right = 72.0
+offset_bottom = 694.0
+theme = ExtResource("10_s0cgv")
+text = "v 1.0"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Siren2" parent="Enemies" instance=ExtResource("2_q4iis")]
@@ -1802,6 +1840,9 @@ position = Vector2(313, 8688)
 rotation = -0.00600374
 scale = Vector2(0.2, 0.2)
 
+[node name="PlayerDetector" parent="Enemies/Siren10" index="3"]
+visible = false
+
 [node name="Siren_Small" parent="Enemies" instance=ExtResource("2_q4iis")]
 position = Vector2(1225, 5732)
 rotation = -0.17423
@@ -1809,11 +1850,6 @@ scale = Vector2(0.2, 0.2)
 
 [node name="SirenRock" parent="Enemies/Siren_Small" index="0"]
 position = Vector2(202, -168)
-scale = Vector2(2.02538, 2.02538)
-
-[node name="WavesFlotsam" parent="Enemies/Siren_Small" index="1"]
-position = Vector2(170, 597)
-scale = Vector2(1.97208, 1.97208)
 
 [node name="CollisionShape2D" parent="Enemies/Siren_Small/PlayerDetector" index="0"]
 shape = SubResource("CircleShape2D_cmocw")
@@ -1862,7 +1898,6 @@ time_in_sec_to_attack = 3
 [node name="Octo_Baby" type="Node2D" parent="Enemies/Octo_Baby"]
 visible = false
 rotation = 0.0754178
-scale = Vector2(1, 1)
 
 [node name="SirenRock" type="Sprite2D" parent="Enemies/Octo_Baby/Octo_Baby"]
 position = Vector2(202, -161)
@@ -1932,7 +1967,6 @@ time_in_sec_to_attack = 3
 
 [node name="Octo_Baby" type="Node2D" parent="Enemies/Octo_Baby2"]
 rotation = 0.0754178
-scale = Vector2(1, 1)
 
 [node name="SirenRock" type="Sprite2D" parent="Enemies/Octo_Baby2/Octo_Baby"]
 position = Vector2(202, -161)
@@ -2243,6 +2277,7 @@ scale = Vector2(0.263959, 0.346447)
 texture = ExtResource("33_i1p0x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Rocks/Rock4/StaticBody2D5"]
+visible = false
 position = Vector2(-4.29105, -35.9804)
 shape = SubResource("CircleShape2D_xdhln")
 
@@ -2424,6 +2459,9 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(512, 8677)
 scale = Vector2(0.5, 0.5)
 
+[node name="Area2D" parent="Crew/Crew6" index="1"]
+visible = false
+
 [node name="Crew4" parent="Crew" instance=ExtResource("28_lwa2w")]
 position = Vector2(1483, 8755)
 rotation = 0.0877259
@@ -2502,6 +2540,7 @@ volume_db = -10.0
 [connection signal="body_entered" from="Enemies/Octo_Baby2/PlayerDetector" to="Enemies/Octo_Baby2" method="_on_player_detector_body_entered"]
 [connection signal="timeout" from="Enemies/Octo_Baby2/CoolDownTimer" to="Enemies/Octo_Baby2" method="_on_cool_down_timer_timeout"]
 
+[editable path="Enemies/Siren10"]
 [editable path="Enemies/Siren_Small"]
 [editable path="Enemies/Kraken"]
 [editable path="Enemies/Whirl3"]
@@ -2511,3 +2550,4 @@ volume_db = -10.0
 [editable path="Wolken/Big_Cloud2"]
 [editable path="Rocks/Rock"]
 [editable path="Rocks/Rock4"]
+[editable path="Crew/Crew6"]

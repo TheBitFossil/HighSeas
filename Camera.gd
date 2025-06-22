@@ -20,6 +20,7 @@ func _ready() -> void:
 	EvBus.has_reached_goal.connect(_on_has_reached_goal)
 	#EvBus.camera_static.connect(_on_camera_static)
 	#EvBus.camera_follow.connect(_on_camera_follow)
+	EvBus.camera_shake.connect(_on_camera_shake)
 	
 	player = get_tree().get_first_node_in_group("Player")
 	add_target(player)
@@ -39,6 +40,7 @@ func _physics_process(delta: float) -> void:
 func add_target(t):
 	if not t in camera_targets:
 		camera_targets.append(t)
+
 
 func multi_cam_pos():
 	if !camera_targets:
@@ -64,6 +66,27 @@ func clear_targets():
 		#camera_targets.erase(t)
 	camera_targets.clear()
 	camera_targets.append(player)
+
+
+func _on_camera_shake():
+	var tween = create_tween()
+	tween.set_parallel(false)
+
+	var strength := 4.0
+	var duration := 0.05
+	var cycles := 7
+
+	for i in cycles:
+		var direction := Vector2.ZERO
+		if i % 2 == 0:
+			direction = Vector2.LEFT
+		else:
+			direction = Vector2.RIGHT
+		
+		tween.tween_property(camera_2d, "offset", direction * strength, duration).as_relative()
+	
+	tween.tween_property(camera_2d, "offset", Vector2.ZERO, duration)
+
 
 
 func activate_scroll():

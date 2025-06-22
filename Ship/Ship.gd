@@ -94,6 +94,7 @@ func hit_rock():
 	%HitRockVFX.set_emitting(true)
 	Data.player_hit_rock()
 	animation_player.play("hit_rock")
+	EvBus.emit_signal("camera_shake")
 
 
 # Called from reaching Goal Area

@@ -22,3 +22,5 @@ signal take_crew_member()
 signal game_over()
 signal left_screen()
 signal enter_screen()
+
+signal camera_shake()

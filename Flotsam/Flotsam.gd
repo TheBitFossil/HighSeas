@@ -29,7 +29,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			new_explosion.position = global_position
 			path.add_child(new_explosion)
 			new_explosion.play()
-			
+			EvBus.emit_signal("camera_shake")
 			#var f_msg = tweener.instantiate()
 			#f_msg.position = global_position
 			#path.add_child(f_msg)

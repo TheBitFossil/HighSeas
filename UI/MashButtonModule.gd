@@ -54,5 +54,4 @@ func _on_mash_button_timer_timeout() -> void:
 	mash_button_idx -= amount_to_decrease
 	if mash_button_idx <= 0:
 		mash_button_idx = 0
-		print("Button Mash: ", mash_button_idx)
 	MashButtonTimer.start()

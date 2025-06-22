@@ -1304,10 +1304,6 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(785, 2269)
 scale = Vector2(0.5, 0.5)
 
-[node name="Whirl8" parent="Enemies" instance=ExtResource("19_wesx8")]
-position = Vector2(1017, 13991)
-scale = Vector2(0.5, 0.5)
-
 [node name="Wolken" type="Node" parent="."]
 
 [node name="Normal_Cloud" parent="Wolken" instance=ExtResource("32_77ek3")]

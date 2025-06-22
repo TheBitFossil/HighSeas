@@ -8,6 +8,8 @@ class_name GameRoot
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var mash_button_module: Control = %MashButton_Module
 @onready var hud: HUD = %HUD
+@onready var out_of_screen_feedback: CenterContainer = %OutOfScreenFeedback
+@onready var out_of_screen_feedback_timer: Timer = $HUD/OutOfScreenFeedback/OutOfScreenFeedbackTimer
 
 
 
@@ -18,12 +20,32 @@ func _ready() -> void:
 	EvBus.mash_button_failed.connect(_on_mash_button_failed)
 	EvBus.lured_in.connect(_on_ship_lured_in)
 	EvBus.game_over.connect(_on_game_over)
+	EvBus.left_screen.connect(_on_left_screen)
+	EvBus.enter_screen.connect(_on_enter_screen)
 	
 	audio_stream_player.set_playing(true)
 	Data.reset_hud_stats()
 	hud.init_stats()
 	
 	get_tree().paused = false
+
+
+func _on_left_screen():
+	#show UI
+	out_of_screen_feedback.show()
+	#start damage timer
+	out_of_screen_feedback_timer.start()
+	#show text
+	$HUD/OutOfScreenFeedback/RichTextLabel.show()
+
+
+func _on_enter_screen():
+	#hide UI
+	out_of_screen_feedback.hide
+	#stop timer
+	out_of_screen_feedback_timer.stop()
+	#hide text
+	$HUD/OutOfScreenFeedback/RichTextLabel.hide()
 
 
 func _on_ship_lured_in():

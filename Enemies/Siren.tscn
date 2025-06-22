@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://qobdm2gpnb67"]
+[gd_scene load_steps=11 format=3 uid="uid://qobdm2gpnb67"]
 
 [ext_resource type="Script" uid="uid://bwqlamrq561m3" path="res://Enemies/Siren.gd" id="1_encha"]
 [ext_resource type="Texture2D" uid="uid://216hxrbi2ple" path="res://Assets/Siren.png" id="1_skyaa"]
-[ext_resource type="Texture2D" uid="uid://b4rm0krvosexx" path="res://Assets/MusicCloud.png" id="3_cmocw"]
+[ext_resource type="Texture2D" uid="uid://bhmstg302u0i7" path="res://Assets/Siren_Rock.png" id="2_5vdh3"]
+[ext_resource type="Texture2D" uid="uid://c676w84mxf1ur" path="res://Assets/Nebel.png" id="3_67xhn"]
+[ext_resource type="Texture2D" uid="uid://dbug2h3anxa7w" path="res://Assets/waves_flotsam.png" id="3_njhuu"]
+[ext_resource type="Texture2D" uid="uid://b03c8g70vny27" path="res://Assets/Notes.png" id="4_5vdh3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cmocw"]
 radius = 1563.15
@@ -19,7 +22,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1.1, 1.1)]
+"values": [Vector2(2, 2)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -70,7 +73,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.133333, 0.366667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1.1, 1.1), Vector2(1.2, 1.2), Vector2(0.1, 0.1)]
+"values": [Vector2(2, 2), Vector2(1.2, 1.2), Vector2(0.1, 0.1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -120,9 +123,19 @@ z_index = 7
 script = ExtResource("1_encha")
 time_in_sec_to_attack = 3
 
+[node name="SirenRock" type="Sprite2D" parent="."]
+position = Vector2(202, -168)
+scale = Vector2(2.02538, 2.02538)
+texture = ExtResource("2_5vdh3")
+
+[node name="WavesFlotsam" type="Sprite2D" parent="."]
+position = Vector2(170, 597)
+scale = Vector2(1.97208, 1.97208)
+texture = ExtResource("3_njhuu")
+
 [node name="Sprite" type="Sprite2D" parent="."]
-rotation = 1.5708
-scale = Vector2(1.1, 1.1)
+position = Vector2(188, -165)
+scale = Vector2(2, 2)
 texture = ExtResource("1_skyaa")
 
 [node name="PlayerDetector" type="Area2D" parent="."]
@@ -140,15 +153,22 @@ libraries = {
 &"": SubResource("AnimationLibrary_ep6gl")
 }
 
+[node name="MusicCloud" type="Sprite2D" parent="."]
+position = Vector2(54, -11)
+rotation = -0.0231956
+scale = Vector2(4.35157, 4.41117)
+texture = ExtResource("3_67xhn")
+
+[node name="Notes" type="Sprite2D" parent="MusicCloud"]
+position = Vector2(-30.6716, 42.5254)
+rotation = 0.00226668
+scale = Vector2(1.30698, 1.30725)
+texture = ExtResource("4_5vdh3")
+
 [node name="CoolDownTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 0.2
 one_shot = true
-
-[node name="MusicCloud" type="Sprite2D" parent="."]
-position = Vector2(252, 35)
-scale = Vector2(4.35157, 4.41117)
-texture = ExtResource("3_cmocw")
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="timeout" from="CoolDownTimer" to="." method="_on_cool_down_timer_timeout"]

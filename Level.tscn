@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dj8kxsq5tqkct"]
+[gd_scene load_steps=54 format=3 uid="uid://dj8kxsq5tqkct"]
 
 [ext_resource type="Script" uid="uid://ctj7g03v4b4xd" path="res://GameRoot.gd" id="1_q4iis"]
 [ext_resource type="PackedScene" uid="uid://qobdm2gpnb67" path="res://Enemies/Siren.tscn" id="2_q4iis"]
@@ -39,8 +39,13 @@
 [ext_resource type="PackedScene" uid="uid://bvmt82a6rvhem" path="res://Environment/Rock_3.tscn" id="25_lwa2w"]
 [ext_resource type="PackedScene" uid="uid://b0xxkgml3jlmk" path="res://Flotsam/OilBarrel.tscn" id="25_q2vmi"]
 [ext_resource type="PackedScene" uid="uid://c5ao8s1rmbr2l" path="res://Environment/Goal.tscn" id="25_wesx8"]
+[ext_resource type="Script" uid="uid://bi6i7hr8c7nas" path="res://out_of_screen_feedback.gd" id="28_53f8w"]
 [ext_resource type="PackedScene" uid="uid://be83roh20rrbm" path="res://Flotsam/Crew.tscn" id="28_lwa2w"]
+[ext_resource type="PackedScene" uid="uid://lucr2xkrphla" path="res://Environment/Normal_Cloud.tscn" id="32_77ek3"]
 [ext_resource type="AudioStream" uid="uid://ogrvwxwiyn4m" path="res://Assets/SFX/Pirate 2.ogg" id="32_hkpnj"]
+[ext_resource type="Texture2D" uid="uid://dbug2h3anxa7w" path="res://Assets/waves_flotsam.png" id="33_i1p0x"]
+[ext_resource type="PackedScene" uid="uid://ccceyqjvl74ba" path="res://Environment/Big_Cloud.tscn" id="33_u4i8u"]
+[ext_resource type="PackedScene" uid="uid://5vqxwlw64ogh" path="res://Environment/Small_Cloud.tscn" id="34_lilnj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s0cgv"]
 bg_color = Color(0.580392, 0.568627, 0.529412, 0.643137)
@@ -121,6 +126,9 @@ _data = {
 &"loose_crew": SubResource("Animation_s8mmm"),
 &"loose_health": SubResource("Animation_i6xau")
 }
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xdhln"]
+radius = 96.4065
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_q4iis")
@@ -1149,31 +1157,66 @@ libraries = {
 &"": SubResource("AnimationLibrary_i1p0x")
 }
 
+[node name="OutOfScreenFeedback" type="CenterContainer" parent="HUD"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("10_s0cgv")
+script = ExtResource("28_53f8w")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/OutOfScreenFeedback"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+bbcode_enabled = true
+text = "[color= green][b] Warning Ship is taking damage! Please return to the high seas [/b][/color]"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OutOfScreenFeedbackTimer" type="Timer" parent="HUD/OutOfScreenFeedback"]
+one_shot = true
+
+[node name="OutOfScreenFeedback" type="AnimationPlayer" parent="HUD/OutOfScreenFeedback"]
+root_node = NodePath("")
+
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Siren" parent="Enemies" instance=ExtResource("2_q4iis")]
-position = Vector2(1043, 12548)
-rotation = -0.221317
+position = Vector2(1043, 12520)
+rotation = 0.014986
 scale = Vector2(0.2, 0.2)
 
+[node name="MusicCloud" parent="Enemies/Siren" index="5"]
+position = Vector2(54, -11)
+
+[node name="Notes" parent="Enemies/Siren/MusicCloud" index="0"]
+position = Vector2(-30.6716, 42.5254)
+scale = Vector2(1.30698, 1.30725)
+
 [node name="Siren2" parent="Enemies" instance=ExtResource("2_q4iis")]
-position = Vector2(222, 11161)
-rotation = 0.587798
+position = Vector2(260, 11154)
+rotation = -0.0410531
 scale = Vector2(0.2, 0.2)
 
 [node name="Siren3" parent="Enemies" instance=ExtResource("2_q4iis")]
-position = Vector2(932, 9642)
-rotation = -0.374664
+position = Vector2(895, 9653)
+rotation = 0.0306794
 scale = Vector2(0.2, 0.2)
 
 [node name="Siren9" parent="Enemies" instance=ExtResource("2_q4iis")]
-position = Vector2(1237, 8821)
-rotation = -0.636315
+position = Vector2(1237, 8827)
+rotation = -0.0725156
 scale = Vector2(0.2, 0.2)
 
 [node name="Siren10" parent="Enemies" instance=ExtResource("2_q4iis")]
-position = Vector2(402, 8674)
-rotation = 0.776763
+position = Vector2(313, 8688)
+rotation = -0.00600374
 scale = Vector2(0.2, 0.2)
 
 [node name="Siren_Small" parent="Enemies" instance=ExtResource("2_q4iis")]
@@ -1181,29 +1224,37 @@ position = Vector2(1225, 5732)
 rotation = -0.17423
 scale = Vector2(0.2, 0.2)
 
+[node name="MusicCloud" parent="Enemies/Siren_Small" index="5"]
+position = Vector2(54, -11)
+rotation = 0.210177
+
+[node name="Notes" parent="Enemies/Siren_Small/MusicCloud" index="0"]
+position = Vector2(-30.6716, 42.5254)
+scale = Vector2(1.30698, 1.30725)
+
 [node name="Siren4" parent="Enemies" instance=ExtResource("2_q4iis")]
-position = Vector2(1241, 3249)
+position = Vector2(1207, 3341)
 rotation = 0.0428247
 scale = Vector2(0.2, 0.2)
 
 [node name="Siren5" parent="Enemies" instance=ExtResource("2_q4iis")]
-position = Vector2(429, 6381)
-rotation = 0.322317
+position = Vector2(380, 6424)
+rotation = -0.0349727
 scale = Vector2(0.2, 0.2)
 
 [node name="Siren6" parent="Enemies" instance=ExtResource("2_q4iis")]
-position = Vector2(659, 4443)
-rotation = 0.322317
+position = Vector2(565, 4531)
+rotation = -0.133245
 scale = Vector2(0.2, 0.2)
 
 [node name="Siren7" parent="Enemies" instance=ExtResource("2_q4iis")]
-position = Vector2(237, 2629)
-rotation = 0.322317
+position = Vector2(283, 2620)
+rotation = -0.0361564
 scale = Vector2(0.2, 0.2)
 
 [node name="Siren8" parent="Enemies" instance=ExtResource("2_q4iis")]
-position = Vector2(1044, 2592)
-rotation = 0.322317
+position = Vector2(1097, 2687)
+rotation = -0.0769687
 scale = Vector2(0.2, 0.2)
 
 [node name="Kraken" parent="Enemies" instance=ExtResource("14_esphl")]
@@ -1218,12 +1269,15 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(1407, 8125)
 scale = Vector2(0.5, 0.5)
 
+[node name="CollisionShape2D" parent="Enemies/Whirl4/Area2D" index="0"]
+position = Vector2(18, -18)
+
 [node name="Whirl5" parent="Enemies" instance=ExtResource("19_wesx8")]
 position = Vector2(219, 8130)
 scale = Vector2(0.5, 0.5)
 
 [node name="Whirl6" parent="Enemies" instance=ExtResource("19_wesx8")]
-position = Vector2(1064, 6753)
+position = Vector2(958, 6876)
 scale = Vector2(0.5, 0.5)
 
 [node name="Whirl2" parent="Enemies" instance=ExtResource("19_wesx8")]
@@ -1234,6 +1288,149 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(785, 2269)
 scale = Vector2(0.5, 0.5)
 
+[node name="Wolken" type="Node" parent="."]
+
+[node name="Normal_Cloud" parent="Wolken" instance=ExtResource("32_77ek3")]
+position = Vector2(1389, 12838)
+rotation = -0.0765013
+
+[node name="Normal_Cloud2" parent="Wolken" instance=ExtResource("32_77ek3")]
+position = Vector2(-31, 13958)
+scale = Vector2(0.3, 0.3)
+
+[node name="Big_Cloud" parent="Wolken" instance=ExtResource("33_u4i8u")]
+position = Vector2(311, 13751)
+
+[node name="Big_Cloud2" parent="Wolken" instance=ExtResource("33_u4i8u")]
+position = Vector2(959, 12985)
+rotation = 0.0140049
+scale = Vector2(0.2, 0.2)
+
+[node name="Big_Cloud3" parent="Wolken" instance=ExtResource("33_u4i8u")]
+position = Vector2(728, 13605)
+scale = Vector2(0.2, 0.2)
+
+[node name="Normal_Cloud9" parent="Wolken" instance=ExtResource("32_77ek3")]
+position = Vector2(1476, 11913)
+rotation = -0.105595
+scale = Vector2(0.3, 0.3)
+
+[node name="Big_Cloud10" parent="Wolken" instance=ExtResource("33_u4i8u")]
+position = Vector2(403, 11963)
+rotation = 0.068819
+
+[node name="Big_Cloud18" parent="Wolken" instance=ExtResource("33_u4i8u")]
+position = Vector2(1308, 10396)
+rotation = 0.205041
+
+[node name="Big_Cloud11" parent="Wolken" instance=ExtResource("33_u4i8u")]
+position = Vector2(117, 11778)
+rotation = -0.0643975
+scale = Vector2(0.2, 0.2)
+
+[node name="Normal_Cloud10" parent="Wolken" instance=ExtResource("32_77ek3")]
+position = Vector2(-66, 7909)
+scale = Vector2(0.3, 0.3)
+
+[node name="Big_Cloud12" parent="Wolken" instance=ExtResource("33_u4i8u")]
+position = Vector2(276, 7702)
+
+[node name="Big_Cloud13" parent="Wolken" instance=ExtResource("33_u4i8u")]
+position = Vector2(693, 7556)
+scale = Vector2(0.2, 0.2)
+
+[node name="Normal_Cloud11" parent="Wolken" instance=ExtResource("32_77ek3")]
+position = Vector2(452, 7303)
+rotation = -0.053734
+scale = Vector2(0.3, 0.3)
+
+[node name="Big_Cloud14" parent="Wolken" instance=ExtResource("33_u4i8u")]
+position = Vector2(1330, 7170)
+rotation = 0.136108
+
+[node name="Big_Cloud15" parent="Wolken" instance=ExtResource("33_u4i8u")]
+position = Vector2(1328, 7554)
+rotation = 0.136108
+scale = Vector2(0.2, 0.2)
+
+[node name="Normal_Cloud12" parent="Wolken" instance=ExtResource("32_77ek3")]
+position = Vector2(3, 1586)
+rotation = 0.0952437
+scale = Vector2(0.3, 0.3)
+
+[node name="Big_Cloud16" parent="Wolken" instance=ExtResource("33_u4i8u")]
+position = Vector2(345, 1379)
+rotation = 0.0952437
+
+[node name="Big_Cloud17" parent="Wolken" instance=ExtResource("33_u4i8u")]
+position = Vector2(762, 1233)
+rotation = 0.0952437
+scale = Vector2(0.2, 0.2)
+
+[node name="Small_Cloud2" parent="Wolken" instance=ExtResource("34_lilnj")]
+position = Vector2(1797, 12829)
+
+[node name="Normal_Cloud3" parent="Wolken" instance=ExtResource("32_77ek3")]
+position = Vector2(436, 10750)
+
+[node name="Big_Cloud4" parent="Wolken" instance=ExtResource("33_u4i8u")]
+position = Vector2(40.0001, 10875)
+scale = Vector2(0.2, 0.2)
+
+[node name="Small_Cloud3" parent="Wolken" instance=ExtResource("34_lilnj")]
+position = Vector2(773, 10633)
+
+[node name="Normal_Cloud4" parent="Wolken" instance=ExtResource("32_77ek3")]
+position = Vector2(1437, 9161)
+rotation = -0.0139248
+
+[node name="Big_Cloud5" parent="Wolken" instance=ExtResource("33_u4i8u")]
+position = Vector2(1032, 9233)
+scale = Vector2(0.2, 0.2)
+
+[node name="Small_Cloud4" parent="Wolken" instance=ExtResource("34_lilnj")]
+position = Vector2(159, 9098)
+
+[node name="Normal_Cloud5" parent="Wolken" instance=ExtResource("32_77ek3")]
+position = Vector2(278, 6850)
+
+[node name="Big_Cloud6" parent="Wolken" instance=ExtResource("33_u4i8u")]
+position = Vector2(-118, 6975)
+scale = Vector2(0.2, 0.2)
+
+[node name="Small_Cloud5" parent="Wolken" instance=ExtResource("34_lilnj")]
+position = Vector2(615, 6733)
+
+[node name="Normal_Cloud6" parent="Wolken" instance=ExtResource("32_77ek3")]
+position = Vector2(1470, 4703)
+
+[node name="Big_Cloud7" parent="Wolken" instance=ExtResource("33_u4i8u")]
+position = Vector2(1074, 4828)
+scale = Vector2(0.2, 0.2)
+
+[node name="Small_Cloud6" parent="Wolken" instance=ExtResource("34_lilnj")]
+position = Vector2(90, 4520)
+
+[node name="Normal_Cloud7" parent="Wolken" instance=ExtResource("32_77ek3")]
+position = Vector2(377, 3078)
+
+[node name="Big_Cloud8" parent="Wolken" instance=ExtResource("33_u4i8u")]
+position = Vector2(-18.9999, 3203)
+scale = Vector2(0.2, 0.2)
+
+[node name="Small_Cloud7" parent="Wolken" instance=ExtResource("34_lilnj")]
+position = Vector2(714, 2961)
+
+[node name="Normal_Cloud8" parent="Wolken" instance=ExtResource("32_77ek3")]
+position = Vector2(1362, 1847)
+
+[node name="Big_Cloud9" parent="Wolken" instance=ExtResource("33_u4i8u")]
+position = Vector2(966, 1972)
+scale = Vector2(0.2, 0.2)
+
+[node name="Small_Cloud8" parent="Wolken" instance=ExtResource("34_lilnj")]
+position = Vector2(1699, 1730)
+
 [node name="Rocks" type="Node" parent="."]
 script = ExtResource("25_jpwbr")
 
@@ -1242,15 +1439,96 @@ position = Vector2(861, 11612)
 rotation = 0.235191
 scale = Vector2(0.5, 0.5)
 
+[node name="ColorRect" parent="Rocks/Rock/StaticBody2D/Big_Rock" index="2"]
+offset_left = -526.271
+offset_top = -36.0944
+offset_right = 1163.73
+offset_bottom = 1180.91
+
+[node name="CollisionShape2D" parent="Rocks/Rock/StaticBody2D" index="1"]
+position = Vector2(308.27, -442.524)
+
 [node name="Rock4" parent="Rocks" instance=ExtResource("21_b4adj")]
 position = Vector2(54, 5540)
 scale = Vector2(0.5, 0.5)
 
 [node name="StaticBody2D3" parent="Rocks/Rock4" index="2"]
-position = Vector2(2886, 1160)
+position = Vector2(2536, 1584)
 
 [node name="StaticBody2D4" parent="Rocks/Rock4" index="3"]
 position = Vector2(1016, 358)
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="Rocks/Rock4"]
+position = Vector2(1066, 2716)
+rotation = -0.369634
+collision_layer = 2
+
+[node name="M_Rock" type="Node2D" parent="Rocks/Rock4/StaticBody2D7"]
+position = Vector2(2, -6)
+
+[node name="RockA5" type="Sprite2D" parent="Rocks/Rock4/StaticBody2D7/M_Rock"]
+position = Vector2(1.15729, 13.5423)
+rotation = -2.61421
+scale = Vector2(0.244013, -0.244013)
+texture = ExtResource("17_dss6r")
+
+[node name="WavesFlotsam3" type="Sprite2D" parent="Rocks/Rock4/StaticBody2D7/M_Rock"]
+position = Vector2(-16.6266, 27.1438)
+rotation = 0.349926
+scale = Vector2(0.263959, 0.346447)
+texture = ExtResource("33_i1p0x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rocks/Rock4/StaticBody2D7"]
+position = Vector2(-4.29105, -35.9804)
+shape = SubResource("CircleShape2D_xdhln")
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="Rocks/Rock4"]
+position = Vector2(988, 5940)
+rotation = -0.369634
+collision_layer = 2
+
+[node name="M_Rock" type="Node2D" parent="Rocks/Rock4/StaticBody2D5"]
+position = Vector2(2, -6)
+
+[node name="RockA5" type="Sprite2D" parent="Rocks/Rock4/StaticBody2D5/M_Rock"]
+position = Vector2(1.15729, 13.5423)
+rotation = -2.61421
+scale = Vector2(0.244013, -0.244013)
+texture = ExtResource("17_dss6r")
+
+[node name="WavesFlotsam3" type="Sprite2D" parent="Rocks/Rock4/StaticBody2D5/M_Rock"]
+position = Vector2(-16.6266, 27.1438)
+rotation = 0.349926
+scale = Vector2(0.263959, 0.346447)
+texture = ExtResource("33_i1p0x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rocks/Rock4/StaticBody2D5"]
+position = Vector2(-4.29105, -35.9804)
+shape = SubResource("CircleShape2D_xdhln")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="Rocks/Rock4"]
+position = Vector2(1880, 5532)
+rotation = -0.369634
+collision_layer = 2
+
+[node name="M_Rock" type="Node2D" parent="Rocks/Rock4/StaticBody2D6"]
+position = Vector2(2, -6)
+
+[node name="RockA5" type="Sprite2D" parent="Rocks/Rock4/StaticBody2D6/M_Rock"]
+position = Vector2(1.15729, 13.5423)
+rotation = -2.61421
+scale = Vector2(0.244013, -0.244013)
+texture = ExtResource("17_dss6r")
+
+[node name="WavesFlotsam3" type="Sprite2D" parent="Rocks/Rock4/StaticBody2D6/M_Rock"]
+position = Vector2(-16.6266, 27.1438)
+rotation = 0.349926
+scale = Vector2(0.263959, 0.346447)
+texture = ExtResource("33_i1p0x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rocks/Rock4/StaticBody2D6"]
+position = Vector2(-4.29105, -35.9804)
+shape = SubResource("CircleShape2D_xdhln")
 
 [node name="Rock2" parent="Rocks" instance=ExtResource("24_q2vmi")]
 position = Vector2(780, 13307)
@@ -1259,7 +1537,7 @@ position = Vector2(780, 13307)
 position = Vector2(554, 4809)
 
 [node name="Rock7" parent="Rocks" instance=ExtResource("24_q2vmi")]
-position = Vector2(589, 1104)
+position = Vector2(726, 1196)
 
 [node name="Rock3" parent="Rocks" instance=ExtResource("25_lwa2w")]
 position = Vector2(-196, 13285)
@@ -1271,10 +1549,16 @@ rotation = 0.127984
 [node name="Flotsam" type="Node" parent="."]
 
 [node name="Flotsam" parent="Flotsam" instance=ExtResource("15_5qkpu")]
-position = Vector2(1447, 13640)
+position = Vector2(1499, 13600)
+
+[node name="Flotsam12" parent="Flotsam" instance=ExtResource("15_5qkpu")]
+position = Vector2(910, 11768)
+
+[node name="Flotsam13" parent="Flotsam" instance=ExtResource("15_5qkpu")]
+position = Vector2(153, 10958)
 
 [node name="Flotsam5" parent="Flotsam" instance=ExtResource("15_5qkpu")]
-position = Vector2(206, 13518)
+position = Vector2(267, 13771)
 
 [node name="Flotsam2" parent="Flotsam" instance=ExtResource("15_5qkpu")]
 position = Vector2(679, 10096)
@@ -1283,10 +1567,10 @@ position = Vector2(679, 10096)
 position = Vector2(658, 6390)
 
 [node name="Flotsam4" parent="Flotsam" instance=ExtResource("15_5qkpu")]
-position = Vector2(396, 9294)
+position = Vector2(447, 9386)
 
 [node name="Flotsam6" parent="Flotsam" instance=ExtResource("15_5qkpu")]
-position = Vector2(1508, 9160)
+position = Vector2(1436, 9212)
 
 [node name="Flotsam7" parent="Flotsam" instance=ExtResource("15_5qkpu")]
 position = Vector2(1084, 5772)
@@ -1295,10 +1579,10 @@ position = Vector2(1084, 5772)
 position = Vector2(124, 4402)
 
 [node name="Flotsam9" parent="Flotsam" instance=ExtResource("15_5qkpu")]
-position = Vector2(1479, 3634)
+position = Vector2(1064, 3346)
 
 [node name="Flotsam10" parent="Flotsam" instance=ExtResource("15_5qkpu")]
-position = Vector2(236, 2123)
+position = Vector2(222, 2229)
 
 [node name="Flotsam11" parent="Flotsam" instance=ExtResource("15_5qkpu")]
 position = Vector2(1449, 1562)
@@ -1306,7 +1590,7 @@ position = Vector2(1449, 1562)
 [node name="Oil" type="Node" parent="."]
 
 [node name="OilBarrel" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(1212, 9943)
+position = Vector2(1433, 10044)
 
 [node name="OilBarrel3" parent="Oil" instance=ExtResource("25_q2vmi")]
 position = Vector2(1482, 11599)
@@ -1318,16 +1602,16 @@ position = Vector2(657, 11208)
 position = Vector2(341, 10345)
 
 [node name="OilBarrel5" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(237, 9420)
+position = Vector2(143, 9469)
 
 [node name="OilBarrel6" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(1050, 9264)
+position = Vector2(743, 9015)
 
 [node name="OilBarrel7" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(1287, 9488)
+position = Vector2(1418, 9554)
 
 [node name="OilBarrel8" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(123, 8967)
+position = Vector2(809, 8669)
 
 [node name="OilBarrel9" parent="Oil" instance=ExtResource("25_q2vmi")]
 position = Vector2(202, 7081)
@@ -1336,28 +1620,42 @@ position = Vector2(202, 7081)
 position = Vector2(1487, 7579)
 
 [node name="OilBarrel11" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(1218, 6260)
+position = Vector2(952, 6152)
 
 [node name="OilBarrel12" parent="Oil" instance=ExtResource("25_q2vmi")]
 position = Vector2(470, 5005)
 
 [node name="OilBarrel13" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(651, 2770)
+position = Vector2(651, 2768)
 
 [node name="OilBarrel14" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(848, 1767)
+position = Vector2(718, 1890)
 
 [node name="OilBarrel15" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(521, 13979)
+position = Vector2(875, 13712)
+
+[node name="OilBarrel16" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(531, 11920)
+
+[node name="OilBarrel23" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(472, 7645)
+
+[node name="OilBarrel24" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(1526, 7113)
+rotation = 0.136108
+
+[node name="OilBarrel25" parent="Oil" instance=ExtResource("25_q2vmi")]
+position = Vector2(541, 1322)
+rotation = 0.0952437
 
 [node name="OilBarrel17" parent="Oil" instance=ExtResource("25_q2vmi")]
 position = Vector2(170, 3083)
 
 [node name="OilBarrel18" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(1324, 2173)
+position = Vector2(1529, 2456)
 
 [node name="OilBarrel19" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(1455, 6445)
+position = Vector2(1380, 6664)
 
 [node name="OilBarrel20" parent="Oil" instance=ExtResource("25_q2vmi")]
 position = Vector2(1275, 5019)
@@ -1366,7 +1664,7 @@ position = Vector2(1275, 5019)
 position = Vector2(1486, 4373)
 
 [node name="OilBarrel22" parent="Oil" instance=ExtResource("25_q2vmi")]
-position = Vector2(989, 3610)
+position = Vector2(810, 3643)
 
 [node name="Crew" type="Node" parent="."]
 
@@ -1383,11 +1681,12 @@ position = Vector2(1400, 10892)
 scale = Vector2(0.5, 0.5)
 
 [node name="Crew6" parent="Crew" instance=ExtResource("28_lwa2w")]
-position = Vector2(277, 9148)
+position = Vector2(512, 8677)
 scale = Vector2(0.5, 0.5)
 
 [node name="Crew4" parent="Crew" instance=ExtResource("28_lwa2w")]
-position = Vector2(1329, 9256)
+position = Vector2(1483, 8755)
+rotation = 0.0877259
 scale = Vector2(0.5, 0.5)
 
 [node name="Crew7" parent="Crew" instance=ExtResource("28_lwa2w")]
@@ -1407,7 +1706,7 @@ position = Vector2(418, 4843)
 scale = Vector2(0.5, 0.5)
 
 [node name="Crew11" parent="Crew" instance=ExtResource("28_lwa2w")]
-position = Vector2(1351, 4147)
+position = Vector2(1224, 3921)
 scale = Vector2(0.5, 0.5)
 
 [node name="Goal" parent="." instance=ExtResource("25_wesx8")]
@@ -1416,7 +1715,7 @@ position = Vector2(1057, 291)
 
 [node name="Camera" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(781, 14683)
+position = Vector2(757, 14534)
 script = ExtResource("5_86ljf")
 speed = 120.0
 
@@ -1442,10 +1741,11 @@ editor_draw_drag_margin = true
 unique_name_in_owner = true
 position = Vector2(807, 14566)
 default_speed = 180.0
-lured_speed = 10.0
+lured_speed = 25.0
 lured_rot_speed = 1.0
 
 [node name="Explosions" type="Node2D" parent="." groups=["Explosions"]]
+z_index = 11
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("32_hkpnj")
@@ -1455,6 +1755,7 @@ volume_db = -10.0
 [connection signal="pressed" from="HUD/ReachedGoal_Msg/Panel/Goal_Button" to="HUD" method="_on_goal_button_pressed"]
 [connection signal="pressed" from="HUD/Game_Over/Panel/HBoxContainer/Button_Retry" to="HUD" method="_on_button_retry_pressed"]
 [connection signal="pressed" from="HUD/Game_Over/Panel/HBoxContainer/Button_Quit" to="HUD" method="_on_button_quit_pressed"]
+[connection signal="timeout" from="HUD/OutOfScreenFeedback/OutOfScreenFeedbackTimer" to="HUD/OutOfScreenFeedback" method="_on_out_of_screen_feedback_timer_timeout"]
 
 [editable path="Enemies/Siren"]
 [editable path="Enemies/Siren_Small"]
@@ -1462,5 +1763,6 @@ volume_db = -10.0
 [editable path="Enemies/Whirl4"]
 [editable path="Enemies/Whirl5"]
 [editable path="Enemies/Whirl6"]
+[editable path="Wolken/Big_Cloud2"]
 [editable path="Rocks/Rock"]
 [editable path="Rocks/Rock4"]

@@ -13,17 +13,13 @@ var is_drawn_in : bool = false
 var has_controls_enabled: bool = false
 var target : Vector2 = Vector2.ZERO
 var siren_target : Siren = null
-var is_damage_cooldown : bool = false
+var can_take_damage : bool = true
+var has_left_screen : bool = false
 
 @onready var anim_trails: AnimatedSprite2D = $AnimatedSprite2D
 @onready var mouse_marker: Node2D = %MouseMarker
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var damage_cool_down_timer: Timer = %DamageCoolDown
-
-
-
-
-
 
 
 func _ready() -> void:
@@ -80,22 +76,24 @@ func _physics_process(delta: float) -> void:
 	trail_animation(velocity)
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		print("Collided with: ", collision.get_collider().name)
 		hit_rock()
 
+	if Data.hp <= (Data.MAX_HP / 2) - 5: #TODO: remove magic numbers, add a real value when ship is repaired
+		$AnimPlayer_Damage.play("damaged")
+	else:
+		$AnimPlayer_Damage.play("repaired")
 
 
 func hit_rock():
-	if is_damage_cooldown:
+	if not can_take_damage:
 		return
-		
-	is_damage_cooldown = true
+	
+	can_take_damage = false
 	damage_cool_down_timer.start()
 	#TODO: this is for ALL Collisions regardless, need to check SPECIFIC for a Rock if needed
 	%HitRockVFX.set_emitting(true)
 	Data.player_hit_rock()
 	animation_player.play("hit_rock")
-
 
 
 # Called from reaching Goal Area
@@ -168,16 +166,29 @@ func collect_flotsam(ship_health) -> bool:
 
 
 func start_whirl():
+	if not can_take_damage:
+		return
+		
 	animation_player.play("hit_whirl")
 	#Loose Crew
 	Data.remove_crew()
 	#Loose Health
 	Data.remove_hp(Data.enter_whirl_damage)
+	damage_cool_down_timer.start()
 
 
 func _on_damage_cool_down_timeout() -> void:
-	is_damage_cooldown = false
+	can_take_damage = true
+	print("Can take damage again!")
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	has_left_screen = true
 	print("Left Screen")
+	EvBus.emit_signal("left_screen")
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	if has_left_screen:
+		print("Enter Screen")
+		EvBus.emit_signal("enter_screen")

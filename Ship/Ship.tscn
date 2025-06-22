@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://0ax2r5qkb4rj"]
+[gd_scene load_steps=19 format=3 uid="uid://0ax2r5qkb4rj"]
 
 [ext_resource type="Script" uid="uid://dc2e354u4g86w" path="res://Ship/Ship.gd" id="1_h40nn"]
 [ext_resource type="Texture2D" uid="uid://cmg0xaieig8ao" path="res://Assets/Ship.png" id="1_xljvd"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dlq36hvk12dxg" path="res://Assets/Trail_C.png" id="4_qyh8x"]
 [ext_resource type="PackedScene" uid="uid://b6j1hu3ibjr3r" path="res://Environment/Mouse_Marker.tscn" id="6_pf3e3"]
 [ext_resource type="Texture2D" uid="uid://cfitn7al6x6x1" path="res://Assets/Steg.png" id="7_av5tj"]
+[ext_resource type="Texture2D" uid="uid://cgoy311wh57jm" path="res://Assets/Ship_Damaged.png" id="8_mi5fi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0p50t"]
 animations = [{
@@ -103,6 +104,166 @@ _data = {
 &"hit_whirl": SubResource("Animation_n1716")
 }
 
+[sub_resource type="Animation" id="Animation_n7obd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_xljvd")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.12, 0.12)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(24, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_n7n8h"]
+resource_name = "damaged"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_mi5fi")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.12, 0.12)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(24, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_7ljis"]
+resource_name = "repaired"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_xljvd")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.12, 0.12)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(24, -1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_57uqc"]
+_data = {
+&"RESET": SubResource("Animation_n7obd"),
+&"damaged": SubResource("Animation_n7n8h"),
+&"repaired": SubResource("Animation_7ljis")
+}
+
 [node name="Ship" type="CharacterBody2D" groups=["Player"]]
 z_index = 10
 rotation = -1.5708
@@ -121,7 +282,8 @@ frame_progress = 0.37399
 
 [node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(24, -1)
-scale = Vector2(0.7, 0.7)
+rotation = 1.5708
+scale = Vector2(0.12, 0.12)
 texture = ExtResource("1_xljvd")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
@@ -160,5 +322,11 @@ libraries = {
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
+[node name="AnimPlayer_Damage" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_57uqc")
+}
+
 [connection signal="timeout" from="DamageCoolDown" to="." method="_on_damage_cool_down_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

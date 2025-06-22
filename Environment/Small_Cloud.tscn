@@ -1,0 +1,38 @@
+[gd_scene load_steps=4 format=3 uid="uid://5vqxwlw64ogh"]
+
+[ext_resource type="Texture2D" uid="uid://dvl8nmhib2227" path="res://Assets/Wolken.png" id="1_b5x4w"]
+
+[sub_resource type="Animation" id="Animation_b5x4w"]
+resource_name = "idle"
+length = 4.0
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2umug"]
+_data = {
+&"idle": SubResource("Animation_b5x4w")
+}
+
+[node name="Small_Cloud" type="Node2D"]
+z_index = 20
+
+[node name="Wolken3" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 0.156863)
+z_index = 11
+position = Vector2(-5.31456, -11.0083)
+rotation = -3.05369
+scale = Vector2(0.1, -0.12)
+texture = ExtResource("1_b5x4w")
+
+[node name="Wolken5" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.372549)
+z_index = 11
+position = Vector2(2.68544, -23.0083)
+rotation = -3.05369
+scale = Vector2(0.1, -0.12)
+texture = ExtResource("1_b5x4w")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2umug")
+}
+autoplay = "idle"

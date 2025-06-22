@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://c3fc5er0qth8q"]
+[gd_scene load_steps=12 format=3 uid="uid://c3fc5er0qth8q"]
 
 [ext_resource type="Script" uid="uid://booyhld367n38" path="res://Flotsam/Flotsam.gd" id="1_7ej5g"]
 [ext_resource type="Texture2D" uid="uid://db6c0xhctmo8q" path="res://Assets/Chest.png" id="2_bcqd8"]
 [ext_resource type="Texture2D" uid="uid://dbug2h3anxa7w" path="res://Assets/waves_flotsam.png" id="3_wi5lo"]
+[ext_resource type="Texture2D" uid="uid://vgak387rx18b" path="res://Assets/Exclamation_Mark_Green.png" id="4_bcqd8"]
 
 [sub_resource type="Animation" id="Animation_hkml5"]
 length = 0.001
@@ -31,10 +32,10 @@ tracks/0/path = NodePath("WavesFlotsam:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.4, 1.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(8, 49), Vector2(18, 49), Vector2(-4, 49), Vector2(8, 49)]
+"values": [Vector2(8, 160), Vector2(275, 160)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g6mye"]
@@ -69,6 +70,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.746123]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("QuestionMarker:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1000)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("QuestionMarker:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_g7fd0"]
 resource_name = "idle"
@@ -99,6 +124,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.746123, 0.947714, 0.746123]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("QuestionMarker:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.784266, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -1000), Vector2(0, -1050), Vector2(0, -1000)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("QuestionMarker:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.8, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.174533, 0.174533, 0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_me70l"]
 _data = {
@@ -116,11 +165,12 @@ script = ExtResource("1_7ej5g")
 
 [node name="Chest" type="Sprite2D" parent="."]
 rotation = 0.746123
+scale = Vector2(1.4, 1.4)
 texture = ExtResource("2_bcqd8")
 
 [node name="WavesFlotsam" type="Sprite2D" parent="."]
 position = Vector2(8, 49)
-scale = Vector2(1.15695, 1.11675)
+scale = Vector2(1.53647, 1.48308)
 texture = ExtResource("3_wi5lo")
 
 [node name="Anim_Waves" type="AnimationPlayer" parent="."]
@@ -136,11 +186,15 @@ libraries = {
 autoplay = "idle"
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(25, -158.333)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_hkml5")
+
+[node name="QuestionMarker" type="Sprite2D" parent="."]
+position = Vector2(0, -1000)
+texture = ExtResource("4_bcqd8")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

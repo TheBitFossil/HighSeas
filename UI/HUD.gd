@@ -17,6 +17,7 @@ signal tutorial_msg_closed()
 @onready var game_over: Control = %Game_Over
 @onready var tutorial_msg: Control = %Tutorial_Msg
 @onready var reached_goal_msg: Control = %ReachedGoal_Msg
+@onready var out_of_screen_feedback: CenterContainer = %OutOfScreenFeedback
 
 var tutorial_active : bool = true
 var has_reached_goal : bool = false
@@ -137,6 +138,7 @@ func show_game_over_screen():
 	tutorial_msg.hide()
 	reached_goal_msg.hide()
 	infos.hide()
+	out_of_screen_feedback.hide()
 	
 	game_over.show()
 

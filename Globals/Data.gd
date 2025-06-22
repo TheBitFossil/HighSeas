@@ -20,8 +20,8 @@ var oil_hit : int = 0
 var time_taken_seconds : int = 0
 
 var hit_rock_damage : int = 10
-var enter_whirl_damage : int = 15
-
+var enter_whirl_damage : int = 7
+var left_screen_damage : int = 3
 
 
 func reset_hud_stats():

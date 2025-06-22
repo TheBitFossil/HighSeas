@@ -20,3 +20,5 @@ signal lured_in()
 signal take_crew_member()
 
 signal game_over()
+signal left_screen()
+signal enter_screen()

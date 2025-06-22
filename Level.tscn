@@ -1,16 +1,16 @@
-[gd_scene load_steps=54 format=3 uid="uid://dj8kxsq5tqkct"]
+[gd_scene load_steps=57 format=3 uid="uid://dj8kxsq5tqkct"]
 
 [ext_resource type="Script" uid="uid://ctj7g03v4b4xd" path="res://GameRoot.gd" id="1_q4iis"]
 [ext_resource type="PackedScene" uid="uid://qobdm2gpnb67" path="res://Enemies/Siren.tscn" id="2_q4iis"]
 [ext_resource type="PackedScene" uid="uid://0ax2r5qkb4rj" path="res://Ship/Ship.tscn" id="4_mxnmf"]
 [ext_resource type="Script" uid="uid://djkatwykv31eg" path="res://Camera.gd" id="5_86ljf"]
+[ext_resource type="Texture2D" uid="uid://dxx6dxp5kfy1j" path="res://Assets/Mouse_Icon_LMB.png" id="8_77ek3"]
 [ext_resource type="Texture2D" uid="uid://beo62o51345qm" path="res://Assets/QTE_White.png" id="8_i6xau"]
-[ext_resource type="Texture2D" uid="uid://v0dmr3ftyaip" path="res://Assets/Board.png" id="8_kr1e0"]
 [ext_resource type="Script" uid="uid://b7t74tlcxvj7t" path="res://UI/HUD.gd" id="8_sypgb"]
 [ext_resource type="Texture2D" uid="uid://dwje38401vkmf" path="res://Assets/QTE_Resist.png" id="9_i1p0x"]
 [ext_resource type="Texture2D" uid="uid://x2kkhujlllcg" path="res://Assets/QTE_Circle.png" id="10_0e475"]
 [ext_resource type="Texture2D" uid="uid://cmg0xaieig8ao" path="res://Assets/Ship.png" id="10_5qkpu"]
-[ext_resource type="Texture2D" uid="uid://csahpmachfty5" path="res://Assets/Inputs/Blanks/T_Blank_Black_Mouse.png" id="10_dcckh"]
+[ext_resource type="Texture2D" uid="uid://bhmstg302u0i7" path="res://Assets/Siren_Rock.png" id="10_77ek3"]
 [ext_resource type="Texture2D" uid="uid://hwkh0xcrx28d" path="res://Assets/Sword.png" id="10_i6xau"]
 [ext_resource type="Theme" uid="uid://dompoh3p3ckpa" path="res://Resources/default_theme.tres" id="10_s0cgv"]
 [ext_resource type="Texture2D" uid="uid://bv5wpamxivb2c" path="res://Assets/Tentacle_title.png" id="11_i1p0x"]
@@ -60,6 +60,43 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+
+[sub_resource type="Animation" id="Animation_53f8w"]
+resource_name = "blink"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/RichTextLabel:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.520752, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.376471), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_77ek3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/RichTextLabel:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u4i8u"]
+_data = {
+&"RESET": SubResource("Animation_77ek3"),
+&"blink": SubResource("Animation_53f8w")
+}
 
 [sub_resource type="Animation" id="Animation_5ekwc"]
 length = 0.001
@@ -191,7 +228,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Tutorial_Msg" type="Control" parent="HUD"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 3
 anchor_left = 0.258594
 anchor_top = 0.0833333
@@ -205,32 +241,29 @@ mouse_filter = 1
 theme = ExtResource("10_s0cgv")
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel" type="TextureRect" parent="HUD/Tutorial_Msg"]
+[node name="Panel" type="Panel" parent="HUD/Tutorial_Msg"]
 custom_minimum_size = Vector2(600, 350)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.19281
-anchor_top = 0.188161
-anchor_right = 0.805573
-anchor_bottom = 0.811839
+anchor_left = 0.119994
+anchor_top = 0.119378
+anchor_right = 0.876771
+anchor_bottom = 0.880622
 offset_left = -155.156
 offset_top = -83.1249
 offset_right = 155.156
 offset_bottom = 83.1249
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("8_kr1e0")
-expand_mode = 1
-stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HUD/Tutorial_Msg/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.114659
-anchor_top = 0.131841
-anchor_right = 0.885341
-anchor_bottom = 0.870647
+anchor_left = 0.0976864
+anchor_top = 0.222467
+anchor_right = 1.06298
+anchor_bottom = 0.960352
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 12
@@ -239,6 +272,7 @@ metadata/_edit_use_anchors_ = true
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/HBoxContainer"]
 custom_minimum_size = Vector2(80, 40)
@@ -258,7 +292,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.1
-texture = ExtResource("10_dcckh")
+texture = ExtResource("8_77ek3")
 expand_mode = 1
 stretch_mode = 5
 
@@ -288,60 +322,15 @@ stretch_mode = 5
 layout_mode = 2
 size_flags_horizontal = 3
 bbcode_enabled = true
-text = "[b]Ya'rr Mission[/b]: Bring crew and ship to saftey ! "
+text = "[b][color=orange]Ya'rr Mission[/color][/b]:  Bring crew and ship to saftey ! "
 fit_content = true
 scroll_active = false
 vertical_alignment = 1
 justification_flags = 161
 
-[node name="TentacleTitle" type="Sprite2D" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/Quest"]
-position = Vector2(580, 18)
-texture = ExtResource("11_i1p0x")
-
-[node name="TentacleTitle2" type="Sprite2D" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/Quest"]
-position = Vector2(-33.0004, 37)
-scale = Vector2(-1, 1)
-texture = ExtResource("11_i1p0x")
-
-[node name="Banner" type="Sprite2D" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/Quest"]
-position = Vector2(266, 323)
-texture = ExtResource("12_0e475")
-
-[node name="Title" type="Sprite2D" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/Quest"]
-position = Vector2(279, -175)
-texture = ExtResource("13_bc3ha")
-
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 48
-
-[node name="RichTextLabel" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_font_sizes/bold_italics_font_size = 40
-theme_override_font_sizes/normal_font_size = 40
-bbcode_enabled = true
-text = "[color=\"8c242d\"][b]Beware -> Deadly![/b][/color]"
-fit_content = true
-scroll_active = false
-vertical_alignment = 1
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-bbcode_enabled = true
-text = "[color=\"527529\"][b]Collect -> Resources[/b][/color]"
-fit_content = true
-scroll_active = false
-vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer"]
 custom_minimum_size = Vector2(0, 150)
@@ -349,110 +338,172 @@ layout_mode = 2
 theme_override_constants/separation = 48
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect2" type="Panel" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel"]
+self_modulate = Color(0.697208, 0.196855, 0.237833, 1)
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
+offset_left = 76.0
+offset_top = 208.0
+offset_right = 275.0
+offset_bottom = 239.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/bold_italics_font_size = 40
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[color=\"white\"][b]Beware -> Deadly![/b][/color]"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel"]
+self_modulate = Color(0.415518, 0.586794, 0.215039, 1)
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+offset_left = 446.0
+offset_top = 208.0
+offset_right = 670.0
+offset_bottom = 239.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[color=\"white\"][b]Collect -> Resources[/b][/color]"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+
+[node name="ColorRect2" type="Panel" parent="HUD/Tutorial_Msg/Panel"]
+layout_mode = 2
+offset_left = 76.9997
+offset_top = 244.0
+offset_right = 239.0
+offset_bottom = 355.0
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_s0cgv")
 
-[node name="RichTextLabel5" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect2"]
+[node name="RichTextLabel5" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel/ColorRect2"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-anchor_left = -1.17004
-anchor_top = 0.0866675
-anchor_right = -0.639672
-anchor_bottom = 0.293335
+anchor_left = -1.6358
+anchor_top = 0.837838
+anchor_right = -0.944444
+anchor_bottom = 1.15315
 offset_left = 295.0
 offset_right = 295.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "Sea Monsters ->"
+text = "Sea Monsters"
 fit_content = true
 scroll_active = false
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="RichTextLabel6" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect2"]
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 2
-anchor_left = -0.736842
-anchor_top = 0.746667
-anchor_right = -0.323887
-anchor_bottom = 0.953334
-offset_left = 295.0
-offset_right = 295.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-bbcode_enabled = true
-text = "<- Obstacles"
-fit_content = true
-scroll_active = false
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
+[node name="SirenRock" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/ColorRect2"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+offset_left = -6.0
+offset_top = 10.0
+offset_right = 86.0
+offset_bottom = 102.0
+texture = ExtResource("10_77ek3")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="TextureRect2" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect2"]
+[node name="TextureRect2" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/ColorRect2"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-anchor_left = 0.604211
-anchor_top = 0.129666
-anchor_right = 0.786287
-anchor_bottom = 0.405061
-offset_left = -8.55499
-offset_top = -50.4499
-offset_right = 88.4722
-offset_bottom = 18.2409
-rotation = 1.66739
+anchor_left = 0.0177469
+anchor_top = 0.118919
+anchor_right = 0.494444
+anchor_bottom = 0.81982
+offset_left = -63.875
+offset_top = -34.2
+offset_right = 58.9
+offset_bottom = 38.0
+rotation = 0.0194474
 pivot_offset = Vector2(38, 36)
 texture = ExtResource("12_105nu")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect5" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect2"]
+[node name="TextureRect5" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/ColorRect2"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-anchor_left = 0.654596
-anchor_top = 0.0600008
-anchor_right = 1.12423
-anchor_bottom = 0.713334
-rotation = 0.975742
-pivot_offset = Vector2(43, 43)
+anchor_left = 0.728648
+anchor_top = 0.251792
+anchor_right = 0.921239
+anchor_bottom = 0.642333
+offset_left = -66.0409
+offset_top = -22.9489
+offset_right = 40.7592
+offset_bottom = 34.701
+rotation = 1.21912
+pivot_offset = Vector2(71.5597, 51.4827)
 texture = ExtResource("13_s0cgv")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect3" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect2"]
+[node name="ColorRect3" type="Panel" parent="HUD/Tutorial_Msg/Panel"]
+layout_mode = 2
+offset_left = 253.0
+offset_top = 248.0
+offset_right = 373.0
+offset_bottom = 355.0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_s0cgv")
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel/ColorRect3"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+anchor_left = -2.29167
+anchor_top = 0.831776
+anchor_right = -1.48958
+anchor_bottom = 1.18061
+offset_left = 295.0
+offset_right = 295.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "Obstacles"
+fit_content = true
+scroll_active = false
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect3" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/ColorRect3"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.341978
-anchor_top = 0.305193
-anchor_right = 0.470153
-anchor_bottom = 0.701081
-offset_left = -8.80143
-offset_top = 5.22112
-offset_right = 7.53917
-offset_bottom = -6.16208
-rotation = -0.155742
+anchor_left = -0.0790184
+anchor_top = 0.0203672
+anchor_right = 0.470861
+anchor_bottom = 0.448393
+offset_left = 6.4822
+offset_top = 2.82071
+offset_right = -5.50331
+offset_bottom = -1.97803
+rotation = -0.0749702
 scale = Vector2(1.34262, 1.34262)
-pivot_offset = Vector2(19, 22)
+pivot_offset = Vector2(15.3111, 12.8683)
 texture = ExtResource("15_yr3df")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect2"]
-custom_minimum_size = Vector2(80, 80)
+[node name="TextureRect" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/ColorRect3"]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-anchor_left = -0.0557821
-anchor_top = 0.42918
-anchor_right = 0.376333
-anchor_bottom = 0.831963
-offset_left = 10.4452
-offset_top = -13.3769
-offset_right = -9.2873
-offset_bottom = 13.2056
-rotation = -0.525192
+anchor_left = 0.403067
+anchor_top = 0.233514
+anchor_right = 0.908733
+anchor_bottom = 0.785047
+offset_left = -5.368
+offset_top = -20.986
+offset_right = 14.952
+offset_bottom = 0.999996
+rotation = -0.520453
 pivot_offset = Vector2(40, 42)
 texture = ExtResource("11_viiqw")
 expand_mode = 1
@@ -460,18 +511,18 @@ stretch_mode = 5
 flip_h = true
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect4" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect2"]
+[node name="TextureRect4" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/ColorRect3"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.25072
-anchor_top = 0.592654
-anchor_right = 0.435576
-anchor_bottom = 1.08187
-offset_left = -10.2608
-offset_top = 7.10196
-offset_right = 6.07977
-offset_bottom = -4.28123
-rotation = 0.135657
+anchor_left = 0.0421095
+anchor_top = 0.52672
+anchor_right = 0.573329
+anchor_bottom = 1.06245
+offset_left = -11.0531
+offset_top = -10.3591
+offset_right = 8.20055
+offset_bottom = 6.31794
+rotation = 0.140319
 scale = Vector2(0.647488, 0.647488)
 pivot_offset = Vector2(30.9717, 29.7826)
 texture = ExtResource("17_dss6r")
@@ -479,68 +530,84 @@ expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="ColorRect" type="Panel" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer"]
+[node name="ColorRect" type="Panel" parent="HUD/Tutorial_Msg/Panel"]
 layout_mode = 2
+offset_left = 592.0
+offset_top = 256.0
+offset_right = 753.0
+offset_bottom = 356.0
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_3ppgv")
 
-[node name="TextureRect3" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect"]
+[node name="TextureRect3" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/ColorRect"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-anchor_left = -0.0282258
-anchor_top = 0.04
-anchor_right = 0.399194
-anchor_bottom = 0.533333
+anchor_left = 0.0416667
+anchor_top = -0.125
+anchor_right = 0.933333
+anchor_bottom = 0.925
+rotation = -0.102465
+pivot_offset = Vector2(68, 55)
 texture = ExtResource("18_qqkhr")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect"]
+[node name="RichTextLabel3" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel/ColorRect"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-offset_left = 94.0
-offset_top = 36.0001
-offset_right = 243.0
-offset_bottom = 67.0001
+anchor_left = 0.111801
+anchor_top = 0.81
+anchor_right = 1.00347
+anchor_bottom = 1.185
 size_flags_horizontal = 3
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "<- Rescue Crew"
+text = "Rescue Crew"
 fit_content = true
 scroll_active = false
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect4" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect"]
+[node name="ColorRect4" type="Panel" parent="HUD/Tutorial_Msg/Panel"]
+layout_mode = 2
+offset_left = 443.0
+offset_top = 255.0
+offset_right = 586.0
+offset_bottom = 355.0
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_3ppgv")
+
+[node name="TextureRect4" type="TextureRect" parent="HUD/Tutorial_Msg/Panel/ColorRect4"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-anchor_left = 0.60063
-anchor_top = 0.617864
-anchor_right = 0.73263
-anchor_bottom = 0.869864
-offset_left = -2.35555
-offset_top = -6.67944
-offset_right = 29.0405
-offset_bottom = 6.52055
-rotation = -0.17001
+anchor_left = -0.0102866
+anchor_top = -0.125217
+anchor_right = 0.837011
+anchor_bottom = 0.961747
+offset_left = 15.471
+offset_top = 11.5217
+offset_right = -20.6926
+offset_bottom = -10.1747
+rotation = -0.070372
 scale = Vector2(1.57907, 1.52417)
-pivot_offset = Vector2(32.2404, 26.9065)
+pivot_offset = Vector2(21.9023, 26.8133)
 texture = ExtResource("15_wesx8")
 expand_mode = 1
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="RichTextLabel4" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/VBoxContainer/HBoxContainer/ColorRect"]
+[node name="RichTextLabel4" type="RichTextLabel" parent="HUD/Tutorial_Msg/Panel/ColorRect4"]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
-anchor_left = 0.0890688
-anchor_top = 0.673334
-anchor_right = 0.692308
-anchor_bottom = 0.880001
+anchor_left = 0.153846
+anchor_top = 0.82
+anchor_right = 0.928846
+anchor_bottom = 1.195
 size_flags_horizontal = 3
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "Repair Ship ->"
+text = "Repair Ship"
 fit_content = true
 scroll_active = false
 vertical_alignment = 1
@@ -550,9 +617,9 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0733333
-anchor_top = 1.02857
+anchor_top = 0.889868
 anchor_right = 0.926667
-anchor_bottom = 1.12286
+anchor_bottom = 0.984158
 offset_bottom = -3.05176e-05
 grow_horizontal = 2
 grow_vertical = 0
@@ -563,6 +630,85 @@ scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
+
+[node name="TentacleTitle" type="TextureRect" parent="HUD/Tutorial_Msg"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+offset_left = 571.0
+offset_top = -100.0
+offset_right = 863.0
+offset_bottom = 408.0
+texture = ExtResource("11_i1p0x")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Banner" type="TextureRect" parent="HUD/Tutorial_Msg"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+offset_left = -212.0
+offset_top = -129.0
+offset_right = 816.0
+offset_bottom = 65.0
+texture = ExtResource("12_0e475")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TentacleTitle2" type="TextureRect" parent="HUD/Tutorial_Msg"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+offset_left = -438.0
+offset_top = -45.0
+offset_right = 253.0
+offset_bottom = 397.0
+texture = ExtResource("11_i1p0x")
+expand_mode = 1
+stretch_mode = 5
+flip_h = true
+
+[node name="TentacleTitle3" type="TextureRect" parent="HUD/Tutorial_Msg"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+offset_left = 428.0
+offset_top = 168.0
+offset_right = 678.0
+offset_bottom = 604.0
+rotation = 1.54599
+pivot_offset = Vector2(142, 271)
+texture = ExtResource("11_i1p0x")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TentacleTitle4" type="TextureRect" parent="HUD/Tutorial_Msg"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+offset_left = -140.0
+offset_top = 190.0
+offset_right = 79.0
+offset_bottom = 571.0
+rotation = 1.54599
+pivot_offset = Vector2(142, 271)
+texture = ExtResource("11_i1p0x")
+expand_mode = 1
+stretch_mode = 5
+flip_v = true
+
+[node name="Title" type="TextureRect" parent="HUD/Tutorial_Msg"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+offset_left = -91.0003
+offset_top = -200.0
+offset_right = 672.0
+offset_bottom = -56.0
+texture = ExtResource("13_bc3ha")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HUD/Tutorial_Msg"]
+libraries = {
+&"": SubResource("AnimationLibrary_u4i8u")
+}
+autoplay = "blink"
+speed_scale = 0.5
 
 [node name="ReachedGoal_Msg" type="Control" parent="HUD"]
 unique_name_in_owner = true
@@ -990,7 +1136,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Infos" type="Control" parent="HUD"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1005,10 +1150,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -49.0
-offset_top = 5.0
-offset_right = -49.0
-offset_bottom = 5.0
+offset_left = -57.0
+offset_top = -12.0
+offset_right = -57.0
+offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("10_s0cgv")
@@ -1142,10 +1287,9 @@ texture_progress = ExtResource("18_jpwbr")
 [node name="TextureRect" type="TextureRect" parent="HUD/Infos"]
 layout_mode = 0
 offset_left = 956.377
-offset_top = 78.0
+offset_top = 28.0
 offset_right = 1040.38
-offset_bottom = 162.0
-rotation = -1.57626
+offset_bottom = 112.0
 pivot_offset = Vector2(15, 18)
 texture = ExtResource("10_5qkpu")
 expand_mode = 1

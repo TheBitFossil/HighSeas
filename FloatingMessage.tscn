@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://deq7p1piereqh"]
+
+[ext_resource type="Script" uid="uid://chmhblbodxqmr" path="res://Tweener.gd" id="1_opno4"]
+[ext_resource type="Theme" uid="uid://dompoh3p3ckpa" path="res://Resources/default_theme.tres" id="2_iyxi5"]
+
+[node name="Tweener" type="Node2D"]
+script = ExtResource("1_opno4")
+
+[node name="MessageLabel" type="RichTextLabel" parent="."]
+offset_right = 333.0
+offset_bottom = 46.0
+theme = ExtResource("2_iyxi5")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -103,7 +103,7 @@ _data = {
 &"hit_whirl": SubResource("Animation_n1716")
 }
 
-[node name="Ship" type="CharacterBody2D" groups=["NPC"]]
+[node name="Ship" type="CharacterBody2D" groups=["Player"]]
 z_index = 10
 rotation = -1.5708
 collision_mask = 6

@@ -4,8 +4,17 @@ extends Node2D
 #todo add ship health
 @export var _is_dangerous := false
 
+@export var explosion_prefab : PackedScene = preload("res://Enemies/VFX_Explosion.tscn")
+@export var tweener : PackedScene = preload("res://FloatingMessage.tscn")
+var path : Node
+
 var speed : float = 50.0
 var is_moving : bool = false
+
+
+func _ready() -> void:
+	path = get_tree().get_first_node_in_group("Explosions")
+
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if not body.has_method("collect_flotsam"):
@@ -15,11 +24,26 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		if body.has_method("take_damage"):
 			body.take_damage(ship_health)
 			Data.add_oil()
-			call_deferred("queue_free")
+			
+			
+			var new_explosion = explosion_prefab.instantiate()
+			new_explosion.position = global_position
+			path.add_child(new_explosion)
+			new_explosion.play()
+			
+			var f_msg = tweener.instantiate()
+			f_msg.position = global_position
+			path.add_child(f_msg)
+			f_msg.show_message_floating_up('[color="Red"]%s Damage Taken[/color]' % [ship_health])
 	else:
 		if body.collect_flotsam(ship_health):
 			Data.add_flotsam()
-			call_deferred("queue_free")
+			
+			var f_msg = tweener.instantiate()
+			f_msg.position = global_position
+			path.add_child(f_msg)
+			f_msg.show_message_floating_up('[color="Green"] +1 Flotsam [/color]')
+
 
 
 func _physics_process(delta: float) -> void:

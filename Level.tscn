@@ -1,20 +1,24 @@
-[gd_scene load_steps=42 format=3 uid="uid://dj8kxsq5tqkct"]
+[gd_scene load_steps=50 format=3 uid="uid://dj8kxsq5tqkct"]
 
 [ext_resource type="Script" uid="uid://ctj7g03v4b4xd" path="res://GameRoot.gd" id="1_q4iis"]
 [ext_resource type="PackedScene" uid="uid://qobdm2gpnb67" path="res://Enemies/Siren.tscn" id="2_q4iis"]
 [ext_resource type="PackedScene" uid="uid://0ax2r5qkb4rj" path="res://Ship/Ship.tscn" id="4_mxnmf"]
 [ext_resource type="Script" uid="uid://djkatwykv31eg" path="res://Camera.gd" id="5_86ljf"]
 [ext_resource type="Texture2D" uid="uid://beo62o51345qm" path="res://Assets/QTE_White.png" id="8_i6xau"]
+[ext_resource type="Texture2D" uid="uid://v0dmr3ftyaip" path="res://Assets/Board.png" id="8_kr1e0"]
 [ext_resource type="Script" uid="uid://b7t74tlcxvj7t" path="res://UI/HUD.gd" id="8_sypgb"]
 [ext_resource type="Texture2D" uid="uid://dwje38401vkmf" path="res://Assets/QTE_Resist.png" id="9_i1p0x"]
 [ext_resource type="Texture2D" uid="uid://x2kkhujlllcg" path="res://Assets/QTE_Circle.png" id="10_0e475"]
 [ext_resource type="Texture2D" uid="uid://cmg0xaieig8ao" path="res://Assets/Ship.png" id="10_5qkpu"]
 [ext_resource type="Texture2D" uid="uid://csahpmachfty5" path="res://Assets/Inputs/Blanks/T_Blank_Black_Mouse.png" id="10_dcckh"]
+[ext_resource type="Texture2D" uid="uid://hwkh0xcrx28d" path="res://Assets/Sword.png" id="10_i6xau"]
 [ext_resource type="Theme" uid="uid://dompoh3p3ckpa" path="res://Resources/default_theme.tres" id="10_s0cgv"]
+[ext_resource type="Texture2D" uid="uid://bv5wpamxivb2c" path="res://Assets/Tentacle_title.png" id="11_i1p0x"]
 [ext_resource type="Texture2D" uid="uid://c1o8ahm5as1hj" path="res://Assets/Rock_B.png" id="11_viiqw"]
+[ext_resource type="Texture2D" uid="uid://bh7aoebi8wvhr" path="res://Assets/Banner.png" id="12_0e475"]
 [ext_resource type="Texture2D" uid="uid://216hxrbi2ple" path="res://Assets/Siren.png" id="12_105nu"]
 [ext_resource type="Script" uid="uid://t1edf56cwibo" path="res://UI/MashButtonModule.gd" id="12_dn5x0"]
-[ext_resource type="Texture2D" uid="uid://df0pbiwojgsqy" path="res://Assets/Wheel.png" id="12_jpwbr"]
+[ext_resource type="Texture2D" uid="uid://ctwhdgv1r5vwe" path="res://Assets/Title.png" id="13_bc3ha"]
 [ext_resource type="Texture2D" uid="uid://cuaxuogcrl7fd" path="res://Assets/Kraken.png" id="13_s0cgv"]
 [ext_resource type="PackedScene" uid="uid://driya5fjiq652" path="res://Enemies/Kraken.tscn" id="14_esphl"]
 [ext_resource type="PackedScene" uid="uid://c3fc5er0qth8q" path="res://Flotsam/Flotsam.tscn" id="15_5qkpu"]
@@ -27,7 +31,11 @@
 [ext_resource type="Texture2D" uid="uid://hkv7yjgqc437" path="res://Assets/Sailor.png" id="18_qqkhr"]
 [ext_resource type="Texture2D" uid="uid://bdd53l7uibrul" path="res://Assets/HP_Under.png" id="19_kr1e0"]
 [ext_resource type="PackedScene" uid="uid://cy2wb7oh0kv1d" path="res://Enemies/Whirl.tscn" id="19_wesx8"]
+[ext_resource type="Texture2D" uid="uid://1e8ur5ux5olx" path="res://Assets/Whirl.png" id="21_0e475"]
+[ext_resource type="Texture2D" uid="uid://dmbkx2w56hh2r" path="res://Assets/Button_gruen.png" id="21_53f8w"]
 [ext_resource type="PackedScene" uid="uid://dkknsfwnhyx5g" path="res://Environment/Rock.tscn" id="21_b4adj"]
+[ext_resource type="Texture2D" uid="uid://bl8itvbpcisix" path="res://Assets/Button_rot.png" id="22_77ek3"]
+[ext_resource type="Texture2D" uid="uid://b4rm0krvosexx" path="res://Assets/MusicCloud.png" id="22_bc3ha"]
 [ext_resource type="PackedScene" uid="uid://ceanecg3yiunj" path="res://Environment/Rock_2.tscn" id="24_q2vmi"]
 [ext_resource type="Script" uid="uid://c13unwhnl0cwj" path="res://Rocks.gd" id="25_jpwbr"]
 [ext_resource type="PackedScene" uid="uid://bvmt82a6rvhem" path="res://Environment/Rock_3.tscn" id="25_lwa2w"]
@@ -193,29 +201,32 @@ mouse_filter = 1
 theme = ExtResource("10_s0cgv")
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel" type="Panel" parent="HUD/Tutorial_Msg"]
+[node name="Panel" type="TextureRect" parent="HUD/Tutorial_Msg"]
 custom_minimum_size = Vector2(600, 350)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.265625
-anchor_top = 0.256944
-anchor_right = 0.734375
-anchor_bottom = 0.743056
-offset_left = 300.0
-offset_top = 175.0
-offset_right = -300.0
-offset_bottom = -175.0
+anchor_left = 0.19281
+anchor_top = 0.188161
+anchor_right = 0.805573
+anchor_bottom = 0.811839
+offset_left = -155.156
+offset_top = -83.1249
+offset_right = 155.156
+offset_bottom = 83.1249
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("8_kr1e0")
+expand_mode = 1
+stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HUD/Tutorial_Msg/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0483333
-anchor_top = 0.0685714
-anchor_right = 0.951667
-anchor_bottom = 0.934286
+anchor_left = 0.114659
+anchor_top = 0.131841
+anchor_right = 0.885341
+anchor_bottom = 0.870647
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 12
@@ -265,7 +276,7 @@ layout_mode = 2
 clip_contents = true
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
-texture = ExtResource("12_jpwbr")
+texture = ExtResource("10_i6xau")
 expand_mode = 1
 stretch_mode = 5
 
@@ -278,6 +289,23 @@ fit_content = true
 scroll_active = false
 vertical_alignment = 1
 justification_flags = 161
+
+[node name="TentacleTitle" type="Sprite2D" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/Quest"]
+position = Vector2(580, 18)
+texture = ExtResource("11_i1p0x")
+
+[node name="TentacleTitle2" type="Sprite2D" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/Quest"]
+position = Vector2(-33.0004, 37)
+scale = Vector2(-1, 1)
+texture = ExtResource("11_i1p0x")
+
+[node name="Banner" type="Sprite2D" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/Quest"]
+position = Vector2(266, 323)
+texture = ExtResource("12_0e475")
+
+[node name="Title" type="Sprite2D" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2/Quest"]
+position = Vector2(279, -175)
+texture = ExtResource("13_bc3ha")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HUD/Tutorial_Msg/Panel/VBoxContainer2"]
 layout_mode = 2
@@ -640,7 +668,7 @@ alignment = 1
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_stretch_ratio = 0.1
-texture = ExtResource("15_wesx8")
+texture = ExtResource("21_0e475")
 expand_mode = 1
 stretch_mode = 5
 
@@ -716,7 +744,7 @@ alignment = 1
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_stretch_ratio = 0.1
-texture = ExtResource("15_wesx8")
+texture = ExtResource("22_bc3ha")
 expand_mode = 1
 stretch_mode = 5
 
@@ -793,7 +821,7 @@ alignment = 1
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_stretch_ratio = 0.1
-texture = ExtResource("15_wesx8")
+texture = ExtResource("15_yr3df")
 expand_mode = 1
 stretch_mode = 5
 
@@ -890,7 +918,7 @@ mouse_filter = 1
 theme = ExtResource("10_s0cgv")
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel" type="Panel" parent="HUD/Game_Over"]
+[node name="Panel" type="TextureRect" parent="HUD/Game_Over"]
 custom_minimum_size = Vector2(500, 250)
 layout_mode = 1
 anchors_preset = -1
@@ -898,9 +926,15 @@ anchor_left = 0.188387
 anchor_top = 0.170886
 anchor_right = 0.833548
 anchor_bottom = 0.698312
+offset_left = -3.05176e-05
+offset_top = -5.34058e-05
+offset_bottom = 6.10352e-05
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+texture = ExtResource("8_kr1e0")
+expand_mode = 1
+stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HUD/Game_Over/Panel"]
@@ -930,27 +964,74 @@ justification_flags = 161
 [node name="HBoxContainer" type="HBoxContainer" parent="HUD/Game_Over/Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.116
-anchor_top = 0.536
-anchor_right = 0.852
-anchor_bottom = 0.808
+anchor_left = 0.200001
+anchor_top = 0.512
+anchor_right = 0.780001
+anchor_bottom = 0.824
 theme_override_constants/separation = 36
 metadata/_edit_use_anchors_ = true
 
 [node name="Button_Retry" type="Button" parent="HUD/Game_Over/Panel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Retry !"
+icon = ExtResource("21_53f8w")
+flat = true
+icon_alignment = 1
+expand_icon = true
 metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HUD/Game_Over/Panel/HBoxContainer/Button_Retry"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = -40.0
+offset_right = 153.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "Retry!"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Button_Quit" type="Button" parent="HUD/Game_Over/Panel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Quit ?"
+icon = ExtResource("22_77ek3")
+flat = true
+icon_alignment = 1
+expand_icon = true
 metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="HUD/Game_Over/Panel/HBoxContainer/Button_Quit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -11.0
+offset_right = 38.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "Quit?"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Infos" type="Control" parent="HUD"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1384,7 +1465,7 @@ position = Vector2(1057, 291)
 
 [node name="Camera" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(807, 3307)
+position = Vector2(781, 14683)
 script = ExtResource("5_86ljf")
 speed = 120.0
 
@@ -1408,10 +1489,12 @@ editor_draw_drag_margin = true
 
 [node name="Ship" parent="." instance=ExtResource("4_mxnmf")]
 unique_name_in_owner = true
-position = Vector2(823, 3034)
+position = Vector2(807, 14566)
 default_speed = 180.0
 lured_speed = 10.0
 lured_rot_speed = 1.0
+
+[node name="Explosions" type="Node2D" parent="." groups=["Explosions"]]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("32_hkpnj")

@@ -21,6 +21,11 @@ var is_damage_cooldown : bool = false
 @onready var damage_cool_down_timer: Timer = %DamageCoolDown
 
 
+
+
+
+
+
 func _ready() -> void:
 	speed = default_speed
 	rot_speed = default_rot_speed

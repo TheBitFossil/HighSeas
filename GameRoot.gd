@@ -40,12 +40,12 @@ func _on_left_screen():
 
 
 func _on_enter_screen():
-	#hide UI
-	out_of_screen_feedback.hide
-	#stop timer
-	out_of_screen_feedback_timer.stop()
-	#hide text
-	$HUD/OutOfScreenFeedback/RichTextLabel.hide()
+        #hide UI
+        out_of_screen_feedback.hide()
+        #stop timer
+        out_of_screen_feedback_timer.stop()
+        #hide text
+        $HUD/OutOfScreenFeedback/RichTextLabel.hide()
 
 
 func _on_ship_lured_in(siren):
